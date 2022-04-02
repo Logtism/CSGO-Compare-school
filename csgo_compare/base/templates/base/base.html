@@ -1,0 +1,82 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="{% static 'base/css/main.css' %}">
+    <script defer src="{% static 'base/js/theme.js' %}"></script>
+    <script defer src="{% static 'base/js/navbar.js' %}"></script>
+    {% if title %}
+      <title>CSGO-Compare {{ tittle }}</title>
+    {% else %}
+      <title>CSGO-Compare</title>
+    {% endif %}
+  </head>
+  <body class="bg-background">
+    <nav class="bg-navbar">
+      <div class="nav-content">
+        <div class="nav-moblie">
+          <a class="nav-title" href="{% url 'base-home' %}">
+            CSGO Compare
+          </a>
+          <a class="nav-toggle-btn" onclick="toggle_navbar()">
+            <i class="bi bi-list" style="font-size: 1.75em; color: #fff;"></i>
+          </a>
+        </div>
+        <div class="nav-content-links" id="nav-content">
+          <ul class="navbar-list">
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'base-home' %}">Home</a>
+            </li>
+            <li class="nav-item nav-dropdown">
+              <a class="nav-link dropdown-toggle" onclick="toggle_dropdown('navinfodropdown')">
+                Info
+                <i class="nav-dropdown-icon bi bi-caret-down-fill"></i>
+              </a>
+              <ul class="dropdown-list" id="navinfodropdown">
+                <li>
+                  <a class="nav-link" href="#">Stats</a>
+                </li>
+                <li>
+                  <a class="nav-link" href="#">FAQ</a>
+                </li>
+                <li>
+                  <a class="nav-link" href="#">About</a>
+                </li>
+              </ul>
+            </li>
+          </ul>
+          <ul class="navbar-list ml-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="#">Login</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Register</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    {% block content %}{% endblock content %}
+    <footer>
+      <div class="container">
+        <div class="flex-row footer-grid">
+          <div class="footer-column">
+            <a>About</a>
+          </div>
+
+          <div class="footer-column">
+            <a>FAQ</a>
+          </div>
+
+          <div class="footer-column">
+            <a>Support</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
