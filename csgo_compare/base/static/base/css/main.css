@@ -268,3 +268,23 @@ footer {
     display: flex;
     flex-direction: column;
 }
+
+
+/* Forms */
+.form-fields {
+    display: flex;
+    flex-direction: column;
+    border-radius: 0.3rem;
+    border: 1px solid white;
+    padding: 1rem 1rem;
+}
+
+
+.submit-button {
+    max-width: 5rem;
+    padding: 0.5rem 1rem;
+    color: white;
+    background-color: #40b0bd;
+    border: 1px solid #000;
+    border-radius: 0.3rem;
+}
