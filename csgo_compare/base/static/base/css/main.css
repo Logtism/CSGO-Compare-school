@@ -89,6 +89,11 @@ nav {
     flex-direction: row;
 }
 
+.navbar-left {
+    right: 0;
+    left: auto;
+}
+
 
 .nav-item {
     display: flex;
