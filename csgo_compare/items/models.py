@@ -27,16 +27,7 @@ class Rarity(models.Model):
     
     def __str__(self):
         return f'{self.name}'
-    
-    
-class Update(models.Model):
-    name = models.CharField(max_length=300)
-    date = models.DateField()
-    link = models.CharField(max_length=400)
-    
-    def __str__(self):
-        return f'{self.name}'
-    
+
     
 class Collection(models.Model):
     name = models.CharField(max_length=200)
@@ -47,27 +38,10 @@ class Collection(models.Model):
         return f'{self.name}'
     
     
-class Event(models.Model):
-    name = models.CharField(max_length=200)
-    
-    def __str__(self):
-        return f'{self.name}'
-    
-    
-
-class DropStatus(models.Model):
-    name = models.CharField(max_length=100)
-    
-    def __str__(self):
-        return f'{self.name}'
-    
-    
 class Container(models.Model):
     name = models.CharField(max_length=200)
     icon = models.CharField(max_length=400)
     icon_large = models.CharField(max_length=400)
-    event = models.ForeignKey(Event, on_delete=models.CASCADE, null=True, blank=True)
-    dropstatus = models.ForeignKey(DropStatus, on_delete=models.CASCADE, null=True, blank=True)
     collection = models.ForeignKey(Collection, on_delete=models.CASCADE)
     
     def __str__(self):
@@ -85,7 +59,6 @@ class Item(models.Model):
     accepted = models.BooleanField(default=False)
     added_by = models.ForeignKey(Profile, on_delete=models.CASCADE, null=True, blank=True)
     subcategory = models.ForeignKey(Subcategory, on_delete=models.CASCADE)
-    update = models.ForeignKey(Update, on_delete=models.CASCADE)
     rarity = models.ForeignKey(Rarity, on_delete=models.CASCADE, null=True, blank=True)
     collection = models.ForeignKey(Collection, on_delete=models.CASCADE, null=True, blank=True)
     

@@ -15,7 +15,6 @@ class AddItemForm(forms.ModelForm):
             'stattrak',
             'souvenir',
             'subcategory',
-            'update',
             'rarity',
             'collection'
         ]
