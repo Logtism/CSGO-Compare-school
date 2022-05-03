@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from django.contrib.auth.decorators import login_required
 from accounts.models import Profile
 from .models import Subcategory, Item
 from .forms import AddItemForm
@@ -14,6 +15,7 @@ def item(request, id):
     return render(request, 'items/item.html', {'item': item})
 
 
+@login_required
 def add_item(request):
     if request.method == 'POST':
         form = AddItemForm(request.POST)
