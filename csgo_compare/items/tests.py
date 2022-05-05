@@ -126,7 +126,7 @@ class TestAddItem(TestCase, ResolveUrlTest):
                 'name': 'test_item',
                 'icon': 'icon url',
                 'icon_large': 'big icon url',
-                'subcategory': 1
+                'subcategory': self.subcat.id
             }
         )
         

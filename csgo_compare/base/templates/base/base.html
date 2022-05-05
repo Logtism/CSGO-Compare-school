@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="{% static 'base/css/main.css' %}">
     <script defer src="{% static 'base/js/theme.js' %}"></script>
     <script defer src="{% static 'base/js/navbar.js' %}"></script>
+    {% block head %}{% endblock head %}
     {% if title %}
       <title>CSGO-Compare {{ tittle }}</title>
     {% else %}
@@ -61,8 +62,19 @@
                     <a class="nav-link" href="#">My Profile</a>
                   </li>
                   <li>
+                    <a class="nav-link" href="{% url 'items-add-item' %}">Add Item</a>
+                  </li>
+                  <li>
                     <a class="nav-link" href="#">Settings</a>
                   </li>
+                  {% if user.is_superuser %}
+                    <li>
+                      <a class="nav-link" href="{% url 'admin:index' %}">Django Admin</a>
+                    </li>
+                    <li>
+                      <a class="nav-link" href="{% url 'items-admin-dashboard' %}">Items Dashboard</a>
+                    </li>
+                  {% endif %}
                   <li>
                     <a class="nav-link" href="{% url 'logout' %}">Logout</a>
                   </li>

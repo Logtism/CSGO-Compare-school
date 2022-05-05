@@ -1,0 +1,17 @@
+{% extends 'base/base.html' %}
+{% load static %}
+{% block head %}
+  <link rel="stylesheet" href="{% static 'items_admin/css/dashboard.css' %}">
+{% endblock head %}
+{% block content %}
+<div class="container">
+  <div class="content">
+    {% for item in items %}
+      <a href="{% url 'items-admin-item' id=item.id %}" class="row">
+        <p>{{ item.name }}</p>
+        <p class="ml-auto">{{ item.added_by.user.username }}</p>
+      </a>
+    {% endfor %}
+  </div>
+</div>
+{% endblock content %}
