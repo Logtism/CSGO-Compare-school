@@ -14,7 +14,7 @@ class Subcategory(models.Model):
     name = models.CharField(max_length=150)
     icon = models.CharField(max_length=400, null=True, blank=True)
     icon_large = models.CharField(max_length=400, null=True, blank=True)
-    category = models.ForeignKey(Category, on_delete=models.CASCADE)
+    category = models.ForeignKey(Category, on_delete=models.CASCADE, related_name='subcategories')
     
     def __str__(self):
         return f'{self.name}'
@@ -58,9 +58,9 @@ class Item(models.Model):
     souvenir = models.BooleanField(default=False)
     accepted = models.BooleanField(default=False)
     added_by = models.ForeignKey(Profile, on_delete=models.CASCADE, null=True, blank=True)
-    subcategory = models.ForeignKey(Subcategory, on_delete=models.CASCADE)
+    subcategory = models.ForeignKey(Subcategory, on_delete=models.CASCADE, related_name='items')
     rarity = models.ForeignKey(Rarity, on_delete=models.CASCADE, null=True, blank=True)
-    collection = models.ForeignKey(Collection, on_delete=models.CASCADE, null=True, blank=True)
+    collection = models.ForeignKey(Collection, on_delete=models.CASCADE, null=True, blank=True, related_name='collection_items')
     
     def __str__(self):
         return f'{self.name}'

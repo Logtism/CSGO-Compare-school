@@ -1,0 +1,40 @@
+- model: items.category
+  pk: 1
+  fields:
+    name: Pistols
+- model: items.category
+  pk: 2
+  fields:
+    name: SMGs
+- model: items.category
+  pk: 3
+  fields:
+    name: Rilfes
+- model: items.category
+  pk: 4
+  fields:
+    name: Sniper Rfiles
+- model: items.category
+  pk: 5
+  fields:
+    name: Heavy
+- model: items.category
+  pk: 6
+  fields:
+    name: Knives
+- model: items.category
+  pk: 7
+  fields:
+    name: Gloves
+- model: items.category
+  pk: 8
+  fields:
+    name: Collection
+- model: items.category
+  pk: 9
+  fields:
+    name: Cases
+- model: items.category
+  pk: 10
+  fields:
+    name: Other

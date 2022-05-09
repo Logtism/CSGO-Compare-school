@@ -8,10 +8,10 @@ from .models import Category, Subcategory, Rarity, Collection, Item
 from . import views
 
 
-class TestItems(TestCase, ResolveUrlTest):
-    name = 'items-items'
+class TestSubcat(TestCase, ResolveUrlTest):
+    name = 'items-subcat'
     args = [0]
-    view = views.items
+    view = views.subcat
     
     def test_id_does_not_exist(self):
         client = Client()
@@ -30,10 +30,33 @@ class TestItems(TestCase, ResolveUrlTest):
         response = client.get(reverse(self.name, args=[1]))
         
         self.assertEquals(response.status_code, 200)
-        self.assertTemplateUsed(response, 'items/items.html')
+        self.assertTemplateUsed(response, 'items/subcat.html')
+        
+
+class TestCollection(TestCase, ResolveUrlTest):
+    name = 'items-collection'
+    args = [0]
+    view = views.collection
+    
+    def test_id_does_not_exist(self):
+        client = Client()
+        
+        response = client.get(reverse(self.name, args=[2]))
+        
+        self.assertEquals(response.status_code, 404)
+        
+    def test_id_does_exist(self):
+        collection = Collection.objects.create(id=1, name='test name', icon='icon', icon_large='big icon')
+        
+        client = Client()
+        
+        response = client.get(reverse(self.name, args=[1]))
+        
+        self.assertEquals(response.status_code, 200)
+        self.assertTemplateUsed(response, 'items/collection.html')
         
         
-class TestItems(TestCase, ResolveUrlTest):
+class TestItem(TestCase, ResolveUrlTest):
     name = 'items-item'
     args = [0]
     view = views.item
@@ -68,7 +91,7 @@ class TestItems(TestCase, ResolveUrlTest):
         
         self.assertEquals(response.status_code, 200)
         self.assertTemplateUsed(response, 'items/item.html')
-        
+
 
 class TestAddItem(TestCase, ResolveUrlTest):
     name='items-add-item'

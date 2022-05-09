@@ -131,7 +131,7 @@ nav {
 }
 
 
-@media (max-width: 1000px) {
+@media (max-width: 1400px) {
     .nav-content {
         display: flex;
         flex-direction: column;

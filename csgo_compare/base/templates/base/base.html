@@ -32,6 +32,21 @@
             <li class="nav-item">
               <a class="nav-link" href="{% url 'base-home' %}">Home</a>
             </li>
+            {% for catogory in categories %}
+              <li class="nav-item nav-dropdown">
+                <a class="nav-link dropdown-toggle" onclick="toggle_dropdown('nav{{catogory}}dropdown')">
+                  {{ catogory.name }}
+                  <i class="nav-dropdown-icon bi bi-caret-down-fill"></i>
+                </a>
+                <ul class="dropdown-list" id="nav{{catogory}}dropdown">
+                  {% for subcategories in catogory.subcategories.all %}
+                    <li>
+                      <a class="nav-link" href="{% url 'items-subcat' id=subcategories.id %}">{{ subcategories.name }}</a>
+                    </li>
+                  {% endfor %}
+                </ul>
+              </li>
+            {% endfor %}
             <li class="nav-item nav-dropdown">
               <a class="nav-link dropdown-toggle" onclick="toggle_dropdown('navinfodropdown')">
                 Info

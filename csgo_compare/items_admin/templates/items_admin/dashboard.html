@@ -11,6 +11,8 @@
         <p>{{ item.name }}</p>
         <p class="ml-auto">{{ item.added_by.user.username }}</p>
       </a>
+    {% empty %}
+      <p>There are no new item submissions.</p>
     {% endfor %}
   </div>
 </div>

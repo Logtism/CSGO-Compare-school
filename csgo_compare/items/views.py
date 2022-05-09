@@ -1,13 +1,19 @@
 from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
 from accounts.models import Profile
-from .models import Subcategory, Item
+from .models import Subcategory, Collection, Item
 from .forms import AddItemForm
 
 
-def items(request, id):
-    subcat = Subcategory.objects.get_object_or_404(id=id)
-    return render(request, 'items/items.html', {'subcat': subcat})
+# Items isdisplaying a subcatogory
+def subcat(request, id):
+    subcat_ = Subcategory.objects.get_object_or_404(id=id)
+    return render(request, 'items/subcat.html', {'subcat': subcat_})
+
+
+def collection(request, id):
+    collection_ = Collection.objects.get_object_or_404(id=id)
+    return render(request, 'items/collection.html', {'collection': collection_})
 
 
 def item(request, id):

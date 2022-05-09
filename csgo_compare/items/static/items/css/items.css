@@ -1,0 +1,29 @@
+.mb {
+    margin-bottom: 1rem;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 1rem;
+}
+
+
+.item {
+    display: flex;
+    flex-direction: column;
+}
+
+
+@media (max-width: 1150px) {
+    .grid {
+        grid-template-columns: 1.5fr 1.5fr;
+    }
+}
+
+
+@media (max-width: 700px) {
+    .grid {
+        grid-template-columns: 3fr;
+    }
+}
