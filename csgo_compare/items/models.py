@@ -62,5 +62,12 @@ class Item(models.Model):
     rarity = models.ForeignKey(Rarity, on_delete=models.CASCADE, null=True, blank=True)
     collection = models.ForeignKey(Collection, on_delete=models.CASCADE, null=True, blank=True, related_name='collection_items')
     
+    class Meta:
+        permissions = (
+            ('can_view_item_sub', 'Can view new item submissions'),
+            ('can_accept_item_sub', 'Can accept item submissions.'),
+            ('can_decline_item_sub', 'Can decline item submissions'),
+        )
+    
     def __str__(self):
         return f'{self.name}'

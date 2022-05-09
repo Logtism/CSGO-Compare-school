@@ -6,11 +6,13 @@ from items.models import Item
 
 
 def dashboard(request):
-    return render(request, 'items_admin/dashboard.html', {'items': Item.objects.filter(accepted=False).all()})
-
+    if request.user.has_perm('items.can_view_item_sub'):
+        return render(request, 'items_admin/dashboard.html', {'items': Item.objects.filter(accepted=False).all()})
+    else:
+        return HttpResponseNotFound('This page does not exist')
 
 def review_item(request, id):
-    if request.user.is_staff:
+    if request.user.has_perm('items.can_view_item_sub'):
         item = Item.objects.get_object_or_404(id=id)
         if request.method == 'POST':
             form = UpdateItemForm(instance=item, data=request.POST)
@@ -31,7 +33,7 @@ def review_item(request, id):
 
 
 def item_accept(request, id):
-    if request.user.is_staff:
+    if request.user.has_perm('items.can_accept_item_sub'):
         item = Item.objects.get_object_or_404(id=id)
         item.accepted = True
         item.save()
@@ -41,7 +43,7 @@ def item_accept(request, id):
     
     
 def item_delete(request, id):
-    if request.user.is_staff:
+    if request.user.has_perm('items.can_decline_item_sub'):
         item = Item.objects.get_object_or_404(id=id)
         item.delete()
         return redirect(reverse('items-admin-dashboard'))

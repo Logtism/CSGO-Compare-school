@@ -1,16 +1,48 @@
 from django.test import TestCase, Client
 from django.urls import reverse
-from django.contrib.auth.models import User
+from django.contrib.auth.models import User, Permission
 from firebrick.tests import ResolveUrlTest, GetViewTest
 from items.models import Category, Subcategory, Item
 from . import views
 
 
-class TestDashboard(TestCase, ResolveUrlTest, GetViewTest):
+class TestDashboard(TestCase, ResolveUrlTest):
     name = 'items-admin-dashboard'
     view = views.dashboard
     template = 'items_admin/dashboard.html'
     status = 200
+    
+    def test_get_not_logged_in(self):
+        user = User.objects.create_user(username='testuser1', password='password1')
+        
+        client = Client()
+        client.login(username=user.username, password='password1')
+        
+        response = client.get(reverse(self.name))
+        
+        self.assertEquals(response.status_code, 404)
+        
+    def test_get_is_staff(self):
+        user = User.objects.create_user(username='testuser1', password='password1', is_staff=True)
+        
+        client = Client()
+        client.login(username=user.username, password='password1')
+        
+        response = client.get(reverse(self.name))
+        
+        self.assertEquals(response.status_code, 404)
+        
+    def test_get_can_view_item_sub_perm(self):
+        user = User.objects.create_user(username='testuser1', password='password1')
+        user.user_permissions.set([Permission.objects.get(codename='can_view_item_sub')])
+        
+        client = Client()
+        client.login(username=user.username, password='password1')
+        
+        response = client.get(reverse(self.name))
+        
+        self.assertEquals(response.status_code, 200)
+        self.assertTemplateUsed(response, 'items_admin/dashboard.html')
     
     
 class TestReviewItem(TestCase, ResolveUrlTest):
@@ -41,11 +73,23 @@ class TestReviewItem(TestCase, ResolveUrlTest):
         
         response = client.get(reverse(self.name, args=[self.item.id]))
         
+        self.assertEquals(response.status_code, 404)
+
+    def test_get_can_view_item_sub_perm(self):
+        user = User.objects.create_user(username='testuser1', password='password1')
+        user.user_permissions.set([Permission.objects.get(codename='can_view_item_sub')])
+        
+        client = Client()
+        client.login(username=user.username, password='password1')
+        
+        response = client.get(reverse(self.name, args=[self.item.id]))
+        
         self.assertEquals(response.status_code, 200)
         self.assertTemplateUsed(response, 'items_admin/review_item.html')
-        
+
     def test_get_item_id_does_not_exist(self):
         user = User.objects.create_user(username='testuser1', password='password1', is_staff=True)
+        user.user_permissions.set([Permission.objects.get(codename='can_view_item_sub')])
         
         client = Client()
         client.login(username=user.username, password='password1')
@@ -56,7 +100,8 @@ class TestReviewItem(TestCase, ResolveUrlTest):
         
         
     def test_post_update_item(self):
-        user = User.objects.create_user(username='testuser1', password='password1', is_staff=True)
+        user = User.objects.create_user(username='testuser1', password='password1')
+        user.user_permissions.set([Permission.objects.get(codename='can_view_item_sub')])
         
         client = Client()
         client.login(username=user.username, password='password1')
@@ -105,6 +150,17 @@ class TestAcceptItem(TestCase, ResolveUrlTest):
         
         response = client.get(reverse(self.name, args=[self.item.id]))
         
+        self.assertEquals(response.status_code, 404)
+        
+    def test_get_can_accept_item_sub_perm(self):
+        user = User.objects.create_user(username='testuser1', password='password1')
+        user.user_permissions.set([Permission.objects.get(codename='can_view_item_sub'), Permission.objects.get(codename='can_accept_item_sub')])
+        
+        client = Client()
+        client.login(username=user.username, password='password1')
+        
+        response = client.get(reverse(self.name, args=[self.item.id]))
+        
         self.assertEquals(response.status_code, 302)
         self.assertRedirects(response, reverse('items-admin-item', args=[self.item.id]))
         self.assertObjectExists(Item, id=self.item.id, accepted=True)
@@ -142,6 +198,17 @@ class TestDeleteItem(TestCase, ResolveUrlTest):
         
     def test_get_is_staff(self):
         user = User.objects.create_user(username='testuser1', password='password1', is_staff=True)
+        
+        client = Client()
+        client.login(username=user.username, password='password1')
+        
+        response = client.get(reverse(self.name, args=[self.item.id]))
+        
+        self.assertEquals(response.status_code, 404)
+        
+    def test_get_can_accept_item_sub_perm(self):
+        user = User.objects.create_user(username='testuser1', password='password1')
+        user.user_permissions.set([Permission.objects.get(codename='can_view_item_sub'), Permission.objects.get(codename='can_decline_item_sub')])
         
         client = Client()
         client.login(username=user.username, password='password1')
