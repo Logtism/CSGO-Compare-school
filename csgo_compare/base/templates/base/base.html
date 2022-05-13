@@ -41,7 +41,12 @@
                 <ul class="dropdown-list" id="nav{{catogory}}dropdown">
                   {% for subcategories in catogory.subcategories.all %}
                     <li>
-                      <a class="nav-link" href="{% url 'items-subcat' id=subcategories.id %}">{{ subcategories.name }}</a>
+                      <a class="nav-link" href="{% url 'items-subcat' id=subcategories.id %}">
+                        <div class="flex-row m-2">
+                          <img src="{{ subcategories.icon }}">
+                          <p class="mtb-auto">{{ subcategories.name }}</p>
+                        </div>
+                      </a>
                     </li>
                   {% endfor %}
                 </ul>

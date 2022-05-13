@@ -106,13 +106,24 @@ nav {
 }
 
 
-.nav-link:hover i {
+.nav-link:hover i, .nav-link:hover p {
     color: #fff;
 }
 
 
 .ml-auto {
     margin-left: auto;
+}
+
+
+.mr-auto {
+    margin-right: auto;
+}
+
+
+.mtb-auto {
+    margin-top: auto;
+    margin-bottom: auto;
 }
 
 
@@ -179,6 +190,8 @@ nav {
     border: 1px solid black;
     border-radius: 0.25rem;
     padding: 0.5rem 0;
+    max-height: 600px;
+    overflow-y: scroll;
 }
 
 .nav-dropdown ul a {
@@ -303,4 +316,14 @@ footer {
     border: 1px solid #000;
     border-radius: 0.3rem;
     text-decoration: none;
+}
+
+
+.text-dec-none {
+    text-decoration: none
+}
+
+
+.m-2 {
+    margin: 0.3rem;
 }

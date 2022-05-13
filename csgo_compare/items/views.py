@@ -5,7 +5,6 @@ from .models import Subcategory, Collection, Item
 from .forms import AddItemForm
 
 
-# Items isdisplaying a subcatogory
 def subcat(request, id):
     subcat_ = Subcategory.objects.get_object_or_404(id=id)
     return render(request, 'items/subcat.html', {'subcat': subcat_})

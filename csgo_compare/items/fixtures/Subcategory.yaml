@@ -1,0 +1,371 @@
+- model: items.subcategory
+  pk: 1
+  fields:
+    name: USP-S
+    icon: https://csgostash.com/img/weapons/50px/usp-s.png
+    icon_large: https://csgostash.com/img/weapons/512x384/usp-s.png
+    category: 1
+- model: items.subcategory
+  pk: 2
+  fields:
+    name: P2000
+    icon: https://csgostash.com/img/weapons/50px/p2000.png
+    icon_large: https://csgostash.com/img/weapons/512x384/p2000.png
+    category: 1
+- model: items.subcategory
+  pk: 3
+  fields:
+    name: Glock-18
+    icon: https://csgostash.com/img/weapons/50px/glock-18.png
+    icon_large: https://csgostash.com/img/weapons/512x384/glock-18.png
+    category: 1
+- model: items.subcategory
+  pk: 4
+  fields:
+    name: Dual Berettas
+    icon: https://csgostash.com/img/weapons/50px/dual_berettas.png
+    icon_large: https://csgostash.com/img/weapons/512x384/dual_berettas.png
+    category: 1
+- model: items.subcategory
+  pk: 5
+  fields:
+    name: P250
+    icon: https://csgostash.com/img/weapons/50px/p250.png
+    icon_large: https://csgostash.com/img/weapons/512x384/p250.png
+    category: 1
+- model: items.subcategory
+  pk: 6
+  fields:
+    name: Five-SeveN
+    icon: https://csgostash.com/img/weapons/50px/five-seven.png
+    icon_large: https://csgostash.com/img/weapons/512x384/five-seven.png
+    category: 1
+- model: items.subcategory
+  pk: 7
+  fields:
+    name: CZ75-Auto
+    icon: https://csgostash.com/img/weapons/50px/cz75-auto.png
+    icon_large: https://csgostash.com/img/weapons/512x384/cz75-auto.png
+    category: 1
+- model: items.subcategory
+  pk: 8
+  fields:
+    name: Tec-9
+    icon: https://csgostash.com/img/weapons/50px/tec-9.png
+    icon_large: https://csgostash.com/img/weapons/512x384/tec-9.png
+    category: 1
+- model: items.subcategory
+  pk: 9
+  fields:
+    name: Desert Eagle
+    icon: https://csgostash.com/img/weapons/50px/desert_eagle.png
+    icon_large: https://csgostash.com/img/weapons/512x384/desert_eagle.png
+    category: 1
+- model: items.subcategory
+  pk: 10
+  fields:
+    name: R8 Revolver
+    icon: https://csgostash.com/img/weapons/50px/r8_revolver.png
+    icon_large: https://csgostash.com/img/weapons/512x384/r8_revolver.png
+    category: 1
+- model: items.subcategory
+  pk: 11
+  fields:
+    name: MP9
+    icon: https://csgostash.com/img/weapons/50px/mp9.png
+    icon_large: https://csgostash.com/img/weapons/512x384/mp9.png
+    category: 2
+- model: items.subcategory
+  pk: 12
+  fields:
+    name: MAC-10
+    icon: https://csgostash.com/img/weapons/50px/mac-10.png
+    icon_large: https://csgostash.com/img/weapons/512x384/mac-10.png
+    category: 2
+- model: items.subcategory
+  pk: 13
+  fields:
+    name: MP7
+    icon: https://csgostash.com/img/weapons/50px/mp7.png
+    icon_large: https://csgostash.com/img/weapons/512x384/mp7.png
+    category: 2
+- model: items.subcategory
+  pk: 14
+  fields:
+    name: MP5-SD
+    icon: https://csgostash.com/img/weapons/50px/mp5-sd.png
+    icon_large: https://csgostash.com/img/weapons/512x384/mp5-sd.png
+    category: 2
+- model: items.subcategory
+  pk: 15
+  fields:
+    name: UMP-45
+    icon: https://csgostash.com/img/weapons/50px/ump-45.png
+    icon_large: https://csgostash.com/img/weapons/512x384/ump-45.png
+    category: 2
+- model: items.subcategory
+  pk: 16
+  fields:
+    name: P90
+    icon: https://csgostash.com/img/weapons/50px/p90.png
+    icon_large: https://csgostash.com/img/weapons/512x384/p90.png
+    category: 2
+- model: items.subcategory
+  pk: 17
+  fields:
+    name: PP-Bizon
+    icon: https://csgostash.com/img/weapons/50px/pp-bizon.png
+    icon_large: https://csgostash.com/img/weapons/512x384/pp-bizon.png
+    category: 2
+- model: items.subcategory
+  pk: 18
+  fields:
+    name: FAMAS
+    icon: https://csgostash.com/img/weapons/50px/famas.png
+    icon_large: https://csgostash.com/img/weapons/512x384/famas.png
+    category: 3
+- model: items.subcategory
+  pk: 19
+  fields:
+    name: Galil AR
+    icon: https://csgostash.com/img/weapons/50px/galil_ar.png
+    icon_large: https://csgostash.com/img/weapons/512x384/galil_ar.png
+    category: 3
+- model: items.subcategory
+  pk: 20
+  fields:
+    name: M4A4
+    icon: https://csgostash.com/img/weapons/50px/m4a4.png
+    icon_large: https://csgostash.com/img/weapons/512x384/m4a4.png
+    category: 3
+- model: items.subcategory
+  pk: 21
+  fields:
+    name: M4A1-S
+    icon: https://csgostash.com/img/weapons/50px/m4a1-s.png
+    icon_large: https://csgostash.com/img/weapons/512x384/m4a1-s.png
+    category: 3
+- model: items.subcategory
+  pk: 22
+  fields:
+    name: AK-47
+    icon: https://csgostash.com/img/weapons/50px/ak-47.png
+    icon_large: https://csgostash.com/img/weapons/512x384/ak-47.png
+    category: 3
+- model: items.subcategory
+  pk: 23
+  fields:
+    name: AUG
+    icon: https://csgostash.com/img/weapons/50px/aug.png
+    icon_large: https://csgostash.com/img/weapons/512x384/aug.png
+    category: 3
+- model: items.subcategory
+  pk: 24
+  fields:
+    name: SG 553
+    icon: https://csgostash.com/img/weapons/50px/sg_553.png
+    icon_large: https://csgostash.com/img/weapons/50px/sg_553.png
+    category: 3
+- model: items.subcategory
+  pk: 25
+  fields:
+    name: SSG 08
+    icon: https://csgostash.com/img/weapons/50px/ssg_08.png
+    icon_large: https://csgostash.com/img/weapons/512x384/ssg_08.png
+    category: 4
+- model: items.subcategory
+  pk: 26
+  fields:
+    name: AWP
+    icon: https://csgostash.com/img/weapons/50px/awp.png
+    icon_large: https://csgostash.com/img/weapons/512x384/awp.png
+    category: 4
+- model: items.subcategory
+  pk: 27
+  fields:
+    name: SCAR-20
+    icon: https://csgostash.com/img/weapons/50px/scar-20.png
+    icon_large: https://csgostash.com/img/weapons/512x384/scar-20.png
+    category: 4
+- model: items.subcategory
+  pk: 28
+  fields:
+    name: G3SG1
+    icon: https://csgostash.com/img/weapons/50px/g3sg1.png
+    icon_large: https://csgostash.com/img/weapons/512x384/g3sg1.png
+    category: 4
+- model: items.subcategory
+  pk: 29
+  fields:
+    name: XM1014
+    icon: https://csgostash.com/img/weapons/50px/xm1014.png
+    icon_large: https://csgostash.com/img/weapons/512x384/xm1014.png
+    category: 5
+- model: items.subcategory
+  pk: 30
+  fields:
+    name: Nova
+    icon: https://csgostash.com/img/weapons/50px/nova.png
+    icon_large: https://csgostash.com/img/weapons/512x384/nova.png
+    category: 5
+- model: items.subcategory
+  pk: 31
+  fields:
+    name: MAG-7
+    icon: https://csgostash.com/img/weapons/50px/mag-7.png
+    icon_large: https://csgostash.com/img/weapons/512x384/mag-7.png
+    category: 5
+- model: items.subcategory
+  pk: 32
+  fields:
+    name: Sawed-Off
+    icon: https://csgostash.com/img/weapons/50px/sawed-off.png
+    icon_large: https://csgostash.com/img/weapons/512x384/sawed-off.png
+    category: 5
+- model: items.subcategory
+  pk: 33
+  fields:
+    name: Negev
+    icon: https://csgostash.com/img/weapons/50px/negev.png
+    icon_large: https://csgostash.com/img/weapons/512x384/negev.png
+    category: 5
+- model: items.subcategory
+  pk: 34
+  fields:
+    name: M249
+    icon: https://csgostash.com/img/weapons/50px/m249.png
+    icon_large: https://csgostash.com/img/weapons/512x384/m249.png
+    category: 5
+- model: items.subcategory
+  pk: 35
+  fields:
+    name: Gut Knife
+    icon: https://csgostash.com/img/weapons/50px/gut_knife.png
+    icon_large: https://csgostash.com/img/weapons/512x384/gut_knife.png
+    category: 6
+- model: items.subcategory
+  pk: 36
+  fields:
+    name: Flip Knife
+    icon: https://csgostash.com/img/weapons/50px/flip_knife.png
+    icon_large: https://csgostash.com/img/weapons/512x384/flip_knife.png
+    category: 6
+- model: items.subcategory
+  pk: 37
+  fields:
+    name: Bayonet
+    icon: https://csgostash.com/img/weapons/50px/bayonet.png
+    icon_large: https://csgostash.com/img/weapons/512x384/bayonet.png
+    category: 6
+- model: items.subcategory
+  pk: 38
+  fields:
+    name: M9 Bayonet
+    icon: https://csgostash.com/img/weapons/50px/m9_bayonet.png
+    icon_large: https://csgostash.com/img/weapons/512x384/m9_bayonet.png
+    category: 6
+- model: items.subcategory
+  pk: 39
+  fields:
+    name: Karambit
+    icon: https://csgostash.com/img/weapons/50px/karambit.png
+    icon_large: https://csgostash.com/img/weapons/512x384/karambit.png
+    category: 6
+- model: items.subcategory
+  pk: 40
+  fields:
+    name: Huntsman Knife
+    icon: https://csgostash.com/img/weapons/50px/huntsman_knife.png
+    icon_large: https://csgostash.com/img/weapons/512x384/huntsman_knife.png
+    category: 6
+- model: items.subcategory
+  pk: 41
+  fields:
+    name: Butterfly Knife
+    icon: https://csgostash.com/img/weapons/50px/butterfly_knife.png
+    icon_large: https://csgostash.com/img/weapons/512x384/butterfly_knife.png
+    category: 6
+- model: items.subcategory
+  pk: 42
+  fields:
+    name: Falchion Knife
+    icon: https://csgostash.com/img/weapons/50px/falchion_knife.png
+    icon_large: https://csgostash.com/img/weapons/512x384/falchion_knife.png
+    category: 6
+- model: items.subcategory
+  pk: 43
+  fields:
+    name: Shadow Daggers
+    icon: https://csgostash.com/img/weapons/50px/shadow_daggers.png
+    icon_large: https://csgostash.com/img/weapons/512x384/shadow_daggers.png
+    category: 6
+- model: items.subcategory
+  pk: 44
+  fields:
+    name: Bowie Knife
+    icon: https://csgostash.com/img/weapons/50px/bowie_knife.png
+    icon_large: https://csgostash.com/img/weapons/512x384/bowie_knife.png
+    category: 6
+- model: items.subcategory
+  pk: 45
+  fields:
+    name: Navaja Knife
+    icon: https://csgostash.com/img/weapons/50px/navaja_knife.png
+    icon_large: https://csgostash.com/img/weapons/512x384/navaja_knife.png
+    category: 6
+- model: items.subcategory
+  pk: 46
+  fields:
+    name: Stiletto Knife
+    icon: https://csgostash.com/img/weapons/50px/stiletto_knife.png
+    icon_large: https://csgostash.com/img/weapons/512x384/stiletto_knife.png
+    category: 6
+- model: items.subcategory
+  pk: 47
+  fields:
+    name: Ursus Knife
+    icon: https://csgostash.com/img/weapons/50px/ursus_knife.png
+    icon_large: https://csgostash.com/img/weapons/512x384/ursus_knife.png
+    category: 6
+- model: items.subcategory
+  pk: 48
+  fields:
+    name: Talon Knife
+    icon: https://csgostash.com/img/weapons/50px/talon_knife.png
+    icon_large: https://csgostash.com/img/weapons/512x384/talon_knife.png
+    category: 6
+- model: items.subcategory
+  pk: 49
+  fields:
+    name: Classic Knife
+    icon: https://csgostash.com/img/weapons/50px/classic_knife.png
+    icon_large: https://csgostash.com/img/weapons/512x384/classic_knife.png
+    category: 6
+- model: items.subcategory
+  pk: 50
+  fields:
+    name: Paracord Knife
+    icon: https://csgostash.com/img/weapons/50px/paracord_knife.png
+    icon_large: https://csgostash.com/img/weapons/512x384/paracord_knife.png
+    category: 6
+- model: items.subcategory
+  pk: 51
+  fields:
+    name: Survival Knife
+    icon: https://csgostash.com/img/weapons/50px/survival_knife.png
+    icon_large: https://csgostash.com/img/weapons/512x384/survival_knife.png
+    category: 6
+- model: items.subcategory
+  pk: 52
+  fields:
+    name: Nomad Knife
+    icon: https://csgostash.com/img/weapons/50px/nomad_knife.png
+    icon_large: https://csgostash.com/img/weapons/512x384/nomad_knife.png
+    category: 6
+- model: items.subcategory
+  pk: 53
+  fields:
+    name: Skeleton Knife
+    icon: https://csgostash.com/img/weapons/50px/skeleton_knife.png
+    icon_large: https://csgostash.com/img/weapons/512x384/skeleton_knife.png
+    category: 6
