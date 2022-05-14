@@ -324,6 +324,10 @@ footer {
 }
 
 
+.text-center {
+    text-align: center;
+}
+
 .m-2 {
     margin: 0.3rem;
 }

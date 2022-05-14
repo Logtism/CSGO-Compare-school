@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     'firebrick',
     
     'base.apps.BaseConfig',
+    'info.apps.InfoConfig',
     'accounts.apps.AccountsConfig',
     'items.apps.ItemsConfig',
     'items_admin.apps.ItemsAdminConfig',
