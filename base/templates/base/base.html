@@ -20,6 +20,7 @@
     <nav class="bg-navbar">
       <div class="nav-content">
         <div class="nav-moblie">
+          {% block nav %}{% endblock nav %}
           <a class="nav-title" href="{% url 'base-home' %}">
             CSGO Compare
           </a>
@@ -92,7 +93,7 @@
                       <a class="nav-link" href="{% url 'admin:index' %}">Django Admin</a>
                     </li>
                     <li>
-                      <a class="nav-link" href="{% url 'items-admin-dashboard' %}">Items Dashboard</a>
+                      <a class="nav-link" href="{% url 'admin-dashboard' %}">Site Admin</a>
                     </li>
                   {% endif %}
                   <li>

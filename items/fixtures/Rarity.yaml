@@ -1,0 +1,70 @@
+- model: items.rarity
+  pk: 1
+  fields:
+    name: Consumer Grade
+    color: b0c3d9
+- model: items.rarity
+  pk: 2
+  fields:
+    name: Industrial Grade
+    color: 5e98d9
+- model: items.rarity
+  pk: 3
+  fields:
+    name: Mil-Spec
+    color: 4b69ff
+- model: items.rarity
+  pk: 4
+  fields:
+    name: Classified
+    color: d32ee6
+- model: items.rarity
+  pk: 5
+  fields:
+    name: Covert
+    color: eb4b4b
+- model: items.rarity
+  pk: 6
+  fields:
+    name: Contraband
+    color: ffae39
+- model: items.rarity
+  pk: 7
+  fields:
+    name: High Grade
+    color: 4b69ff
+- model: items.rarity
+  pk: 8
+  fields:
+    name: Remarkable
+    color: 8847ff
+- model: items.rarity
+  pk: 9
+  fields:
+    name: Exotic
+    color: d32ee6
+- model: items.rarity
+  pk: 10
+  fields:
+    name: Extraordinary
+    color: eb4b4b
+- model: items.rarity
+  pk: 11
+  fields:
+    name: Distinguished
+    color: 4b69ff
+- model: items.rarity
+  pk: 12
+  fields:
+    name: Exceptional
+    color: 8847ff
+- model: items.rarity
+  pk: 13
+  fields:
+    name: Superior
+    color: d32ee6
+- model: items.rarity
+  pk: 14
+  fields:
+    name: Master
+    color: eb4b4b

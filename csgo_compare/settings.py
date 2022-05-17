@@ -50,8 +50,8 @@ INSTALLED_APPS = [
     'base.apps.BaseConfig',
     'info.apps.InfoConfig',
     'accounts.apps.AccountsConfig',
+    'site_admin.apps.SiteAdminConfig',
     'items.apps.ItemsConfig',
-    'items_admin.apps.ItemsAdminConfig',
 ]
 
 MIDDLEWARE = [

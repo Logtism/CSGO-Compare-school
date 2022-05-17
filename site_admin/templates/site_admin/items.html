@@ -1,0 +1,30 @@
+{% extends 'site_admin/base.html' %}
+{% block sidebar_content %}
+<div class="flex-column">
+  <div class="grid mb-section">
+    <div class="content item">
+      <p class="text-center">Total item submissions</p>
+      <p class="text-center">{{ total_item_sub }}</p>
+    </div>
+    <div class="content item">
+      <p class="text-center">Total Accepted items</p>
+      <p class="text-center">{{ total_accepted_sub }}</p>
+    </div>
+    <div class="content item">
+      <p class="text-center">Total pending items</p>
+      <p class="text-center">{{ total_pending_sub }}</p>
+    </div>
+  </div>
+
+  <div class="content">
+    {% for item in items %}
+      <a href="{% url 'admin-review-item' id=item.id %}" class="flex-row">
+        <p>{{ item.name }}</p>
+        <p class="ml-auto">{{ item.added_by.user.username }}</p>
+      </a>
+    {% empty %}
+      <p>There are no new item submissions.</p>
+    {% endfor %}
+  </div>
+</div>
+{% endblock sidebar_content %}
