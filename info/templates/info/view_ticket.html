@@ -1,0 +1,26 @@
+{% extends 'base/base.html' %}
+{% block content %}
+<div class="container">
+  <div class="content flex-column">
+    <h2>{{ ticket.title }}</h2>
+    <p>{{ ticket.body }}</p>
+
+  </div>
+
+  {% for reply in ticket.replies.all %}
+    <div class="content flex-column" style="margin-top: 0.8rem;">
+      <p>{{ reply.author.username }}</p>
+      <p>{{ reply.body }}</p>
+
+    </div>
+  {% endfor %}
+
+  <form method="POST" style="margin-top: 0.8rem;">
+    {% csrf_token %}
+    <div class="form-fields">
+      {{ form }}
+      <button class="submit-button" type="submit">Submit</button>
+    </div>
+  </form>
+</div>
+{% endblock content %}

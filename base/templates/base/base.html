@@ -88,6 +88,9 @@
                   <li>
                     <a class="nav-link" href="#">Settings</a>
                   </li>
+                  <li>
+                    <a class="nav-link" href="{% url 'info-support' %}">My support tickets</a>
+                  </li>
                   {% if user.is_superuser %}
                     <li>
                       <a class="nav-link" href="{% url 'admin:index' %}">Django Admin</a>
@@ -122,11 +125,11 @@
           </div>
 
           <div class="footer-column">
-            <a>FAQ</a>
+            <a href="#" class="text-dec-none">FAQ</a>
           </div>
 
           <div class="footer-column">
-            <a>Support</a>
+            <a href="{% url 'info-support-create' %}" class="text-dec-none">Support</a>
           </div>
         </div>
       </div>
