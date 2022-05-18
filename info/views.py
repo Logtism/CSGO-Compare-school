@@ -47,7 +47,7 @@ def tickets_list(request):
 @login_required
 def view_ticket(request, id):
     ticket = SupportTicket.objects.get_object_or_404(id=id)
-    if ticket.author == request.user or request.user.has_perm('info.'):
+    if ticket.author == request.user or request.user.has_perm('info.can_view_support_ticket'):
         if request.method == 'POST':
             form = CreateTicketReplyForm(request.POST)
             data = form.save(commit=False)

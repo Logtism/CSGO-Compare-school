@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from django.urls import reverse
 from django.http import HttpResponseNotFound
+from info.models import SupportTicket
 from items.models import Item
 from .forms import UpdateItemForm
 
@@ -64,5 +65,22 @@ def item_delete(request, id):
         item = Item.objects.get_object_or_404(id=id)
         item.delete()
         return redirect(reverse('admin-items'))
+    else:
+        return HttpResponseNotFound('This page does not exist')
+    
+    
+def support(request):
+    if request.user.has_perm('info.can_view_support_ticket'):
+        tickets = SupportTicket.objects.filter(closed=False).all()
+        return render(
+            request,
+            'site_admin/support.html',
+            {
+                'tickets': tickets,
+                'total_tickets': len(SupportTicket.objects.all()),
+                'total_sloved_tickets': len(SupportTicket.objects.filter(closed=True).all()),
+                'total_pending_tickets': len(SupportTicket.objects.filter(closed=False).all()),
+            }
+        )
     else:
         return HttpResponseNotFound('This page does not exist')

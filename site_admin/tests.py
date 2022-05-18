@@ -3,6 +3,7 @@ from django.urls import reverse
 from django.contrib.auth.models import User, Permission
 from firebrick.tests import ResolveUrlTest, GetViewTest
 from items.models import Category, Subcategory, Item
+from info.models import SupportTicket
 from . import views
 
 
@@ -372,3 +373,89 @@ class TestDeleteItem(TestCase, ResolveUrlTest):
         self.assertEquals(response.url, reverse('admin-items'))
         
         self.assertObjectDoesNotExist(Item, id=1)
+        
+        
+class TestSupportDashboard(TestCase, ResolveUrlTest):
+    name = 'admin-support'
+    view = views.support
+    template = 'site_admin/support.html'
+    
+    def test_not_logged_in(self):
+        client = Client()
+        
+        response = client.get(reverse(self.name))
+        
+        self.assertEquals(response.status_code, 404)
+        self.assertTemplateNotUsed(response, self.template)
+        
+    def test_logged_in(self):
+        user = User.objects.create_user(username='username1', password='password1')
+        
+        client = Client()
+        client.login(username='username1', password='password1')
+        
+        response = client.get(reverse(self.name))
+        
+        self.assertEquals(response.status_code, 404)
+        self.assertTemplateNotUsed(response, self.template)
+        
+    def test_is_staff(self):
+        user = User.objects.create_user(username='username1', password='password1', is_staff=True)
+        
+        client = Client()
+        client.login(username='username1', password='password1')
+        
+        response = client.get(reverse(self.name))
+        
+        self.assertEquals(response.status_code, 404)
+        self.assertTemplateNotUsed(response, self.template)
+
+    def test_has_can_reply_support_ticket(self):
+        user = User.objects.create_user(username='username1', password='password1')
+        user.user_permissions.set([Permission.objects.get(codename='can_reply_support_ticket')])
+        
+        client = Client()
+        client.login(username='username1', password='password1')
+        
+        response = client.get(reverse(self.name))
+        
+        self.assertEquals(response.status_code, 404)
+        self.assertTemplateNotUsed(response, self.template)
+        
+    def test_has_can_close_support_ticket(self):
+        user = User.objects.create_user(username='username1', password='password1')
+        user.user_permissions.set([Permission.objects.get(codename='can_close_support_ticket')])
+        
+        client = Client()
+        client.login(username='username1', password='password1')
+        
+        response = client.get(reverse(self.name))
+        
+        self.assertEquals(response.status_code, 404)
+        self.assertTemplateNotUsed(response, self.template)
+        
+    def test_has_can_view_support_ticket_permission(self):
+        user = User.objects.create_user(username='username1', password='password1')
+        user.user_permissions.set([Permission.objects.get(codename='can_view_support_ticket')])
+        
+        client = Client()
+        client.login(username='username1', password='password1')
+        
+        response = client.get(reverse(self.name))
+        
+        self.assertEquals(response.status_code, 200)
+        self.assertTemplateUsed(response, self.template)
+        
+    def test_has_can_view_support_ticket_permission_not_empty(self):
+        user = User.objects.create_user(username='username1', password='password1')
+        user.user_permissions.set([Permission.objects.get(codename='can_view_support_ticket')])
+        
+        ticket = SupportTicket.objects.create(title='title', body='body', author=user)
+        
+        client = Client()
+        client.login(username='username1', password='password1')
+        
+        response = client.get(reverse(self.name))
+        
+        self.assertEquals(response.status_code, 200)
+        self.assertTemplateUsed(response, self.template)

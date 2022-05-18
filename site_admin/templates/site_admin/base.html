@@ -13,23 +13,23 @@
 {% endblock nav %}
 
 {% block content %}
-<div class="sidebar-container">
-  <div id="sidebar" class="sidebar">
-    <a href="{% url 'admin-dashboard' %}" class="sidebar-link">
-      <i class="bi bi-grid-1x2-fill"></i>
-      <p>Dashboard</p>
-    </a>
-    <a href="{% url 'admin-items' %}" class="sidebar-link">
-      <i class="bi bi-view-stacked"></i>
-      <p>Items</p>
-    </a>
-    <a href="{% url 'admin-dashboard' %}" class="sidebar-link">
-      <i class="bi bi-info-square"></i>
-      <p>Support</p>
-    </a>
-  </div>
-  <div id="sidebar-content" class="sidebar-content">
-    {% block sidebar_content %}{% endblock sidebar_content %}
-  </div>
+<div class="flex-row" style="height: 100%;">
+<div id="sidebar" class="sidebar">
+  <a href="{% url 'admin-dashboard' %}" class="sidebar-link">
+    <i class="bi bi-grid-1x2-fill"></i>
+    <p>Dashboard</p>
+  </a>
+  <a href="{% url 'admin-items' %}" class="sidebar-link">
+    <i class="bi bi-view-stacked"></i>
+    <p>Items</p>
+  </a>
+  <a href="{% url 'admin-support' %}" class="sidebar-link">
+    <i class="bi bi-info-square"></i>
+    <p>Support</p>
+  </a>
+</div>
+<div id="sidebar-content" class="sidebar-content">
+  {% block sidebar_content %}{% endblock sidebar_content %}
+</div>
 </div>
 {% endblock content %}

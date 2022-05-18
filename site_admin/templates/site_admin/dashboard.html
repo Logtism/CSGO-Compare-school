@@ -1,32 +1,3 @@
-{% extends 'base/base.html' %}
-{% load static %}
-{% block head %}
-  <link rel="stylesheet" href="{% static 'site_admin/css/sidebar.css' %}">
-  <script defer src="{% static 'site_admin/js/sidebar.js' %}"></script>
-{% endblock head %}
-
-{% block nav %}
-  <a class="sidebar-toggle-btn" onclick="toggle_sidebar()">
-    <i class="bi bi-list" style="font-size: 1.75em; color: #fff;"></i>
-  </a>
-{% endblock nav %}
-
-{% block content %}
-  <div id="sidebar" class="sidebar">
-    <a href="{% url 'admin-dashboard' %}" class="sidebar-link">
-      <i class="bi bi-grid-1x2-fill"></i>
-      <p>Dashboard</p>
-    </a>
-    <a href="{% url 'admin-items' %}" class="sidebar-link">
-      <i class="bi bi-view-stacked"></i>
-      <p>Items</p>
-    </a>
-    <a href="{% url 'admin-dashboard' %}" class="sidebar-link">
-      <i class="bi bi-info-square"></i>
-      <p>Support</p>
-    </a>
-  </div>
-  <div id="sidebar-content" class="sidebar-content">
-    {% block sidebar_content %}{% endblock sidebar_content %}
-  </div>
-{% endblock content %}
+{% extends 'site_admin/base.html' %}
+{% block sidebar_content %}
+{% endblock sidebar_content %}

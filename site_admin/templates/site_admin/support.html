@@ -1,0 +1,30 @@
+{% extends 'site_admin/base.html' %}
+{% block sidebar_content %}
+<div class="flex-column">
+  <div class="grid mb-section">
+    <div class="content item">
+      <p class="text-center">Total Support tickets</p>
+      <p class="text-center">{{ total_tickets }}</p>
+    </div>
+    <div class="content item">
+      <p class="text-center">Total sloved tickets</p>
+      <p class="text-center">{{ total_sloved_tickets }}</p>
+    </div>
+    <div class="content item">
+      <p class="text-center">Total pending tickets</p>
+      <p class="text-center">{{ total_pending_tickets }}</p>
+    </div>
+  </div>
+
+  <div class="content">
+    {% for ticket in tickets %}
+      <a href="{% url 'info-support-view' id=ticket.id %}" class="flex-row">
+        <p>{{ ticket.title }}</p>
+        <p class="ml-auto">{{ ticket.author.username }}</p>
+      </a>
+    {% empty %}
+      <p>There are no new support tickets.</p>
+    {% endfor %}
+  </div>
+</div>
+{% endblock sidebar_content %}
