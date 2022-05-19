@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from django.urls import reverse
-from django.http import Http404
+from django.http import HttpResponseNotFound
 from django.contrib.auth.decorators import login_required
 from items.models import Category, Subcategory, Container, Item
 from .forms import CreateSupportTicketForm, CreateTicketReplyForm
@@ -30,8 +30,6 @@ def create_ticket(request):
             ticket.author = request.user
             ticket.save()
             return redirect('base-home')
-        else:
-            print('okok')
     else:
         form = CreateSupportTicketForm()
         
@@ -49,13 +47,28 @@ def view_ticket(request, id):
     ticket = SupportTicket.objects.get_object_or_404(id=id)
     if ticket.author == request.user or request.user.has_perm('info.can_view_support_ticket'):
         if request.method == 'POST':
-            form = CreateTicketReplyForm(request.POST)
-            data = form.save(commit=False)
-            data.author = request.user
-            data.ticket = ticket
-            data.save()
+            if ticket.author == request.user or request.user.has_perm('info.can_reply_support_ticket'):
+                form = CreateTicketReplyForm(request.POST)
+                data = form.save(commit=False)
+                data.author = request.user
+                data.ticket = ticket
+                data.save()
         form = CreateTicketReplyForm()
         return render(request, 'info/view_ticket.html', {'ticket': ticket, 'form': form})
     else:
-        return Http404('Page not found')
+        return HttpResponseNotFound('Page not found')
+    
+    
+@login_required
+def close_ticket(request, id):
+    ticket = SupportTicket.objects.get_object_or_404(id=id)
+    if ticket.author == request.user or request.user.has_perm('info.can_close_support_ticket'):
+        SupportTicket.objects.filter(id=ticket.id).delete()
+        if ticket.author ==  request.user:
+            return redirect(reverse('base-home'))
+        else:
+            return redirect(reverse('admin-support'))
+    else:
+        return HttpResponseNotFound('Page not found')  
+        
     

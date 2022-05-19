@@ -1,6 +1,10 @@
 {% extends 'base/base.html' %}
 {% block content %}
 <div class="container">
+  <div class="content flex-row" style="margin-bottom: 1rem;">
+    <a href="{% url 'info-support-close' id=ticket.id %}" class="text-dec-none ml-auto">Close</a>
+  </div>
+
   <div class="content flex-column">
     <h2>{{ ticket.title }}</h2>
     <p>{{ ticket.body }}</p>
