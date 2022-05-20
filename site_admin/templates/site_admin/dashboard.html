@@ -1,3 +1,28 @@
 {% extends 'site_admin/base.html' %}
 {% block sidebar_content %}
+  <div class="flex-column">
+    <div class="grid mb-section">
+      <div class="content item">
+        <div class="flex-row center-content">
+          <i class="bi bi-view-stacked" style="color: #fff; font-size: 2rem; margin-right: 0.3rem;"></i>
+          <p class="text-center" style="margin: auto 0;">Pending item submissions</p>
+        </div>
+        <p class="text-center">{{ pending_items }}</p>
+      </div>
+      <div class="content item">
+        <div class="flex-row center-content">
+          <i class="bi bi-ticket-fill" style="color: #fff; font-size: 2rem; margin-right: 0.3rem;"></i>
+          <p class="text-center" style="margin: auto 0;">Pending support tickets</p>
+        </div>
+        <p class="text-center">{{ pending_tickets }}</p>
+      </div>
+      <div class="content item">
+        <div class="flex-row center-content">
+          <i class="bi bi-person-circle" style="color: #fff; font-size: 2rem; margin-right: 0.3rem;"></i>
+          <p class="text-center" style="margin: auto 0;">Total users</p>
+        </div>
+        <p class="text-center">{{ total_users }}</p>
+      </div>
+    </div>
+  </div>
 {% endblock sidebar_content %}

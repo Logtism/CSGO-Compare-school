@@ -6,6 +6,8 @@
       <a href="{% url 'info-support-view' id=ticket.id %}" class="flex-row text-dec-none">
         <p>{{ ticket.title }}</p>
       </a>
+    {% empty %}
+      <p>You have made any support tickets</p>
     {% endfor %}
   </div>
 </div>

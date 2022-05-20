@@ -331,3 +331,7 @@ footer {
 .m-2 {
     margin: 0.3rem;
 }
+
+.center-content {
+    justify-content: center;
+}

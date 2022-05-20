@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from django.urls import reverse
 from django.http import HttpResponseNotFound
+from django.contrib.auth.models import User
 from info.models import SupportTicket
 from items.models import Item
 from .forms import UpdateItemForm
@@ -8,7 +9,15 @@ from .forms import UpdateItemForm
 
 def dashboard(request):
     if request.user.is_staff:
-        return render(request, 'site_admin/dashboard.html')
+        return render(
+            request,
+            'site_admin/dashboard.html',
+            {
+                'pending_items': len(Item.objects.filter(accepted=False).all()),
+                'pending_tickets': len(SupportTicket.objects.filter(closed=False).all()),
+                'total_users': len(User.objects.all())
+            }
+        )
     else:
         return HttpResponseNotFound('This page does not exist')
 
