@@ -1,0 +1,117 @@
+{% extends 'base/base.html' %}
+{% load static %}
+{% block head %}
+<link rel="stylesheet" href="{% static 'items/css/items.css' %}">
+{% endblock head %}
+{% block content %}
+<div class="container">
+  <div class="content mb">
+    <div class="flex-column" style="width:fit-content; margin: 0 auto;">
+      <div class="flex-row center-content">
+        <a href="{% url 'items-subcat' id=item.subcategory.id %}" class="text-dec-none">
+          <h1>{{ item.subcategory.name }}</h1>
+        </a>
+        <h1 style="margin: 0 0.3rem;">|</h1>
+        <a href="{% url 'items-item' id=item.id %}" class="text-dec-none">
+          <h1>{{ item.name }}</h1>
+        </a>
+      </div>
+      {% if item.rarity %}
+        <div class="pil" style="background-color: #{{ item.rarity.color }};">
+          <h2 class="text-center">{{ item.rarity.name }}</h2>
+        </div>
+      {% endif %}
+      {% if item.stattrak %}
+        <div class="pil" style="background-color: #f89406;">
+          <h2 class="text-center">Stattrak Available</h2>
+        </div>
+      {% endif %}
+      {% if item.souvenir %}
+        <div class="pil" style="background-color: gold;">
+          <h2 class="text-center">Souvenir Available</h2>
+        </div>
+      {% endif %}
+    </div>
+    <div class="flex-row center-content">
+      <img class="item-img" src="{{ item.icon_large }}">
+    </div>
+  </div>
+
+  <div class="content mb">
+    <table>
+      <tr>
+        <th>Site</th>
+        <th>Price</th>
+        <th>Listings</th>
+        <th>Daily sales</th>
+      </tr>
+      <tr>
+        <td>
+          <a class="text-dec-none" href="#" target="blank">
+            Steam
+          </a>
+          </td>
+        <td>$88</td>
+        <td>5</td>
+        <td>10</td>
+      </tr>
+      <tr>
+        <td>
+          <a class="text-dec-none" href="https://buff.163.com/" target="blank">
+            Buff
+          </a>
+          </td>
+          <td>$88</td>
+          <td>5</td>
+          <td>10</td>
+      </tr>
+      <tr>
+        <td>
+          <a class="text-dec-none" href="https://www.bitskins.com/" target="blank">
+            Bitskins
+          </a>
+        </td>
+        <td>$88</td>
+        <td>5</td>
+        <td>10</td>
+      </tr>
+      <tr>
+        <td>
+          <a class="text-dec-none" href="https://skinbaron.de/" target="blank">
+            Skinbaron
+          </a>
+        </td>
+        <td>$88</td>
+        <td>5</td>
+        <td>10</td>
+      </tr>
+      <tr>
+        <td>
+          <a class="text-dec-none" href="https://skinport.com/" target="blank">
+            Skinport
+          </a>
+        </td>
+        <td>$88</td>
+        <td>5</td>
+        <td>10</td>
+      </tr>
+    </table>
+  </div>
+
+  {% if item.lowest_float or item.collection and item.added_by %}{% endif %}
+  <div class="content mb">
+    {% if item.lowest_float and item.highest_float %}
+      <h4>Float range</h4>
+      <p>{{ item.lowest_float }} - {{ item.highest_float }}</p>
+    {% endif %}
+    {% if item.collection %}
+      <h4>Collection</h4>
+      <p>{{ item.collection.name }}</p>
+    {% endif %}
+    {% if item.added_by %}
+      <h4>Added by</h4>
+      <p>{{ item.added_by.user.username }}</p>
+    {% endif %}
+  </div>
+</div>
+{% endblock content %}

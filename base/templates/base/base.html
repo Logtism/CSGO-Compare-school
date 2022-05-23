@@ -93,10 +93,10 @@
                   </li>
                   {% if user.is_superuser %}
                     <li>
-                      <a class="nav-link" href="{% url 'admin:index' %}">Django Admin</a>
+                      <a class="nav-link" href="{% url 'admin-dashboard' %}">Site Admin</a>
                     </li>
                     <li>
-                      <a class="nav-link" href="{% url 'admin-dashboard' %}">Site Admin</a>
+                      <a class="nav-link" href="{% url 'admin:index' %}">Django Admin</a>
                     </li>
                   {% endif %}
                   <li>

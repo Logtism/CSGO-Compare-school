@@ -32,3 +32,38 @@
 .title {
     font-size: 1.5rem;
 }
+
+
+.pil {
+    padding: 0.2rem 1rem;
+    margin: 0.2rem 0;
+    border-radius: 0.3rem;
+}
+
+.pil h2 {
+    color: #000;
+}
+
+
+table {
+    color: #fff;
+    width: 100%;
+}
+
+
+th {
+    text-align: left;
+}
+
+
+.item-img {
+    max-width: 100%;
+    height: auto;
+}
+
+
+@media (max-width: 800px) {
+    .item-img {
+        width: auto;
+    }
+}
