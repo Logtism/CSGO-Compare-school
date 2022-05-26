@@ -21,6 +21,10 @@ def about(request):
     return render(request, 'info/about.html')
 
 
+def faq(request):
+    return render(request, 'info/faq.html')
+
+
 @login_required
 def create_ticket(request):
     if request.method == 'POST':
