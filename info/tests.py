@@ -20,6 +20,13 @@ class TestAbout(TestCase, ResolveUrlTest, GetViewTest):
     status = 200
     
     
+class TestFAQ(TestCase, ResolveUrlTest, GetViewTest):
+    name = 'info-faq'
+    view = views.faq
+    template = 'info/faq.html'
+    status = 200
+    
+    
 class TestCreateTicket(TestCase, ResolveUrlTest):
     name = 'info-support-create'
     view = views.create_ticket
