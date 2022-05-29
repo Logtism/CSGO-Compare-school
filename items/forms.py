@@ -9,7 +9,6 @@ class AddItemForm(forms.ModelForm):
         fields = [
             'name',
             'icon',
-            'icon_large',
             'lowest_float',
             'highest_float',
             'stattrak',

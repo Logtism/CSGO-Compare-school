@@ -1,4 +1,5 @@
 from django.test import TestCase, Client
+from django.core.management import call_command
 from django.urls import reverse
 from django.contrib.auth.models import User, Permission
 from firebrick.tests import ResolveUrlTest, GetViewTest
@@ -122,9 +123,7 @@ class TestReviewItem(TestCase, ResolveUrlTest):
     template = 'site_admin/review_item.html'
     
     def setUp(self):
-        self.cat = Category.objects.create(name='cat')
-        self.subcat = Subcategory.objects.create(name='subcat', category=self.cat)
-        self.item = Item.objects.create(id=1, name='test item', icon='icon', icon_large='big icon', subcategory=self.subcat)    
+        call_command('loaddata', 'catogory', 'subcategory', 'rarity', 'collection', 'item', verbosity=0) 
     
     def test_not_logged_in(self):
         client = Client()
@@ -187,7 +186,7 @@ class TestReviewItem(TestCase, ResolveUrlTest):
         client = Client()
         client.login(username='username1', password='password1')
         
-        response = client.get(reverse(self.name, args=[10]))
+        response = client.get(reverse(self.name, args=[1000000]))
         
         self.assertEquals(response.status_code, 404)
         self.assertTemplateNotUsed(response, self.template)
@@ -211,9 +210,7 @@ class TestAcceptItem(TestCase, ResolveUrlTest):
     view = views.item_accept
     
     def setUp(self):
-        self.cat = Category.objects.create(name='cat')
-        self.subcat = Subcategory.objects.create(name='subcat', category=self.cat)
-        self.item = Item.objects.create(id=1, name='test item', icon='icon', icon_large='big icon', subcategory=self.subcat)    
+        call_command('loaddata', 'catogory', 'subcategory', 'rarity', 'collection', 'item', verbosity=0)
     
     def test_not_logged_in(self):
         client = Client()
@@ -271,7 +268,7 @@ class TestAcceptItem(TestCase, ResolveUrlTest):
         client = Client()
         client.login(username='username1', password='password1')
         
-        response = client.get(reverse(self.name, args=[10]))
+        response = client.get(reverse(self.name, args=[10000000]))
         
         self.assertEquals(response.status_code, 404)
 
@@ -287,7 +284,7 @@ class TestAcceptItem(TestCase, ResolveUrlTest):
         self.assertEquals(response.status_code, 302)
         self.assertEquals(response.url, reverse('admin-items'))
         
-        self.assertTrue(Item.objects.get(id=self.item.id).accepted)
+        self.assertTrue(Item.objects.get(id=1).accepted)
         
         
 class TestDeleteItem(TestCase, ResolveUrlTest):
@@ -296,9 +293,7 @@ class TestDeleteItem(TestCase, ResolveUrlTest):
     view = views.item_delete
     
     def setUp(self):
-        self.cat = Category.objects.create(name='cat')
-        self.subcat = Subcategory.objects.create(name='subcat', category=self.cat)
-        self.item = Item.objects.create(id=1, name='test item', icon='icon', icon_large='big icon', subcategory=self.subcat)    
+        call_command('loaddata', 'catogory', 'subcategory', 'rarity', 'collection', 'item', verbosity=0)
     
     def test_not_logged_in(self):
         client = Client()
@@ -356,7 +351,7 @@ class TestDeleteItem(TestCase, ResolveUrlTest):
         client = Client()
         client.login(username='username1', password='password1')
         
-        response = client.get(reverse(self.name, args=[10]))
+        response = client.get(reverse(self.name, args=[1000000]))
         
         self.assertEquals(response.status_code, 404)
 

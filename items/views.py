@@ -23,7 +23,7 @@ def item(request, id):
 @login_required
 def add_item(request):
     if request.method == 'POST':
-        form = AddItemForm(request.POST)
+        form = AddItemForm(request.POST, request.FILES)
         if form.is_valid():
             data = form.save(commit=False)
             data.added_by = Profile.objects.get(user=request.user)

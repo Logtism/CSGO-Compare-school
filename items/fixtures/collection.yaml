@@ -1,0 +1,370 @@
+- model: items.collection
+  pk: 1
+  fields:
+    name: The Vertigo Collection
+    icon: imgs/collection/the-vertigo-collection.png
+- model: items.collection
+  pk: 2
+  fields:
+    name: The Office Collection
+    icon: imgs/collection/the-office-collection.png
+- model: items.collection
+  pk: 3
+  fields:
+    name: The Nuke Collection
+    icon: imgs/collection/the-nuke-collection.png
+- model: items.collection
+  pk: 4
+  fields:
+    name: The Militia Collection
+    icon: imgs/collection/the-militia-collection.png
+- model: items.collection
+  pk: 5
+  fields:
+    name: The Inferno Collection
+    icon: imgs/collection/the-inferno-collection.png
+- model: items.collection
+  pk: 6
+  fields:
+    name: The eSports 2013 Collection
+    icon: imgs/collection/the-esports-2013-collection.png
+- model: items.collection
+  pk: 7
+  fields:
+    name: The Dust Collection
+    icon: imgs/collection/the-dust-collection.png
+- model: items.collection
+  pk: 8
+  fields:
+    name: The Aztec Collection
+    icon: imgs/collection/the-aztec-collection.png
+- model: items.collection
+  pk: 9
+  fields:
+    name: The Assault Collection
+    icon: imgs/collection/the-assault-collection.png
+- model: items.collection
+  pk: 10
+  fields:
+    name: The Arms Deal Collection
+    icon: imgs/collection/the-arms-deal-collection.png
+- model: items.collection
+  pk: 11
+  fields:
+    name: The Bravo Collection
+    icon: imgs/collection/the-bravo-collection.png
+- model: items.collection
+  pk: 12
+  fields:
+    name: The Alpha Collection
+    icon: imgs/collection/the-alpha-collection.png
+- model: items.collection
+  pk: 13
+  fields:
+    name: The Arms Deal 2 Collection
+    icon: imgs/collection/the-arms-deal-2-collection.png
+- model: items.collection
+  pk: 14
+  fields:
+    name: The Train Collection
+    icon: imgs/collection/the-train-collection.png
+- model: items.collection
+  pk: 15
+  fields:
+    name: The Safehouse Collection
+    icon: imgs/collection/the-safehouse-collection.png
+- model: items.collection
+  pk: 16
+  fields:
+    name: The Mirage Collection
+    icon: imgs/collection/the-mirage-collection.png
+- model: items.collection
+  pk: 17
+  fields:
+    name: The Lake Collection
+    icon: imgs/collection/the-lake-collection.png
+- model: items.collection
+  pk: 18
+  fields:
+    name: The Italy Collection
+    icon: imgs/collection/the-italy-collection.png
+- model: items.collection
+  pk: 19
+  fields:
+    name: The Dust 2 Collection
+    icon: imgs/collection/the-dust-2-collection.png
+- model: items.collection
+  pk: 20
+  fields:
+    name: The Winter Offensive Collection
+    icon: imgs/collection/the-winter-offensive-collection.png
+- model: items.collection
+  pk: 21
+  fields:
+    name: The eSports 2013 Winter Collection
+    icon: imgs/collection/the-esports-2013-winter-collection.png
+- model: items.collection
+  pk: 22
+  fields:
+    name: The Arms Deal 3 Collection
+    icon: imgs/collection/the-arms-deal-3-collection.png
+- model: items.collection
+  pk: 23
+  fields:
+    name: The Phoenix Collection
+    icon: imgs/collection/the-phoenix-collection.png
+- model: items.collection
+  pk: 24
+  fields:
+    name: The Huntsman Collection
+    icon: imgs/collection/the-huntsman-collection.png
+- model: items.collection
+  pk: 25
+  fields:
+    name: The Bank Collection
+    icon: imgs/collection/the-bank-collection.png
+- model: items.collection
+  pk: 26
+  fields:
+    name: The Overpass Collection
+    icon: imgs/collection/the-overpass-collection.png
+- model: items.collection
+  pk: 27
+  fields:
+    name: The Cobblestone Collection
+    icon: imgs/collection/the-cobblestone-collection.png
+- model: items.collection
+  pk: 28
+  fields:
+    name: The Breakout Collection
+    icon: imgs/collection/the-breakout-collection.png
+- model: items.collection
+  pk: 29
+  fields:
+    name: The Baggage Collection
+    icon: imgs/collection/the-baggage-collection.png
+- model: items.collection
+  pk: 30
+  fields:
+    name: The eSports 2014 Summer Collection
+    icon: imgs/collection/the-esports-2014-summer-collection.png
+- model: items.collection
+  pk: 31
+  fields:
+    name: The Cache Collection
+    icon: imgs/collection/the-cache-collection.png
+- model: items.collection
+  pk: 32
+  fields:
+    name: The Vanguard Collection
+    icon: imgs/collection/the-vanguard-collection.png
+- model: items.collection
+  pk: 33
+  fields:
+    name: The Chroma Collection
+    icon: imgs/collection/the-chroma-collection.png
+- model: items.collection
+  pk: 34
+  fields:
+    name: The Chroma 2 Collection
+    icon: imgs/collection/the-chroma-2-collection.png
+- model: items.collection
+  pk: 35
+  fields:
+    name: The Rising Sun Collection
+    icon: imgs/collection/the-rising-sun-collection.png
+- model: items.collection
+  pk: 36
+  fields:
+    name: The Gods and Monsters Collection
+    icon: imgs/collection/the-gods-and-monsters-collection.png
+- model: items.collection
+  pk: 37
+  fields:
+    name: The Falchion Collection
+    icon: imgs/collection/the-falchion-collection.png
+- model: items.collection
+  pk: 38
+  fields:
+    name: The Chop Shop Collection
+    icon: imgs/collection/the-chop-shop-collection.png
+- model: items.collection
+  pk: 39
+  fields:
+    name: The Shadow Collection
+    icon: imgs/collection/the-shadow-collection.png
+- model: items.collection
+  pk: 40
+  fields:
+    name: The Revolver Case Collection
+    icon: imgs/collection/the-revolver-case-collection.png
+- model: items.collection
+  pk: 41
+  fields:
+    name: The Wildfire Collection
+    icon: imgs/collection/the-wildfire-collection.png
+- model: items.collection
+  pk: 42
+  fields:
+    name: The Chroma 3 Collection
+    icon: imgs/collection/the-chroma-3-collection.png
+- model: items.collection
+  pk: 43
+  fields:
+    name: The Gamma Collection
+    icon: imgs/collection/the-gamma-collection.png
+- model: items.collection
+  pk: 44
+  fields:
+    name: The Gamma 2 Collection
+    icon: imgs/collection/the-gamma-2-collection.png
+- model: items.collection
+  pk: 45
+  fields:
+    name: The Glove Collection
+    icon: imgs/collection/the-glove-collection.png
+- model: items.collection
+  pk: 46
+  fields:
+    name: The Spectrum Collection
+    icon: imgs/collection/the-spectrum-collection.png
+- model: items.collection
+  pk: 47
+  fields:
+    name: Operation Hydra
+    icon: imgs/collection/operation-hydra.png
+- model: items.collection
+  pk: 48
+  fields:
+    name: The Spectrum 2 Collection
+    icon: imgs/collection/the-spectrum-2-collection.png
+- model: items.collection
+  pk: 49
+  fields:
+    name: The Horizon Collection
+    icon: imgs/collection/the-horizon-collection.png
+- model: items.collection
+  pk: 50
+  fields:
+    name: The 2018 Nuke Collection
+    icon: imgs/collection/the-2018-nuke-collection.png
+- model: items.collection
+  pk: 51
+  fields:
+    name: The 2018 Inferno Collection
+    icon: imgs/collection/the-2018-inferno-collection.png
+- model: items.collection
+  pk: 52
+  fields:
+    name: The Danger Zone Collection
+    icon: imgs/collection/the-danger-zone-collection.png
+- model: items.collection
+  pk: 53
+  fields:
+    name: The Blacksite Collection
+    icon: imgs/collection/the-blacksite-collection.png
+- model: items.collection
+  pk: 54
+  fields:
+    name: The Clutch Collection
+    icon: imgs/collection/the-clutch-collection.png
+- model: items.collection
+  pk: 55
+  fields:
+    name: The Prisma Collection
+    icon: imgs/collection/the-prisma-collection.png
+- model: items.collection
+  pk: 56
+  fields:
+    name: The X-Ray Collection
+    icon: imgs/collection/the-x-ray-collection.png
+- model: items.collection
+  pk: 57
+  fields:
+    name: The CS20 Collection
+    icon: imgs/collection/the-cs20-collection.png
+- model: items.collection
+  pk: 58
+  fields:
+    name: The Shattered Web Collection
+    icon: imgs/collection/the-shattered-web-collection.png
+- model: items.collection
+  pk: 59
+  fields:
+    name: The St. Marc Collection
+    icon: imgs/collection/the-st-marc-collection.png
+- model: items.collection
+  pk: 60
+  fields:
+    name: The Norse Collection
+    icon: imgs/collection/the-norse-collection.png
+- model: items.collection
+  pk: 61
+  fields:
+    name: The Canals Collection
+    icon: imgs/collection/the-canals-collection.png
+- model: items.collection
+  pk: 62
+  fields:
+    name: The Prisma 2 Collection
+    icon: imgs/collection/the-prisma-2-collection.png
+- model: items.collection
+  pk: 63
+  fields:
+    name: The Fracture Collection
+    icon: imgs/collection/the-fracture-collection.png
+- model: items.collection
+  pk: 64
+  fields:
+    name: The Ancient Collection
+    icon: imgs/collection/the-ancient-collection.png
+- model: items.collection
+  pk: 65
+  fields:
+    name: The Havoc Collection
+    icon: imgs/collection/the-havoc-collection.png
+- model: items.collection
+  pk: 66
+  fields:
+    name: The Control Collection
+    icon: imgs/collection/the-control-collection.png
+- model: items.collection
+  pk: 67
+  fields:
+    name: The Operation Broken Fang Collection
+    icon: imgs/collection/the-operation-broken-fang-collection.png
+- model: items.collection
+  pk: 68
+  fields:
+    name: The Snakebite Collection
+    icon: imgs/collection/the-snakebite-collection.png
+- model: items.collection
+  pk: 69
+  fields:
+    name: The 2021 Vertigo Collection
+    icon: imgs/collection/the-2021-vertigo-collection.png
+- model: items.collection
+  pk: 70
+  fields:
+    name: The 2021 Dust 2 Collection
+    icon: imgs/collection/the-2021-dust-2-collection.png
+- model: items.collection
+  pk: 71
+  fields:
+    name: The 2021 Mirage Collection
+    icon: imgs/collection/the-2021-mirage-collection.png
+- model: items.collection
+  pk: 72
+  fields:
+    name: The 2021 Train Collection
+    icon: imgs/collection/the-2021-train-collection.png
+- model: items.collection
+  pk: 73
+  fields:
+    name: The Operation Riptide Collection
+    icon: imgs/collection/the-operation-riptide-collection.png
+- model: items.collection
+  pk: 74
+  fields:
+    name: The Dreams & Nightmares Collection
+    icon: imgs/collection/the-dreams-nightmares-collection.png

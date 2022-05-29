@@ -33,7 +33,7 @@
       {% endif %}
     </div>
     <div class="flex-row center-content">
-      <img class="item-img" src="{{ item.icon_large }}">
+      <img class="item-img" src="{{ item.icon.url }}">
     </div>
   </div>
 
@@ -47,7 +47,7 @@
       </tr>
       <tr>
         <td>
-          <a class="text-dec-none" href="#" target="blank">
+          <a class="text-dec-none" href="https://steamcommunity.com/market/search?appid=730" target="blank">
             Steam
           </a>
           </td>
@@ -100,7 +100,7 @@
 
   {% if item.lowest_float or item.collection and item.added_by %}{% endif %}
   <div class="content mb">
-    {% if item.lowest_float and item.highest_float %}
+    {% if item.lowest_float != none and item.highest_float %}
       <h4>Float range</h4>
       <p>{{ item.lowest_float }} - {{ item.highest_float }}</p>
     {% endif %}

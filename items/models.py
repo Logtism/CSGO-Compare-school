@@ -1,5 +1,6 @@
 from django.db import models
 from accounts.models import Profile
+import os
 
 
 class Category(models.Model):
@@ -12,13 +13,12 @@ class Category(models.Model):
     
 class Subcategory(models.Model):
     name = models.CharField(max_length=150)
-    icon = models.CharField(max_length=400, null=True, blank=True)
-    icon_large = models.CharField(max_length=400, null=True, blank=True)
+    icon = models.ImageField(upload_to=os.path.join('imgs', 'collection', 'small'))
+    icon_large = models.ImageField(upload_to=os.path.join('imgs', 'collection', 'large'))
     category = models.ForeignKey(Category, on_delete=models.CASCADE, related_name='subcategories')
     
     def __str__(self):
         return f'{self.name}'
-    
     
 
 class Rarity(models.Model):
@@ -31,8 +31,7 @@ class Rarity(models.Model):
     
 class Collection(models.Model):
     name = models.CharField(max_length=200)
-    icon = models.CharField(max_length=400)
-    icon_large = models.CharField(max_length=400)
+    icon = models.ImageField(upload_to=os.path.join('imgs', 'collection'))
     
     def __str__(self):
         return f'{self.name}'
@@ -40,18 +39,20 @@ class Collection(models.Model):
     
 class Container(models.Model):
     name = models.CharField(max_length=200)
-    icon = models.CharField(max_length=400)
-    icon_large = models.CharField(max_length=400)
+    icon = models.ImageField(upload_to=os.path.join('imgs', 'container'))
     collection = models.ForeignKey(Collection, on_delete=models.CASCADE)
     
     def __str__(self):
         return f'{self.name}'
-    
+  
+  
+def get_upload_to_path(self, file_name):
+    return f'imgs/item/{self.subcategory.name}/{file_name}'
+
     
 class Item(models.Model):
     name = models.CharField(max_length=300)
-    icon = models.CharField(max_length=400)
-    icon_large = models.CharField(max_length=400)
+    icon = models.ImageField(upload_to=get_upload_to_path)
     lowest_float = models.FloatField(null=True, blank=True)
     highest_float = models.FloatField(null=True, blank=True)
     stattrak = models.BooleanField(default=False)

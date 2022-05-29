@@ -44,7 +44,7 @@
                     <li>
                       <a class="nav-link" href="{% url 'items-subcat' id=subcategories.id %}">
                         <div class="flex-row m-2">
-                          <img src="{{ subcategories.icon }}">
+                          <img src="{{ subcategories.icon.url }}">
                           <p class="mtb-auto">{{ subcategories.name }}</p>
                         </div>
                       </a>

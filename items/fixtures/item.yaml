@@ -1,0 +1,286 @@
+- model: items.item
+  pk: 1
+  fields:
+    name: Forest Leaves
+    icon: imgs/item/usp-s/forest_leaves.png
+    lowest_float: 0.06
+    highest_float: 0.80
+    stattrak: false
+    souvenir: true
+    accepted: true
+    subcategory: 1
+    rarity: 2
+    collection: 15
+- model: items.item
+  pk: 2
+  fields:
+    name: Black Lotus
+    icon: imgs/item/usp-s/black_lotus.png
+    lowest_float: 0.0
+    highest_float: 0.90
+    stattrak: true
+    souvenir: false
+    accepted: true
+    subcategory: 1
+    rarity: 3
+    collection: 73
+- model: items.item
+  pk: 3
+  fields:
+    name: Cyrex
+    icon: imgs/item/usp-s/cyrex.png
+    lowest_float: 0.0
+    highest_float: 0.55
+    stattrak: true
+    souvenir: false
+    accepted: true
+    subcategory: 1
+    rarity: 4
+    collection: 45
+- model: items.item
+  pk: 4
+  fields:
+    name: Whiteout
+    icon: imgs/item/usp-s/whiteout.png
+    lowest_float: 0.06
+    highest_float: 0.80
+    stattrak: false
+    souvenir: false
+    accepted: true
+    subcategory: 1
+    rarity: 5
+    collection: 72
+- model: items.item
+  pk: 5
+  fields:
+    name: Neo-Noir
+    icon: imgs/item/usp-s/neo-noir.png
+    lowest_float: 0.00
+    highest_float: 0.70
+    stattrak: true
+    souvenir: false
+    accepted: true
+    subcategory: 1
+    rarity: 6
+    collection: 46
+- model: items.item
+  pk: 6
+  fields:
+    name: Fade
+    icon: imgs/item/glock-18/fade.png
+    lowest_float: 0.00
+    highest_float: 0.08
+    stattrak: false
+    souvenir: false
+    accepted: true
+    subcategory: 3
+    rarity: 4
+    collection: 9
+- model: items.item
+  pk: 7
+  fields:
+    name: Sand Dune
+    icon: imgs/item/p250/sand_dune.png
+    lowest_float: 0.06
+    highest_float: 0.80
+    stattrak: false
+    souvenir: true
+    accepted: true
+    subcategory: 5
+    rarity: 1
+    collection: 19
+- model: items.item
+  pk: 8
+  fields:
+    name: Blaze
+    icon: imgs/item/desert_eagle/blaze.png
+    lowest_float: 0.00
+    highest_float: 0.08
+    stattrak: false
+    souvenir: false
+    accepted: true
+    subcategory: 9
+    rarity: 4
+    collection: 7
+- model: items.item
+  pk: 9
+  fields:
+    name: Starlight Protector
+    icon: imgs/item/mp9/starlight_protector.png
+    lowest_float: 0.00
+    highest_float: 0.80
+    stattrak: true
+    souvenir: false
+    accepted: true
+    subcategory: 11
+    rarity: 6
+    collection: 74
+- model: items.item
+  pk: 10
+  fields:
+    name: Neon Rider
+    icon: imgs/item/mac-10/neon_rider.png
+    lowest_float: 0.00
+    highest_float: 0.45
+    stattrak: true
+    souvenir: false
+    accepted: true
+    subcategory: 12
+    rarity: 6
+    collection: 34
+- model: items.item
+  pk: 11
+  fields:
+    name: Howl
+    icon: imgs/item/m4a4/howl.png
+    lowest_float: 0.00
+    highest_float: 0.40
+    stattrak: true
+    souvenir: false
+    accepted: true
+    subcategory: 20
+    rarity: 7
+    collection: 
+- model: items.item
+  pk: 12
+  fields:
+    name: Printstream
+    icon: imgs/item/m4a1-s/printstream.png
+    lowest_float: 0.00
+    highest_float: 0.80
+    stattrak: true
+    souvenir: false
+    accepted: true
+    subcategory: 21
+    rarity: 6
+    collection: 67
+- model: items.item
+  pk: 13
+  fields:
+    name: Redline
+    icon: imgs/item/ak-47/redline.png
+    lowest_float: 0.10
+    highest_float: 0.70
+    stattrak: true
+    souvenir: false
+    accepted: true
+    subcategory: 22
+    rarity: 5
+    collection: 23
+- model: items.item
+  pk: 14
+  fields:
+    name: Blood in the Water
+    icon: imgs/item/ssg-08/blood_in_the_water.png
+    lowest_float: 0.06
+    highest_float: 0.20
+    stattrak: true
+    souvenir: false
+    accepted: true
+    subcategory: 25
+    rarity: 6
+    collection: 13
+- model: items.item
+  pk: 15
+  fields:
+    name: Dragon Lore
+    icon: imgs/item/awp/dragon_lore.png
+    lowest_float: 0.00
+    highest_float: 0.70
+    stattrak: false
+    souvenir: true
+    accepted: true
+    subcategory: 26
+    rarity: 6
+    collection: 27
+- model: items.item
+  pk: 16
+  fields:
+    name: Autotronic
+    icon: imgs/item/gut-knife/autotronic.png
+    lowest_float: 0.00
+    highest_float: 0.85
+    stattrak: true
+    souvenir: false
+    accepted: true
+    subcategory: 35
+    rarity: 6
+    collection: 
+- model: items.item
+  pk: 17
+  fields:
+    name: Doppler
+    icon: imgs/item/flip-knife/doppler.png
+    lowest_float: 0.00
+    highest_float: 0.08
+    stattrak: true
+    souvenir: false
+    accepted: true
+    subcategory: 36
+    rarity: 6
+    collection: 
+- model: items.item
+  pk: 18
+  fields:
+    name: Night
+    icon: imgs/item/bayonet/night.png
+    lowest_float: 0.00
+    highest_float: 0.80
+    stattrak: true
+    souvenir: false
+    accepted: true
+    subcategory: 37
+    rarity: 6
+    collection: 
+- model: items.item
+  pk: 19
+  fields:
+    name: Gamma Doppler
+    icon: imgs/item/m9-bayonet/gamma_doppler.png
+    lowest_float: 0.00
+    highest_float: 0.08
+    stattrak: true
+    souvenir: false
+    accepted: true
+    subcategory: 38
+    rarity: 6
+    collection: 
+- model: items.item
+  pk: 20
+  fields:
+    name: Fade
+    icon: imgs/item/karambit/fade.png
+    lowest_float: 0.00
+    highest_float: 0.08
+    stattrak: true
+    souvenir: false
+    accepted: true
+    subcategory: 39
+    rarity: 6
+    collection: 
+- model: items.item
+  pk: 21
+  fields:
+    name: Slaughter
+    icon: imgs/item/huntsman-knife/slaughter.png
+    lowest_float: 0.01
+    highest_float: 0.26
+    stattrak: true
+    souvenir: false
+    accepted: true
+    subcategory: 40
+    rarity: 6
+    collection: 
+- model: items.item
+  pk: 22
+  fields:
+    name: Lore
+    icon: imgs/item/butterfly-knife/lore.png
+    lowest_float: 0.0
+    highest_float: 1.0
+    stattrak: true
+    souvenir: false
+    accepted: true
+    subcategory: 41
+    rarity: 6
+    collection: 

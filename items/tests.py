@@ -1,4 +1,6 @@
 from django.test import TestCase, Client
+from django.core.files.uploadedfile import SimpleUploadedFile
+from django.core.management import call_command
 from django.contrib.auth.models import User
 from django.urls import reverse
 from django.conf import settings
@@ -6,6 +8,8 @@ from firebrick.tests import ResolveUrlTest
 from accounts.models import Profile
 from .models import Category, Subcategory, Rarity, Collection, Item
 from . import views
+import shutil
+import os
 
 
 class TestSubcat(TestCase, ResolveUrlTest):
@@ -21,9 +25,7 @@ class TestSubcat(TestCase, ResolveUrlTest):
         self.assertEquals(response.status_code, 404)
         
     def test_id_does_exist(self):
-        cat = Category.objects.create(name='cat')
-        subcat = Subcategory.objects.create(name='subcat', category=cat)
-        # item = Item.objects.create(name='test item', icon='icon url', icon_large='big icon url', subcategory=subcat)
+        call_command('loaddata', 'catogory', 'subcategory', verbosity=0)
         
         client = Client()
         
@@ -46,7 +48,7 @@ class TestCollection(TestCase, ResolveUrlTest):
         self.assertEquals(response.status_code, 404)
         
     def test_id_does_exist(self):
-        collection = Collection.objects.create(id=1, name='test name', icon='icon', icon_large='big icon')
+        collection = Collection.objects.create(id=1, name='test name', icon='icon')
         
         client = Client()
         
@@ -71,7 +73,7 @@ class TestItem(TestCase, ResolveUrlTest):
     def test_id_does_exist_not_accepted(self):
         cat = Category.objects.create(name='cat')
         subcat = Subcategory.objects.create(name='subcat', category=cat)
-        item = Item.objects.create(id=1, name='test item', icon='icon url', icon_large='big icon url', subcategory=subcat)
+        item = Item.objects.create(id=1, name='test item', icon='icon url', subcategory=subcat)
         
         client = Client()
         
@@ -83,7 +85,7 @@ class TestItem(TestCase, ResolveUrlTest):
     def test_id_does_exist_accepted(self):
         cat = Category.objects.create(name='cat')
         subcat = Subcategory.objects.create(name='subcat', category=cat)
-        item = Item.objects.create(id=1, name='test item', icon='icon url', icon_large='big icon url', accepted=True, subcategory=subcat)
+        call_command('loaddata', 'catogory', 'subcategory', 'rarity', 'collection', 'item', verbosity=0)
         
         client = Client()
         
@@ -99,10 +101,17 @@ class TestAddItem(TestCase, ResolveUrlTest):
     
     def setUp(self):
         self.cat = Category.objects.create(name='cat')
-        self.subcat = Subcategory.objects.create(name='subcat', category=self.cat)
+        self.subcat = Subcategory.objects.create(name='subcat', category=self.cat, icon='imgs/subcategory/small/ak-47.png', icon_large='imgs/subcategory/large/ak-47.png')
         self.rarity = Rarity.objects.create(name='good', color='#fff')
-        self.collection = Collection.objects.create(name='test', icon='icon url', icon_large='big icon url')
+        self.collection = Collection.objects.create(name='test', icon='imgs/collection/operation-hydra.png')
         self.user = User.objects.create_user(username='testuser1', password='password1')
+        
+        with open(os.path.join('media', 'imgs', 'item', 'ak-47', 'redline.png'), 'rb') as f:
+            self.test_img_data = f.read()
+    
+    def tearDown(self):
+        if os.path.isfile(os.path.join('media', 'imgs', 'item', 'subcat', 'test.png')):
+            shutil.rmtree(os.path.join('media', 'imgs', 'item', 'subcat'))
     
     def test_get_not_logged_in(self):
         client = Client()
@@ -147,8 +156,7 @@ class TestAddItem(TestCase, ResolveUrlTest):
             reverse(self.name),
             {
                 'name': 'test_item',
-                'icon': 'icon url',
-                'icon_large': 'big icon url',
+                'icon': SimpleUploadedFile('test.png', self.test_img_data),
                 'subcategory': self.subcat.id
             }
         )
@@ -159,12 +167,13 @@ class TestAddItem(TestCase, ResolveUrlTest):
         self.assertObjectExists(
             Item,
             name='test_item',
-            icon='icon url',
-            icon_large='big icon url',
+            icon='imgs/item/subcat/test.png',
             accepted=False,
             added_by=Profile.objects.get(user=User.objects.get(username=self.user.username)),
             subcategory=self.subcat
         )
+        
+        self.assertTrue(os.path.isfile(os.path.join('media', 'imgs', 'item', 'subcat', 'test.png')))
         
     def test_with_all_fields(self):
         client = Client()
@@ -174,8 +183,7 @@ class TestAddItem(TestCase, ResolveUrlTest):
             reverse(self.name),
             {
                 'name': 'test_item',
-                'icon': 'icon url',
-                'icon_large': 'big icon url',
+                'icon': SimpleUploadedFile('test.png', self.test_img_data),
                 'lowest_float': 0.0,
                 'highest_float': 0.999,
                 'stattrak': True,
@@ -192,8 +200,7 @@ class TestAddItem(TestCase, ResolveUrlTest):
         self.assertObjectExists(
             Item,
             name='test_item',
-            icon='icon url',
-            icon_large='big icon url',
+            icon='imgs/item/subcat/test.png',
             lowest_float=0.0,
             highest_float = 0.999,
             stattrak=True,
@@ -204,3 +211,5 @@ class TestAddItem(TestCase, ResolveUrlTest):
             rarity=self.rarity,
             collection=self.collection
         )
+        
+        self.assertTrue(os.path.isfile(os.path.join('media', 'imgs', 'item', 'subcat', 'test.png')))

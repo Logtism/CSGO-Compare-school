@@ -1,0 +1,371 @@
+- model: items.subcategory
+  pk: 1
+  fields:
+    name: USP-S
+    icon: imgs/subcategory/small/usp-s.png
+    icon_large: imgs/subcategory/large/usp-s.png
+    category: 1
+- model: items.subcategory
+  pk: 2
+  fields:
+    name: P2000
+    icon: imgs/subcategory/small/p2000.png
+    icon_large: imgs/subcategory/large/p2000.png
+    category: 1
+- model: items.subcategory
+  pk: 3
+  fields:
+    name: Glock-18
+    icon: imgs/subcategory/small/glock-18.png
+    icon_large: imgs/subcategory/large/glock-18.png
+    category: 1
+- model: items.subcategory
+  pk: 4
+  fields:
+    name: Dual Berettas
+    icon: imgs/subcategory/small/dual_berettas.png
+    icon_large: imgs/subcategory/large/dual_berettas.png
+    category: 1
+- model: items.subcategory
+  pk: 5
+  fields:
+    name: P250
+    icon: imgs/subcategory/small/p250.png
+    icon_large: imgs/subcategory/large/p250.png
+    category: 1
+- model: items.subcategory
+  pk: 6
+  fields:
+    name: Five-SeveN
+    icon: imgs/subcategory/small/five-seven.png
+    icon_large: imgs/subcategory/large/five-seven.png
+    category: 1
+- model: items.subcategory
+  pk: 7
+  fields:
+    name: CZ75-Auto
+    icon: imgs/subcategory/small/cz75-auto.png
+    icon_large: imgs/subcategory/large/cz75-auto.png
+    category: 1
+- model: items.subcategory
+  pk: 8
+  fields:
+    name: Tec-9
+    icon: imgs/subcategory/small/tec-9.png
+    icon_large: imgs/subcategory/large/tec-9.png
+    category: 1
+- model: items.subcategory
+  pk: 9
+  fields:
+    name: Desert Eagle
+    icon: imgs/subcategory/small/desert_eagle.png
+    icon_large: imgs/subcategory/large/desert_eagle.png
+    category: 1
+- model: items.subcategory
+  pk: 10
+  fields:
+    name: R8 Revolver
+    icon: imgs/subcategory/small/r8_revolver.png
+    icon_large: imgs/subcategory/large/r8_revolver.png
+    category: 1
+- model: items.subcategory
+  pk: 11
+  fields:
+    name: MP9
+    icon: imgs/subcategory/small/mp9.png
+    icon_large: imgs/subcategory/large/mp9.png
+    category: 2
+- model: items.subcategory
+  pk: 12
+  fields:
+    name: MAC-10
+    icon: imgs/subcategory/small/mac-10.png
+    icon_large: imgs/subcategory/large/mac-10.png
+    category: 2
+- model: items.subcategory
+  pk: 13
+  fields:
+    name: MP7
+    icon: imgs/subcategory/small/mp7.png
+    icon_large: imgs/subcategory/large/mp7.png
+    category: 2
+- model: items.subcategory
+  pk: 14
+  fields:
+    name: MP5-SD
+    icon: imgs/subcategory/small/mp5-sd.png
+    icon_large: imgs/subcategory/large/mp5-sd.png
+    category: 2
+- model: items.subcategory
+  pk: 15
+  fields:
+    name: UMP-45
+    icon: imgs/subcategory/small/ump-45.png
+    icon_large: imgs/subcategory/large/ump-45.png
+    category: 2
+- model: items.subcategory
+  pk: 16
+  fields:
+    name: P90
+    icon: imgs/subcategory/small/p90.png
+    icon_large: imgs/subcategory/large/p90.png
+    category: 2
+- model: items.subcategory
+  pk: 17
+  fields:
+    name: PP-Bizon
+    icon: imgs/subcategory/small/pp-bizon.png
+    icon_large: imgs/subcategory/large/pp-bizon.png
+    category: 2
+- model: items.subcategory
+  pk: 18
+  fields:
+    name: FAMAS
+    icon: imgs/subcategory/small/famas.png
+    icon_large: imgs/subcategory/large/famas.png
+    category: 3
+- model: items.subcategory
+  pk: 19
+  fields:
+    name: Galil AR
+    icon: imgs/subcategory/small/galil_ar.png
+    icon_large: imgs/subcategory/large/galil_ar.png
+    category: 3
+- model: items.subcategory
+  pk: 20
+  fields:
+    name: M4A4
+    icon: imgs/subcategory/small/m4a4.png
+    icon_large: imgs/subcategory/large/m4a4.png
+    category: 3
+- model: items.subcategory
+  pk: 21
+  fields:
+    name: M4A1-S
+    icon: imgs/subcategory/small/m4a1-s.png
+    icon_large: imgs/subcategory/large/m4a1-s.png
+    category: 3
+- model: items.subcategory
+  pk: 22
+  fields:
+    name: AK-47
+    icon: imgs/subcategory/small/ak-47.png
+    icon_large: imgs/subcategory/large/ak-47.png
+    category: 3
+- model: items.subcategory
+  pk: 23
+  fields:
+    name: AUG
+    icon: imgs/subcategory/small/aug.png
+    icon_large: imgs/subcategory/large/aug.png
+    category: 3
+- model: items.subcategory
+  pk: 24
+  fields:
+    name: SG 553
+    icon: imgs/subcategory/small/sg_553.png
+    icon_large: imgs/subcategory/large/sg_553.png
+    category: 3
+- model: items.subcategory
+  pk: 25
+  fields:
+    name: SSG 08
+    icon: imgs/subcategory/small/ssg_08.png
+    icon_large: imgs/subcategory/large/ssg_08.png
+    category: 4
+- model: items.subcategory
+  pk: 26
+  fields:
+    name: AWP
+    icon: imgs/subcategory/small/awp.png
+    icon_large: imgs/subcategory/large/awp.png
+    category: 4
+- model: items.subcategory
+  pk: 27
+  fields:
+    name: SCAR-20
+    icon: imgs/subcategory/small/scar-20.png
+    icon_large: imgs/subcategory/large/scar-20.png
+    category: 4
+- model: items.subcategory
+  pk: 28
+  fields:
+    name: G3SG1
+    icon: imgs/subcategory/small/g3sg1.png
+    icon_large: imgs/subcategory/large/g3sg1.png
+    category: 4
+- model: items.subcategory
+  pk: 29
+  fields:
+    name: XM1014
+    icon: imgs/subcategory/small/xm1014.png
+    icon_large: imgs/subcategory/large/xm1014.png
+    category: 5
+- model: items.subcategory
+  pk: 30
+  fields:
+    name: Nova
+    icon: imgs/subcategory/small/nova.png
+    icon_large: imgs/subcategory/large/nova.png
+    category: 5
+- model: items.subcategory
+  pk: 31
+  fields:
+    name: MAG-7
+    icon: imgs/subcategory/small/mag-7.png
+    icon_large: imgs/subcategory/large/mag-7.png
+    category: 5
+- model: items.subcategory
+  pk: 32
+  fields:
+    name: Sawed-Off
+    icon: imgs/subcategory/small/sawed-off.png
+    icon_large: imgs/subcategory/large/sawed-off.png
+    category: 5
+- model: items.subcategory
+  pk: 33
+  fields:
+    name: Negev
+    icon: imgs/subcategory/small/negev.png
+    icon_large: imgs/subcategory/large/negev.png
+    category: 5
+- model: items.subcategory
+  pk: 34
+  fields:
+    name: M249
+    icon: imgs/subcategory/small/m249.png
+    icon_large: imgs/subcategory/large/m249.png
+    category: 5
+- model: items.subcategory
+  pk: 35
+  fields:
+    name: Gut Knife
+    icon: imgs/subcategory/small/gut_knife.png
+    icon_large: imgs/subcategory/large/gut_knife.png
+    category: 6
+- model: items.subcategory
+  pk: 36
+  fields:
+    name: Flip Knife
+    icon: imgs/subcategory/small/flip_knife.png
+    icon_large: imgs/subcategory/large/flip_knife.png
+    category: 6
+- model: items.subcategory
+  pk: 37
+  fields:
+    name: Bayonet
+    icon: imgs/subcategory/small/bayonet.png
+    icon_large: imgs/subcategory/large/bayonet.png
+    category: 6
+- model: items.subcategory
+  pk: 38
+  fields:
+    name: M9 Bayonet
+    icon: imgs/subcategory/small/m9_bayonet.png
+    icon_large: imgs/subcategory/large/m9_bayonet.png
+    category: 6
+- model: items.subcategory
+  pk: 39
+  fields:
+    name: Karambit
+    icon: imgs/subcategory/small/karambit.png
+    icon_large: imgs/subcategory/large/karambit.png
+    category: 6
+- model: items.subcategory
+  pk: 40
+  fields:
+    name: Huntsman Knife
+    icon: imgs/subcategory/small/huntsman_knife.png
+    icon_large: imgs/subcategory/large/huntsman_knife.png
+    category: 6
+- model: items.subcategory
+  pk: 41
+  fields:
+    name: Butterfly Knife
+    icon: imgs/subcategory/small/butterfly_knife.png
+    icon_large: imgs/subcategory/large/butterfly_knife.png
+    category: 6
+- model: items.subcategory
+  pk: 42
+  fields:
+    name: Falchion Knife
+    icon: imgs/subcategory/small/falchion_knife.png
+    icon_large: imgs/subcategory/large/falchion_knife.png
+    category: 6
+- model: items.subcategory
+  pk: 43
+  fields:
+    name: Shadow Daggers
+    icon: imgs/subcategory/small/shadow_daggers.png
+    icon_large: imgs/subcategory/large/shadow_daggers.png
+    category: 6
+- model: items.subcategory
+  pk: 44
+  fields:
+    name: Bowie Knife
+    icon: imgs/subcategory/small/bowie_knife.png
+    icon_large: imgs/subcategory/large/bowie_knife.png
+    category: 6
+- model: items.subcategory
+  pk: 45
+  fields:
+    name: Navaja Knife
+    icon: imgs/subcategory/small/navaja_knife.png
+    icon_large: imgs/subcategory/large/navaja_knife.png
+    category: 6
+- model: items.subcategory
+  pk: 46
+  fields:
+    name: Stiletto Knife
+    icon: imgs/subcategory/small/stiletto_knife.png
+    icon_large: imgs/subcategory/large/stiletto_knife.png
+    category: 6
+- model: items.subcategory
+  pk: 47
+  fields:
+    name: Ursus Knife
+    icon: imgs/subcategory/small/ursus_knife.png
+    icon_large: imgs/subcategory/large/ursus_knife.png
+    category: 6
+- model: items.subcategory
+  pk: 48
+  fields:
+    name: Talon Knife
+    icon: imgs/subcategory/small/talon_knife.png
+    icon_large: imgs/subcategory/large/talon_knife.png
+    category: 6
+- model: items.subcategory
+  pk: 49
+  fields:
+    name: Classic Knife
+    icon: imgs/subcategory/small/classic_knife.png
+    icon_large: imgs/subcategory/large/classic_knife.png
+    category: 6
+- model: items.subcategory
+  pk: 50
+  fields:
+    name: Paracord Knife
+    icon: imgs/subcategory/small/paracord_knife.png
+    icon_large: imgs/subcategory/large/paracord_knife.png
+    category: 6
+- model: items.subcategory
+  pk: 51
+  fields:
+    name: Survival Knife
+    icon: imgs/subcategory/small/survival_knife.png
+    icon_large: imgs/subcategory/large/survival_knife.png
+    category: 6
+- model: items.subcategory
+  pk: 52
+  fields:
+    name: Nomad Knife
+    icon: imgs/subcategory/small/nomad_knife.png
+    icon_large: imgs/subcategory/large/nomad_knife.png
+    category: 6
+- model: items.subcategory
+  pk: 53
+  fields:
+    name: Skeleton Knife
+    icon: imgs/subcategory/small/skeleton_knife.png
+    icon_large: imgs/subcategory/large/skeleton_knife.png
+    category: 6

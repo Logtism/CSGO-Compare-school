@@ -21,7 +21,7 @@
 
       </div>
       <a href="{% url 'items-item' id=item.id %}">
-        <img style="width: 100%;" src="{{ item.icon_large }}">
+        <img style="width: 100%;" src="{{ item.icon.url }}">
       </a>
     </div>
   {% endfor %}

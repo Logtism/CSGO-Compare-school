@@ -1,0 +1,228 @@
+- model: items.container
+  pk: 1
+  fields:
+    name: eSports 2013 Case
+    icon: imgs/container/eSports_2013_case.png
+    collection: 6
+- model: items.container
+  pk: 2
+  fields:
+    name: CS:GO Weapon Case
+    icon: imgs/container/csgo_weapon_case.png
+    collection: 10
+- model: items.container
+  pk: 3
+  fields:
+    name: Operation Bravo Case
+    icon: imgs/container/operation_bravo_case.png
+    collection: 11
+- model: items.container
+  pk: 4
+  fields:
+    name: CS:GO Weapon Case 2
+    icon: imgs/container/csgo_weapon_case_2.png
+    collection: 13
+- model: items.container
+  pk: 5
+  fields:
+    name: Winter Offensive Weapon Case
+    icon: imgs/container/winter_offensive_weapon_case.png
+    collection: 20
+- model: items.container
+  pk: 6
+  fields:
+    name: eSports 2013 Winter Case
+    icon: imgs/container/winter_offensive_weapon_case.png
+    collection: 20
+- model: items.container
+  pk: 7
+  fields:
+    name: CS:GO Weapon Case 3
+    icon: imgs/container/csgo_weapon_case_3.png
+    collection: 22
+- model: items.container
+  pk: 8
+  fields:
+    name: Operation Phoenix Weapon Case
+    icon: imgs/container/operation_phoenix_weapon_case.png
+    collection: 23
+- model: items.container
+  pk: 9
+  fields:
+    name: Huntsman Weapon Case
+    icon: imgs/container/huntsman_weapon_case.png
+    collection: 24
+- model: items.container
+  pk: 10
+  fields:
+    name: Operation Breakout Weapon Case
+    icon: imgs/container/operation_breakout_weapon_case.png
+    collection: 28
+- model: items.container
+  pk: 11
+  fields:
+    name: eSports 2014 Summer Case
+    icon: imgs/container/esports_2014_summer_case.png
+    collection: 30
+- model: items.container
+  pk: 12
+  fields:
+    name: Operation Vanguard Weapon Case
+    icon: imgs/container/operation_vanguard_weapon_case.png
+    collection: 32
+- model: items.container
+  pk: 13
+  fields:
+    name: Chroma Case
+    icon: imgs/container/chroma_case.png
+    collection: 33
+- model: items.container
+  pk: 14
+  fields:
+    name: Chroma 2 Case
+    icon: imgs/container/chroma_2_case.png
+    collection: 34
+- model: items.container
+  pk: 15
+  fields:
+    name: Falchion Case
+    icon: imgs/container/falchion_case.png
+    collection: 37
+- model: items.container
+  pk: 16
+  fields:
+    name: Shadow Case
+    icon: imgs/container/shadow_case.png
+    collection: 39
+- model: items.container
+  pk: 17
+  fields:
+    name: Revolver Case
+    icon: imgs/container/revolver_case.png
+    collection: 40
+- model: items.container
+  pk: 18
+  fields:
+    name: Operation Wildfire Case
+    icon: imgs/container/operation_wildfire_case.png
+    collection: 41
+- model: items.container
+  pk: 19
+  fields:
+    name: Chroma 3 Case
+    icon: imgs/container/chroma_3_case.png
+    collection: 42
+- model: items.container
+  pk: 20
+  fields:
+    name: Gamma Case
+    icon: imgs/container/gamma_case.png
+    collection: 43
+- model: items.container
+  pk: 21
+  fields:
+    name: Gamma 2 Case
+    icon: imgs/container/gamma_2_case.png
+    collection: 44
+- model: items.container
+  pk: 22
+  fields:
+    name: Glove Case
+    icon: imgs/container/glove_case.png
+    collection: 45
+- model: items.container
+  pk: 23
+  fields:
+    name: Spectrum Case
+    icon: imgs/container/spectrum_case.png
+    collection: 46
+- model: items.container
+  pk: 24
+  fields:
+    name: Operation Hydra Case
+    icon: imgs/container/operation_hydra_case.png
+    collection: 47
+- model: items.container
+  pk: 25
+  fields:
+    name: Spectrum 2 Case
+    icon: imgs/container/spectrum_2_case.png
+    collection: 48
+- model: items.container
+  pk: 26
+  fields:
+    name: Clutch Case
+    icon: imgs/container/clutch_case.png
+    collection: 54
+- model: items.container
+  pk: 27
+  fields:
+    name: Horizon Case
+    icon: imgs/container/horizon_case.png
+    collection: 49
+- model: items.container
+  pk: 28
+  fields:
+    name: Danger Zone Case
+    icon: imgs/container/danger_zone_case.png
+    collection: 52
+- model: items.container
+  pk: 29
+  fields:
+    name: Prisma Case
+    icon: imgs/container/prisma_case.png
+    collection: 55
+- model: items.container
+  pk: 30
+  fields:
+    name: X-Ray P250 Package
+    icon: imgs/container/x-ray_p250_package.png
+    collection: 56
+- model: items.container
+  pk: 31
+  fields:
+    name: CS20 Case
+    icon: imgs/container/cs20_case.png
+    collection: 57
+- model: items.container
+  pk: 32
+  fields:
+    name: Shattered Web Case
+    icon: imgs/container/shattered_web_case.png
+    collection: 58
+- model: items.container
+  pk: 33
+  fields:
+    name: Prisma 2 Case
+    icon: imgs/container/prisma_2_case.png
+    collection: 62
+- model: items.container
+  pk: 34
+  fields:
+    name: Fracture Case
+    icon: imgs/container/fracture_case.png
+    collection: 63
+- model: items.container
+  pk: 35
+  fields:
+    name: Operation Broken Fang Case
+    icon: imgs/container/operation_broken_fang_case.png
+    collection: 67
+- model: items.container
+  pk: 36
+  fields:
+    name: Snakebite Case
+    icon: imgs/container/snakebite_case.png
+    collection: 68
+- model: items.container
+  pk: 37
+  fields:
+    name: Operation Riptide Case
+    icon: imgs/container/operation-riptide-case.png
+    collection: 73
+- model: items.container
+  pk: 38
+  fields:
+    name: Dreams & Nightmares Case
+    icon: imgs/container/dreams_&_nightmares_case.png
+    collection: 74
