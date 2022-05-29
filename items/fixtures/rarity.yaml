@@ -16,55 +16,60 @@
 - model: items.rarity
   pk: 4
   fields:
+    name: Restricted
+    color: 8847ff
+- model: items.rarity
+  pk: 5
+  fields:
     name: Classified
     color: d32ee6
 - model: items.rarity
-  pk: 5
+  pk: 6
   fields:
     name: Covert
     color: eb4b4b
 - model: items.rarity
-  pk: 6
+  pk: 7
   fields:
     name: Contraband
     color: ffae39
 - model: items.rarity
-  pk: 7
+  pk: 8
   fields:
     name: High Grade
     color: 4b69ff
 - model: items.rarity
-  pk: 8
+  pk: 9
   fields:
     name: Remarkable
     color: 8847ff
 - model: items.rarity
-  pk: 9
+  pk: 10
   fields:
     name: Exotic
     color: d32ee6
 - model: items.rarity
-  pk: 10
+  pk: 11
   fields:
     name: Extraordinary
     color: eb4b4b
 - model: items.rarity
-  pk: 11
+  pk: 12
   fields:
     name: Distinguished
     color: 4b69ff
 - model: items.rarity
-  pk: 12
+  pk: 13
   fields:
     name: Exceptional
     color: 8847ff
 - model: items.rarity
-  pk: 13
+  pk: 14
   fields:
     name: Superior
     color: d32ee6
 - model: items.rarity
-  pk: 14
+  pk: 15
   fields:
     name: Master
     color: eb4b4b
