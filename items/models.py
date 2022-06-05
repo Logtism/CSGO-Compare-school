@@ -53,6 +53,9 @@ def get_upload_to_path(self, file_name):
 class Item(models.Model):
     name = models.CharField(max_length=300)
     icon = models.ImageField(upload_to=get_upload_to_path)
+    
+    skinport_id = models.CharField(max_length=300, null=True, blank=True)
+    
     lowest_float = models.FloatField(null=True, blank=True)
     highest_float = models.FloatField(null=True, blank=True)
     stattrak = models.BooleanField(default=False)

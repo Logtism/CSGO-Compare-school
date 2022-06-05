@@ -8,6 +8,7 @@ django = "*"
 firebrick = "*"
 pyyaml = "*"
 pillow = "*"
+requests = "*"
 
 [dev-packages]
 
