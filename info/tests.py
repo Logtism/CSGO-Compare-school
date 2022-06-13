@@ -207,7 +207,7 @@ class TestViewTicket(TestCase, ResolveUrlTest):
         self.assertEquals(response.status_code, 200)
         self.assertTemplateUsed(response, self.template)
         
-    def test_get_logged_in_user_that_created_ticket_valid_data(self):
+    def test_post_logged_in_user_that_created_ticket_valid_data(self):
         client = Client()
         client.login(username='username1', password='password1')
         
