@@ -6,6 +6,7 @@
     {{ form }}
     <div class="flex-row">
       <button class="submit-button" type="submit">Update</button>
+      <a href="{% url 'admin-preview-item' id=item.id %}" class="submit-button" target="_blank">Preview</a>
       <a href="{% url 'admin-review-item-accept' id=item.id %}" class="submit-button ml-auto">Submit</a>
       <a href="{% url 'admin-review-item-delete' id=item.id %}" class="delete-button">Delete</a>
     </div>

@@ -204,6 +204,94 @@ class TestReviewItem(TestCase, ResolveUrlTest):
         self.assertTemplateUsed(response, self.template)
         
         
+class TestItemPreview(TestCase, ResolveUrlTest):
+    name = 'admin-preview-item'
+    view = views.item_preview
+    args = [1]
+    template = 'items/item.html'
+    
+    def setUp(self):
+        call_command('loaddata', 'catogory', 'subcategory', 'rarity', 'collection', 'item', verbosity=0) 
+    
+    def test_not_logged_in(self):
+        client = Client()
+        
+        response = client.get(reverse(self.name, args=[1]))
+        
+        self.assertEquals(response.status_code, 404)
+        self.assertTemplateNotUsed(response, self.template)
+        
+    def test_logged_in(self):
+        user = User.objects.create_user(username='username1', password='password1')
+        
+        client = Client()
+        client.login(username='username1', password='password1')
+        
+        response = client.get(reverse(self.name, args=[1]))
+        
+        self.assertEquals(response.status_code, 404)
+        self.assertTemplateNotUsed(response, self.template)
+        
+    def test_is_staff(self):
+        user = User.objects.create_user(username='username1', password='password1', is_staff=True)
+        
+        client = Client()
+        client.login(username='username1', password='password1')
+        
+        response = client.get(reverse(self.name, args=[1]))
+        
+        self.assertEquals(response.status_code, 404)
+        self.assertTemplateNotUsed(response, self.template)
+        
+    def test_has_can_accept_item_sub(self):
+        user = User.objects.create_user(username='username1', password='password1')
+        user.user_permissions.set([Permission.objects.get(codename='can_accept_item_sub')])
+        
+        client = Client()
+        client.login(username='username1', password='password1')
+        
+        response = client.get(reverse(self.name, args=[1]))
+        
+        self.assertEquals(response.status_code, 404)
+        self.assertTemplateNotUsed(response, self.template)
+        
+    def test_has_can_delete_item_sub(self):
+        user = User.objects.create_user(username='username1', password='password1')
+        user.user_permissions.set([Permission.objects.get(codename='can_decline_item_sub')])
+        
+        client = Client()
+        client.login(username='username1', password='password1')
+        
+        response = client.get(reverse(self.name, args=[1]))
+        
+        self.assertEquals(response.status_code, 404)
+        self.assertTemplateNotUsed(response, self.template)
+        
+    def test_has_can_view_item_sub_permission_id_does_not_exist(self):
+        user = User.objects.create_user(username='username1', password='password1')
+        user.user_permissions.set([Permission.objects.get(codename='can_view_item_sub')])
+        
+        client = Client()
+        client.login(username='username1', password='password1')
+        
+        response = client.get(reverse(self.name, args=[1000000]))
+        
+        self.assertEquals(response.status_code, 404)
+        self.assertTemplateNotUsed(response, self.template)
+        
+    def test_has_can_view_item_sub_permission_id_does_exist(self):
+        user = User.objects.create_user(username='username1', password='password1')
+        user.user_permissions.set([Permission.objects.get(codename='can_view_item_sub')])
+        
+        client = Client()
+        client.login(username='username1', password='password1')
+        
+        response = client.get(reverse(self.name, args=[1]))
+        
+        self.assertEquals(response.status_code, 200)
+        self.assertTemplateUsed(response, self.template)
+        
+        
 class TestAcceptItem(TestCase, ResolveUrlTest):
     name = 'admin-review-item-accept'
     args = [1]

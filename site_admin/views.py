@@ -57,7 +57,13 @@ def review_item(request, id):
         )
     else:
         return HttpResponseNotFound('This page does not exist')
-
+    
+def item_preview(request, id):
+    if request.user.has_perm('items.can_view_item_sub'):
+        item = Item.objects.get_object_or_404(id=id)
+        return render(request, 'items/item.html', {'item': item})
+    else:
+        return HttpResponseNotFound('This page does not exist')
 
 def item_accept(request, id):
     if request.user.has_perm('items.can_accept_item_sub'):
