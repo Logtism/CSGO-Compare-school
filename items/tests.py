@@ -148,7 +148,7 @@ class TestAddItem(TestCase, ResolveUrlTest):
         self.assertTemplateUsed(response, 'items/add_item.html')
         self.assertEquals(len(Item.objects.all()), 0)
     
-    def test_with_only_required_fields(self):
+    def test_with_only_required_fields_without_recapture(self):
         client = Client()
         client.login(username=self.user.username, password='password1')
         
@@ -158,6 +158,24 @@ class TestAddItem(TestCase, ResolveUrlTest):
                 'name': 'test_item',
                 'icon': SimpleUploadedFile('test.png', self.test_img_data),
                 'subcategory': self.subcat.id
+            }
+        )
+        
+        self.assertEquals(response.status_code, 200)
+        self.assertTemplateUsed(response, 'items/add_item.html')
+        self.assertEquals(len(Item.objects.all()), 0)
+        
+    def test_with_only_required_fields_with_recapture(self):
+        client = Client()
+        client.login(username=self.user.username, password='password1')
+        
+        response = client.post(
+            reverse(self.name),
+            {
+                'name': 'test_item',
+                'icon': SimpleUploadedFile('test.png', self.test_img_data),
+                'subcategory': self.subcat.id,
+                'g-recaptcha-response': 'PASSED'
             }
         )
         
@@ -175,7 +193,7 @@ class TestAddItem(TestCase, ResolveUrlTest):
         
         self.assertTrue(os.path.isfile(os.path.join('media', 'imgs', 'item', 'subcat', 'test.png')))
         
-    def test_with_all_fields(self):
+    def test_with_all_fields_without_recapture(self):
         client = Client()
         client.login(username=self.user.username, password='password1')
         
@@ -191,6 +209,30 @@ class TestAddItem(TestCase, ResolveUrlTest):
                 'subcategory': self.subcat.id,
                 'rarity': self.rarity.id,
                 'collection': self.collection.id
+            }
+        )
+        
+        self.assertEquals(response.status_code, 200)
+        self.assertTemplateUsed(response, 'items/add_item.html')
+        self.assertEquals(len(Item.objects.all()), 0)
+        
+    def test_with_all_fields_with_recapture(self):
+        client = Client()
+        client.login(username=self.user.username, password='password1')
+        
+        response = client.post(
+            reverse(self.name),
+            {
+                'name': 'test_item',
+                'icon': SimpleUploadedFile('test.png', self.test_img_data),
+                'lowest_float': 0.0,
+                'highest_float': 0.999,
+                'stattrak': True,
+                'souvenir': False,
+                'subcategory': self.subcat.id,
+                'rarity': self.rarity.id,
+                'collection': self.collection.id,
+                'g-recaptcha-response': 'PASSED'
             }
         )
         

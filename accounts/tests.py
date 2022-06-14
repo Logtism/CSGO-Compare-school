@@ -54,10 +54,35 @@ class TestRegister(TestCase, ResolveUrlTest, GetViewTest):
         self.assertEquals(len(User.objects.all()), 0)
         self.assertEquals(len(Profile.objects.all()), 0)
         
-    def test_post_valid_username_password(self):
+    def test_post_valid_username_password_without_recapture(self):
         client = Client()
         
-        response = client.post(reverse(self.name), {'username': 'testuser1', 'password1': 'thisisagoodpassword', 'password2': 'thisisagoodpassword'})
+        response = client.post(
+            reverse(self.name), 
+            {
+                'username': 'testuser1',
+                'password1': 'thisisagoodpassword',
+                'password2': 'thisisagoodpassword'
+            }
+        )
+        
+        self.assertEquals(response.status_code, 200)
+        self.assertTemplateUsed(response, self.template)
+        self.assertEquals(len(User.objects.all()), 0)
+        self.assertEquals(len(Profile.objects.all()), 0)
+        
+    def test_post_valid_username_password_recapture(self):
+        client = Client()
+        
+        response = client.post(
+            reverse(self.name), 
+            {
+                'username': 'testuser1',
+                'password1': 'thisisagoodpassword',
+                'password2': 'thisisagoodpassword',
+                'g-recaptcha-response': 'PASSED'
+            }
+        )
         
         self.assertEquals(response.status_code, 302)
         self.assertRedirects(response, reverse(settings.LOGIN_URL))

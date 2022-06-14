@@ -9,6 +9,7 @@ firebrick = "*"
 pyyaml = "*"
 pillow = "*"
 requests = "*"
+django-recaptcha = "*"
 
 [dev-packages]
 

@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     
     'firebrick',
+    'captcha',
     
     'base.apps.BaseConfig',
     'info.apps.InfoConfig',
@@ -152,3 +153,11 @@ USERNAME_VALID_CHARS = '^[0-9a-zA-Z_]*$'
 USERNAME_LENGTH_MIN = 3
 USERNAME_LENGTH_MAX = 16
 USERNAME_HELP_TEXT = 'Required. Between 3 and 16 characters. Letters, digits and _ only.'
+
+
+# Recaptcha settings
+RECAPTCHA_PUBLIC_KEY = os.environ.get('RECAPTCHA_PUBLIC_KEY')
+RECAPTCHA_PRIVATE_KEY = os.environ.get('RECAPTCHA_PRIVATE_KEY')
+
+if DEBUG:
+    SILENCED_SYSTEM_CHECKS = ['captcha.recaptcha_test_key_error']
