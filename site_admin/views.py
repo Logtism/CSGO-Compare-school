@@ -36,8 +36,8 @@ def items(request):
         )
     else:
         return HttpResponseNotFound('This page does not exist')
-    
-    
+
+
 def review_item(request, id):
     if request.user.has_perm('items.can_view_item_sub'):
         item = Item.objects.get_object_or_404(id=id)
@@ -57,13 +57,15 @@ def review_item(request, id):
         )
     else:
         return HttpResponseNotFound('This page does not exist')
-    
+
+
 def item_preview(request, id):
     if request.user.has_perm('items.can_view_item_sub'):
         item = Item.objects.get_object_or_404(id=id)
         return render(request, 'items/item.html', {'item': item})
     else:
         return HttpResponseNotFound('This page does not exist')
+
 
 def item_accept(request, id):
     if request.user.has_perm('items.can_accept_item_sub'):
@@ -73,8 +75,8 @@ def item_accept(request, id):
         return redirect(reverse('admin-items'))
     else:
         return HttpResponseNotFound('This page does not exist')
-    
-    
+
+
 def item_delete(request, id):
     if request.user.has_perm('items.can_decline_item_sub'):
         item = Item.objects.get_object_or_404(id=id)
@@ -82,8 +84,8 @@ def item_delete(request, id):
         return redirect(reverse('admin-items'))
     else:
         return HttpResponseNotFound('This page does not exist')
-    
-    
+
+
 def support(request):
     if request.user.has_perm('info.can_view_support_ticket'):
         tickets = SupportTicket.objects.filter(closed=False).all()

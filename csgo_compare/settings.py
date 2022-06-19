@@ -32,7 +32,7 @@ else:
     DEBUG = False
 
 
-#ALLOWED_HOSTS = []
+# ALLOWED_HOSTS = []
 ALLOWED_HOSTS = [*os.environ.get("ALLOWED_HOSTS").strip().split(' ')] if os.environ.get("ALLOWED_HOSTS") else []
 
 # Application definition
@@ -44,15 +44,16 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    
+
     'firebrick',
     'captcha',
-    
+
     'base.apps.BaseConfig',
     'info.apps.InfoConfig',
     'accounts.apps.AccountsConfig',
     'site_admin.apps.SiteAdminConfig',
     'items.apps.ItemsConfig',
+    'price_api.apps.PriceApiConfig',
 ]
 
 MIDDLEWARE = [

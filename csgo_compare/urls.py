@@ -29,6 +29,7 @@ urlpatterns = [
     path('info/', include('info.urls')),
     path('site_admin/', include('site_admin.urls')),
     path('items/', include('items.urls')),
+    path('price/', include('price_api.urls')),
 ]
 
 if settings.DEBUG:

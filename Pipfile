@@ -10,6 +10,7 @@ pyyaml = "*"
 pillow = "*"
 requests = "*"
 django-recaptcha = "*"
+flake8 = "*"
 
 [dev-packages]
 

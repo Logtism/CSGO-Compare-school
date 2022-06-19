@@ -8,7 +8,7 @@ class AccountsConfig(AppConfig):
 
     def ready(self):
         from firebrick import settings
-        
+
         import accounts.signals
         from django.contrib.auth.models import User
         post_save.connect(accounts.signals.create_profile, sender=User)

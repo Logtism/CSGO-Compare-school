@@ -3,7 +3,7 @@ from items.models import Item
 
 
 class UpdateItemForm(forms.ModelForm):
-    
+
     class Meta:
         model = Item
         fields = [

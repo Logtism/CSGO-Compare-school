@@ -6,7 +6,7 @@ from captcha.widgets import ReCaptchaV2Checkbox
 
 class AddItemForm(forms.ModelForm):
     captcha = ReCaptchaField(widget=ReCaptchaV2Checkbox())
-    
+
     class Meta:
         model = Item
         fields = [
@@ -16,7 +16,14 @@ class AddItemForm(forms.ModelForm):
             'highest_float',
             'stattrak',
             'souvenir',
+            'steam_id',
+            'buff_id',
+            'bitskins_id',
+            'skinport_id',
+            'skinbaron_id',
             'subcategory',
             'rarity',
+            'update',
+            'knife_collection',
             'collection'
         ]

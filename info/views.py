@@ -2,9 +2,9 @@ from django.shortcuts import render, redirect
 from django.urls import reverse
 from django.http import HttpResponseNotFound
 from django.contrib.auth.decorators import login_required
-from items.models import Category, Subcategory, Container, Item
+from items.models import Subcategory, Item
 from .forms import CreateSupportTicketForm, CreateTicketReplyForm
-from .models import SupportTicket, TicketReply
+from .models import SupportTicket
 
 
 def stat(request):
@@ -36,13 +36,13 @@ def create_ticket(request):
             return redirect('base-home')
     else:
         form = CreateSupportTicketForm()
-        
+
     return render(request, 'info/create_ticket.html', {'form': form})
 
 
 @login_required
 def tickets_list(request):
-    tickets = SupportTicket.objects.filter(author=request.user).all() 
+    tickets = SupportTicket.objects.filter(author=request.user).all()
     return render(request, 'info/tickets_list.html', {'tickets': tickets})
 
 
@@ -61,18 +61,16 @@ def view_ticket(request, id):
         return render(request, 'info/view_ticket.html', {'ticket': ticket, 'form': form})
     else:
         return HttpResponseNotFound('Page not found')
-    
-    
+
+
 @login_required
 def close_ticket(request, id):
     ticket = SupportTicket.objects.get_object_or_404(id=id)
     if ticket.author == request.user or request.user.has_perm('info.can_close_support_ticket'):
         SupportTicket.objects.filter(id=ticket.id).delete()
-        if ticket.author ==  request.user:
+        if ticket.author == request.user:
             return redirect(reverse('base-home'))
         else:
             return redirect(reverse('admin-support'))
     else:
-        return HttpResponseNotFound('Page not found')  
-        
-    
+        return HttpResponseNotFound('Page not found')
