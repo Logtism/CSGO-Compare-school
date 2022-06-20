@@ -119,7 +119,7 @@
               if (key != "success") {
                 let element = document.getElementById(id + "-" + key);
                 if (element && result[key] != 0) {
-                  element.innerHTML = result[key];
+                  element.innerHTML = "$" + result[key].toString();
                 }
               }
             }
