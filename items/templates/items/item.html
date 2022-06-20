@@ -49,17 +49,86 @@
       </tr>
       <tr>
         <td>
+          <a class="text-dec-none" href="https://steamcommunity.com/market" target="blank">
+            Steam
+          </a>
+        </td>
+        <td id="steam-fn">NA</td>
+        <td id="steam-mw">NA</td>
+        <td id="steam-ft">NA</td>
+        <td id="steam-ww">NA</td>
+        <td id="steam-bs">NA</td>
+      </tr>
+      <tr>
+        <td>
+          <a class="text-dec-none" href="https://buff.163.com/market/csgo" target="blank">
+            Buff
+          </a>
+        </td>
+        <td id="buff-fn">NA</td>
+        <td id="buff-mw">NA</td>
+        <td id="buff-ft">NA</td>
+        <td id="buff-ww">NA</td>
+        <td id="buff-bs">NA</td>
+      </tr>
+      <tr>
+        <td>
+          <a class="text-dec-none" href="https://www.bitskins.com/" target="blank">
+            Bitskins
+          </a>
+        </td>
+        <td id="bitskins-fn">NA</td>
+        <td id="bitskins-mw">NA</td>
+        <td id="bitskins-ft">NA</td>
+        <td id="bitskins-ww">NA</td>
+        <td id="bitskins-bs">NA</td>
+      </tr>
+      <tr>
+        <td>
           <a class="text-dec-none" href="https://skinport.com/" target="blank">
             Skinport
           </a>
         </td>
-        <td>{{ skinport.fn }}</td>
-        <td>{{ skinport.mw }}</td>
-        <td>{{ skinport.ft }}</td>
-        <td>{{ skinport.ww }}</td>
-        <td>{{ skinport.bs }}</td>
+        <td id="skinport-fn">NA</td>
+        <td id="skinport-mw">NA</td>
+        <td id="skinport-ft">NA</td>
+        <td id="skinport-ww">NA</td>
+        <td id="skinport-bs">NA</td>
+      </tr>
+      <tr>
+        <td>
+          <a class="text-dec-none" href="skinbaron.de/" target="blank">
+            Skibaron
+          </a>
+        </td>
+        <td id="skinbaron-fn">NA</td>
+        <td id="skinbaron-mw">NA</td>
+        <td id="skinbaron-ft">NA</td>
+        <td id="skinbaron-ww">NA</td>
+        <td id="skinbaron-bs">NA</td>
       </tr>
     </table>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+      function get_price(api_url, id) {
+        $.ajax({
+          url: api_url,
+          type: "GET",
+          success: function (result) {
+            for (let key in result) {
+              if (key != "success") {
+                let element = document.getElementById(id + "-" + key);
+                if (element && result[key] != 0) {
+                  element.innerHTML = result[key];
+                }
+              }
+            }
+          }
+        })
+      }
+
+      get_price("{% url 'price-api-skinport' id=item.id %}", "skinport");
+    </script>
   </div>
 
   {% if item.lowest_float or item.collection and item.added_by %}{% endif %}
