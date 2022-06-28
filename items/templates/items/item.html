@@ -68,309 +68,75 @@
         </th>
       </tr>
       {% if item.stattrak %}
-        <tr>
-          <td class="text-stattrak">
-            Stattrak FN
-          </td>
-          <td>
-            NA
-          </td>
-          <td>
-            NA
-          </td>
-          <td>
-            NA
-          </td>
-          <td>
-            NA
-          </td>
-          <td>
-            NA
-          </td>
-        </tr>
-        <tr>
-          <td class="text-stattrak">
-            Stattrak MW
-          </td>
-          <td>
-            NA
-          </td>
-          <td>
-            NA
-          </td>
-          <td>
-            NA
-          </td>
-          <td>
-            NA
-          </td>
-          <td>
-            NA
-          </td>
-        </tr>
-        <tr>
-          <td class="text-stattrak">
-            Stattrak FT
-          </td>
-          <td>
-            NA
-          </td>
-          <td>
-            NA
-          </td>
-          <td>
-            NA
-          </td>
-          <td>
-            NA
-          </td>
-          <td>
-            NA
-          </td>
-        </tr>
-        <tr>
-          <td class="text-stattrak">
-            Stattrak WW
-          </td>
-          <td>
-            NA
-          </td>
-          <td>
-            NA
-          </td>
-          <td>
-            NA
-          </td>
-          <td>
-            NA
-          </td>
-          <td>
-            NA
-          </td>
-        </tr>
-        <tr>
-          <td class="text-stattrak">
-            Stattrak BS
-          </td>
-          <td>
-            NA
-          </td>
-          <td>
-            NA
-          </td>
-          <td>
-            NA
-          </td>
-          <td>
-            NA
-          </td>
-          <td>
-            NA
-          </td>
-        </tr>
+        {% for wear in wears %}
+          <tr>
+            <td class="text-stattrak">
+              Stattrak {{ wear.upper }}
+            </td>
+            <td id="steam-stattrak-{{ wear }}">
+              NA
+            </td>
+            <td id="buff-stattrak-{{ wear }}">
+              NA
+            </td>
+            <td id="bitskins-stattrak-{{ wear }}">
+              NA
+            </td>
+            <td id="skinport-stattrak-{{ wear }}">
+              NA
+            </td>
+            <td id="skinbaron-stattrak-{{ wear }}">
+              NA
+            </td>
+          </tr>
+        {% endfor %}
       {% endif %}
       {% if item.souvenir %}
-        <tr>
-          <td class="text-souvenir">
-            Souvenir FN
-          </td>
-          <td>
-            NA
-          </td>
-          <td>
-            NA
-          </td>
-          <td>
-            NA
-          </td>
-          <td>
-            NA
-          </td>
-          <td>
-            NA
-          </td>
-        </tr>
-        <tr>
-          <td class="text-souvenir">
-            Souvenir MW
-          </td>
-          <td>
-            NA
-          </td>
-          <td>
-            NA
-          </td>
-          <td>
-            NA
-          </td>
-          <td>
-            NA
-          </td>
-          <td>
-            NA
-          </td>
-        </tr>
-        <tr>
-          <td class="text-souvenir">
-            Souvenir FT
-          </td>
-          <td>
-            NA
-          </td>
-          <td>
-            NA
-          </td>
-          <td>
-            NA
-          </td>
-          <td>
-            NA
-          </td>
-          <td>
-            NA
-          </td>
-        </tr>
-        <tr>
-          <td class="text-souvenir">
-            Souvenir WW
-          </td>
-          <td>
-            NA
-          </td>
-          <td>
-            NA
-          </td>
-          <td>
-            NA
-          </td>
-          <td>
-            NA
-          </td>
-          <td>
-            NA
-          </td>
-        </tr>
-        <tr>
-          <td class="text-souvenir">
-            Souvenir BS
-          </td>
-          <td>
-            NA
-          </td>
-          <td>
-            NA
-          </td>
-          <td>
-            NA
-          </td>
-          <td>
-            NA
-          </td>
-          <td>
-            NA
-          </td>
-        </tr>
+        {% for wear in wears %}
+          <tr>
+            <td class="text-souvenir">
+              Souvenir {{ wear.upper }}
+            </td>
+            <td id="steam-souvenir-{{ wear }}">
+              NA
+            </td>
+            <td id="buff-souvenir-{{ wear }}">
+              NA
+            </td>
+            <td id="bitskins-souvenir-{{ wear }}">
+              NA
+            </td>
+            <td id="skinport-souvenir-{{ wear }}">
+              NA
+            </td>
+            <td id="skinbaron-souvenir-{{ wear }}">
+              NA
+            </td>
+          </tr>
+        {% endfor %}
       {% endif %}
-      <tr>
-        <td>
-          FN
-        </td>
-        <td id="steam-fn">
-          NA
-        </td>
-        <td id="buff-fn">
-          NA
-        </td>
-        <td id="bitskins-fn">
-          NA
-        </td>
-        <td id="skinport-fn">
-          NA
-        </td>
-        <td id="skinbaron-fn">
-          NA
-        </td>
-      </tr>
-      <tr>
-        <td>
-          MW
-        </td>
-        <td id="steam-mw">
-          NA
-        </td>
-        <td id="buff-mw">
-          NA
-        </td>
-        <td id="bitskins-mw">
-          NA
-        </td>
-        <td id="skinport-mw">
-          NA
-        </td>
-        <td id="skinbaron-mw">
-          NA
-        </td>
-      </tr>
-      <tr>
-        <td>
-          FT
-        </td>
-        <td id="steam-ft">
-          NA
-        </td>
-        <td id="buff-ft">
-          NA
-        </td>
-        <td id="bitskins-ft">
-          NA
-        </td>
-        <td id="skinport-ft">
-          NA
-        </td>
-        <td id="skinbaron-ft">
-          NA
-        </td>
-      </tr>
-      <tr>
-        <td>
-          WW
-        </td>
-        <td id="steam-ww">
-          NA
-        </td>
-        <td id="buff-ww">
-          NA
-        </td>
-        <td id="bitskins-ww">
-          NA
-        </td>
-        <td id="skinport-ww">
-          NA
-        </td>
-        <td id="skinbaron-ww">
-          NA
-        </td>
-      </tr>
-      <tr>
-        <td>
-          BS
-        </td>
-        <td id="steam-bs">
-          NA
-        </td>
-        <td id="buff-bs">
-          NA
-        </td>
-        <td id="bitskins-bs">
-          NA
-        </td>
-        <td id="skinport-bs">
-          NA
-        </td>
-        <td id="skinbaron-bs">
-          NA
-        </td>
-      </tr>
+      {% for wear in wears %}
+        <tr>
+          <td>
+            {{ wear.upper }}
+          </td>
+          <td id="steam-{{ wear }}">
+            NA
+          </td>
+          <td id="buff-{{ wear }}">
+            NA
+          </td>
+          <td id="bitskins-{{ wear }}">
+            NA
+          </td>
+          <td id="skinport-{{ wear }}">
+            NA
+          </td>
+          <td id="skinbaron-{{ wear }}">
+            NA
+          </td>
+        </tr>
+      {% endfor %}
     </table>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script>

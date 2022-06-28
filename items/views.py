@@ -18,7 +18,7 @@ def collection(request, id):
 def item(request, id):
     item = Item.objects.get_object_or_404(id=id, accepted=True)
 
-    return render(request, 'items/item.html', {'item': item})
+    return render(request, 'items/item.html', {'item': item, 'wears': ['fn', 'mw', 'ft', 'ww', 'bs']})
 
 
 @login_required
