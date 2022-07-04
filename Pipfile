@@ -11,6 +11,7 @@ pillow = "*"
 requests = "*"
 django-recaptcha = "*"
 flake8 = "*"
+tzdata = "*"
 
 [dev-packages]
 
