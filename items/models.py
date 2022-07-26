@@ -12,6 +12,7 @@ class Category(models.Model):
 
 class Subcategory(models.Model):
     name = models.CharField(max_length=150)
+    broskins_id = models.IntegerField(null=True, blank=True)
     icon = models.ImageField(upload_to=os.path.join('imgs', 'collection', 'small'))
     icon_large = models.ImageField(upload_to=os.path.join('imgs', 'collection', 'large'))
     category = models.ForeignKey(Category, on_delete=models.CASCADE, related_name='subcategories')
@@ -94,6 +95,7 @@ class Item(models.Model):
     bitskins_id = models.CharField(max_length=300, null=True, blank=True)
     skinport_id = models.CharField(max_length=300, null=True, blank=True)
     skinbaron_id = models.CharField(max_length=300, null=True, blank=True)
+    broskins_id = models.IntegerField(null=True, blank=True)
 
     accepted = models.BooleanField(default=False)
     added_by = models.ForeignKey(Profile, on_delete=models.CASCADE, null=True, blank=True)
