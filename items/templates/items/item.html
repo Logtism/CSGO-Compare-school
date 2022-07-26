@@ -178,17 +178,18 @@
   </div>
   {% if item.broskins_id %}
     <div class="content mb">
+      <h2>Broskins</h2>
       <div class="flex-row">
         <div class="flex-col">
           <label for="patternid">Pattern id</label>
-          <input id="patternid" type="int" value=0>
+          <input style="color:#000;" id="patternid" type="int" value=0>
         </div>
         <div class="flex-col" style="margin-left:auto;">
           <label for="float">Float</label>
-          <input id="float" type="float" value=0.0>
+          <input style="color:#000;" id="float" type="float" value=0.0>
         </div>
       </div>
-      <input id="broskinscmd" style="width:100%; margin-top: 0.5rem;">
+      <input id="broskinscmd" style="width:100%; margin-top: 0.5rem; color:#000;">
       <script>
         const patterninput = document.getElementById("patternid");
         const floatinput = document.getElementById("float");

@@ -133,6 +133,7 @@ class TestAddItem(TestCase, ResolveUrlTest):
         self.update = Update.objects.create(name='testing', link='https://testing.com', date=timezone.now())
         self.knifecollection = KnifeCollection.objects.create(name='knife test')
         self.collection = Collection.objects.create(name='test', icon='imgs/collection/operation-hydra.png')
+        self.pattern = Pattern.objects.create(name='test')
         self.user = User.objects.create_user(username='testuser1', password='password1')
 
         with open(os.path.join('media', 'imgs', 'item', 'ak-47', 'redline.png'), 'rb') as f:
@@ -263,9 +264,11 @@ class TestAddItem(TestCase, ResolveUrlTest):
                 'bitskins_id': 'test',
                 'skinport_id': 'testing',
                 'skinbaron_id': 'testing-skinbaron',
+                'broskins_id': 1000,
                 'subcategory': self.subcat.id,
                 'rarity': self.rarity.id,
                 'update': self.update.id,
+                'pattern': self.pattern.id,
                 'knife_collection': self.knifecollection.id,
                 'collection': self.collection.id,
                 'g-recaptcha-response': 'PASSED'
@@ -293,6 +296,7 @@ class TestAddItem(TestCase, ResolveUrlTest):
             subcategory=self.subcat,
             rarity=self.rarity,
             update=self.update,
+            pattern=self.pattern,
             knife_collection=self.knifecollection,
             collection=self.collection
         )

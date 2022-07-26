@@ -18,10 +18,12 @@ class UpdateItemForm(forms.ModelForm):
             'bitskins_id',
             'skinport_id',
             'skinbaron_id',
+            'broskins_id',
             'added_by',
             'subcategory',
             'rarity',
             'update',
+            'pattern',
             'knife_collection',
             'collection'
         ]

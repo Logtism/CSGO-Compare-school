@@ -21,9 +21,11 @@ class AddItemForm(forms.ModelForm):
             'bitskins_id',
             'skinport_id',
             'skinbaron_id',
+            'broskins_id',
             'subcategory',
             'rarity',
             'update',
+            'pattern',
             'knife_collection',
             'collection'
         ]
