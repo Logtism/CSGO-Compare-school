@@ -114,4 +114,7 @@ class Item(models.Model):
         )
 
     def __str__(self):
-        return f'{self.subcategory.name} | {self.pattern.name}'
+            if self.subcategory and self.pattern:
+                return f'{self.subcategory.name} | {self.pattern.name}'
+            else:
+                return self.name

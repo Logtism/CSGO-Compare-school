@@ -210,7 +210,7 @@ class TestAddItem(TestCase, ResolveUrlTest):
         )
 
         self.assertEquals(response.status_code, 200)
-        self.assertTemplateUsed(response, 'items/add_item.html')
+        self.assertTemplateUsed(response, 'items/item_added.html')
 
         self.assertObjectExists(
             Item,
@@ -276,7 +276,7 @@ class TestAddItem(TestCase, ResolveUrlTest):
         )
 
         self.assertEquals(response.status_code, 200)
-        self.assertTemplateUsed(response, 'items/add_item.html')
+        self.assertTemplateUsed(response, 'items/item_added.html')
 
         self.assertObjectExists(
             Item,

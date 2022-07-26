@@ -59,6 +59,11 @@ def add_item(request):
             data = form.save(commit=False)
             data.added_by = Profile.objects.get(user=request.user)
             data.save()
+            if data.subcategory and data.pattern:
+                item_name = f'{data.subcategory.name} | {data.pattern.name}'
+            else:
+                item_name = data.name
+            return render(request, 'items/item_added.html', {'item_name': item_name})
     else:
         form = AddItemForm()
 
