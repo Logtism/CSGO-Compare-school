@@ -8,6 +8,7 @@ from .models import (
     Collection,
     Tournament,
     Container,
+    Pattern,
     Item
 )
 
@@ -20,4 +21,5 @@ admin.site.register(KnifeCollection)
 admin.site.register(Collection)
 admin.site.register(Container)
 admin.site.register(Tournament)
+admin.site.register(Pattern)
 admin.site.register(Item)

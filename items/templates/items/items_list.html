@@ -5,19 +5,21 @@
 {% endblock head %}
 {% block content %}
 <div class="container">
-  <div class="content mb">
-    <div class="flex-row">
-      <h2>{{ subcat.name }} Skins</h2>
-      <button class="submit-button ml-auto">Sort</button>
+  {% if top_bar %}
+    <div class="content mb">
+      <div class="flex-row">
+        <h2>{{ collection_name }}</h2>
+        <button class="submit-button ml-auto">Sort</button>
+      </div>
     </div>
-  </div>
+  {% endif %}
   <div class="grid">
-  {% for item in subcat.items.all %}
+  {% for item in items %}
     <div class="content item">
       <div class="flex-row">
-        <a class="ml-auto text-dec-none title" href="{% url 'items-subcat' id=subcat.id %}">{{ subcat.name}}</a>
+        <a class="ml-auto text-dec-none title" href="{% url 'items-subcat' id=item.subcategory.id %}">{{ item.subcategory.name}}</a>
         <p class="title" style="margin-left: 0.2em; margin-right: 0.2em;">|</p>
-        <a class="mr-auto text-dec-none title" href="{% url 'items-item' id=item.id %}">{{ item.name }}</a>
+        <a class="mr-auto text-dec-none title" href="{% url 'items-pattern' id=item.pattern.id %}">{{ item.pattern.name }}</a>
 
       </div>
       <a href="{% url 'items-item' id=item.id %}">

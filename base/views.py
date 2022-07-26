@@ -8,10 +8,17 @@ def home(request):
 
     items = []
     if len(pks) > 0:
-        while len(items) < 6:
+        while len(items) < 9:
             random_pk = choice(pks)
             item = Item.objects.get(id=random_pk)
             if item not in items:
                 items.append(item)
 
-    return render(request, 'base/home.html', {'items': items})
+    return render(
+        request,
+        'items/items_list.html',
+        {
+            'items': items,
+            'top_bar': False
+        }
+    )

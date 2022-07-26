@@ -74,6 +74,13 @@ def get_upload_to_path(self, file_name):
     return f'imgs/item/{self.subcategory.name}/{file_name}'
 
 
+class Pattern(models.Model):
+    name = models.CharField(max_length=300)
+    
+    def __str__(self):
+        return f'{self.name}'
+
+
 class Item(models.Model):
     name = models.CharField(max_length=300)
     icon = models.ImageField(upload_to=get_upload_to_path)
@@ -93,6 +100,7 @@ class Item(models.Model):
     subcategory = models.ForeignKey(Subcategory, on_delete=models.CASCADE, related_name='items')
     rarity = models.ForeignKey(Rarity, on_delete=models.CASCADE, null=True, blank=True)
     update = models.ForeignKey(Update, on_delete=models.CASCADE, null=True, blank=True)
+    pattern = models.ForeignKey(Pattern, on_delete=models.CASCADE, null=True, blank=True, related_name='pattern_items')
     knife_collection = models.ForeignKey(KnifeCollection, on_delete=models.CASCADE, null=True, blank=True)
     collection = models.ForeignKey(Collection, on_delete=models.CASCADE, null=True, blank=True, related_name='collection_items')
 

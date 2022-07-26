@@ -7,7 +7,7 @@ from django.conf import settings
 from django.utils import timezone
 from firebrick.tests import ResolveUrlTest
 from accounts.models import Profile
-from .models import Category, Subcategory, Rarity, Collection, Item, Update, KnifeCollection
+from .models import Category, Subcategory, Rarity, Collection, Item, Update, KnifeCollection, Pattern
 from . import views
 import shutil
 import os
@@ -17,6 +17,7 @@ class TestSubcat(TestCase, ResolveUrlTest):
     name = 'items-subcat'
     args = [0]
     view = views.subcat
+    template = 'items/items_list.html'
 
     def test_id_does_not_exist(self):
         client = Client()
@@ -33,13 +34,14 @@ class TestSubcat(TestCase, ResolveUrlTest):
         response = client.get(reverse(self.name, args=[1]))
 
         self.assertEquals(response.status_code, 200)
-        self.assertTemplateUsed(response, 'items/subcat.html')
+        self.assertTemplateUsed(response, self.template)
 
 
 class TestCollection(TestCase, ResolveUrlTest):
     name = 'items-collection'
     args = [0]
     view = views.collection
+    template = 'items/items_list.html'
 
     def test_id_does_not_exist(self):
         client = Client()
@@ -56,8 +58,32 @@ class TestCollection(TestCase, ResolveUrlTest):
         response = client.get(reverse(self.name, args=[1]))
 
         self.assertEquals(response.status_code, 200)
-        self.assertTemplateUsed(response, 'items/collection.html')
+        self.assertTemplateUsed(response, self.template)
+        
 
+class TestPattern(TestCase, ResolveUrlTest):
+    name = 'items-pattern'
+    args = [0]
+    view = views.pattern
+    template = 'items/items_list.html'
+    
+    def test_id_does_not_exist(self):
+        client = Client()
+
+        response = client.get(reverse(self.name, args=[2]))
+
+        self.assertEquals(response.status_code, 404)
+
+    def test_id_does_exist(self):
+        Pattern.objects.create(id=1, name='test name')
+
+        client = Client()
+
+        response = client.get(reverse(self.name, args=[1]))
+
+        self.assertEquals(response.status_code, 200)
+        self.assertTemplateUsed(response, self.template)
+    
 
 class TestItem(TestCase, ResolveUrlTest):
     name = 'items-item'
@@ -86,7 +112,7 @@ class TestItem(TestCase, ResolveUrlTest):
     def test_id_does_exist_accepted(self):
         cat = Category.objects.create(name='cat')
         Subcategory.objects.create(name='subcat', category=cat)
-        call_command('loaddata', 'catogory', 'subcategory', 'rarity', 'collection', 'item', verbosity=0)
+        call_command('loaddata', 'catogory', 'subcategory', 'rarity', 'collection', 'pattern', 'item', verbosity=0)
 
         client = Client()
 

@@ -1,18 +1,48 @@
 from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
 from accounts.models import Profile
-from .models import Subcategory, Collection, Item
+from .models import Subcategory, Collection, Pattern, Item
 from .forms import AddItemForm
 
 
 def subcat(request, id):
     subcat_ = Subcategory.objects.get_object_or_404(id=id)
-    return render(request, 'items/subcat.html', {'subcat': subcat_})
+    return render(
+        request,
+        'items/items_list.html', 
+        {
+            'items': subcat_.items.all(),
+            'top_bar': True,
+            'collection_name': f'{subcat_.name} Skins'
+        }
+    )
 
 
 def collection(request, id):
     collection_ = Collection.objects.get_object_or_404(id=id)
-    return render(request, 'items/collection.html', {'collection': collection_})
+    return render(
+        request,
+        'items/items_list.html', 
+        {
+            'items': collection_.collection_items.all(),
+            'top_bar': True,
+            'collection_name': f'{collection_.name}'
+        }
+    )
+
+
+def pattern(request, id):
+    pattern = Pattern.objects.get_object_or_404(id=id)
+    return render(
+        request,
+        'items/items_list.html', 
+        {
+            'items': pattern.pattern_items.all(),
+            'top_bar': True,
+            'collection_name': f'{pattern.name} Skins'
+        }
+    )
+    
 
 
 def item(request, id):

@@ -12,8 +12,8 @@
           <h1>{{ item.subcategory.name }}</h1>
         </a>
         <h1 style="margin: 0 0.3rem;">|</h1>
-        <a href="{% url 'items-item' id=item.id %}" class="text-dec-none">
-          <h1>{{ item.name }}</h1>
+        <a href="{% url 'items-pattern' id=item.pattern.id %}" class="text-dec-none">
+          <h1>{{ item.pattern.name }}</h1>
         </a>
       </div>
       {% if item.rarity %}

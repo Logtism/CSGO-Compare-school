@@ -76,6 +76,10 @@ python manage.py loaddata update.yaml
 ```
 
 ```
+python manage.py loaddata pattern.yaml
+```
+
+```
 python manage.py loaddata item.yaml
 ```
 

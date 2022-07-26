@@ -1,0 +1,84 @@
+- model: items.pattern
+  pk: 1
+  fields:
+    name: Dragon Lore
+- model: items.pattern
+  pk: 2
+  fields:
+    name: Lore
+- model: items.pattern
+  pk: 3
+  fields:
+    name: Slaughter
+- model: items.pattern
+  pk: 4
+  fields:
+    name: Fade
+- model: items.pattern
+  pk: 5
+  fields:
+    name: Gamma Doppler
+- model: items.pattern
+  pk: 6
+  fields:
+    name: Night
+- model: items.pattern
+  pk: 7
+  fields:
+    name: Doppler
+- model: items.pattern
+  pk: 8
+  fields:
+    name: Autotronic
+- model: items.pattern
+  pk: 9
+  fields:
+    name: Blood in the Water
+- model: items.pattern
+  pk: 10
+  fields:
+    name: Redline
+- model: items.pattern
+  pk: 11
+  fields:
+    name: Printstream
+- model: items.pattern
+  pk: 12
+  fields:
+    name: Howl
+- model: items.pattern
+  pk: 13
+  fields:
+    name: Neon Rider
+- model: items.pattern
+  pk: 14
+  fields:
+    name: Starlight Protector
+- model: items.pattern
+  pk: 15
+  fields:
+    name: Blaze
+- model: items.pattern
+  pk: 16
+  fields:
+    name: Sand Dune
+- model: items.pattern
+  pk: 17
+  fields:
+    name: Neo-Noir
+- model: items.pattern
+  pk: 18
+  fields:
+    name: Whiteout
+- model: items.pattern
+  pk: 19
+  fields:
+    name: Cyrex
+- model: items.pattern
+  pk: 20
+  fields:
+    name: Black Lotus
+- model: items.pattern
+  pk: 21
+  fields:
+    name: Forest Leaves

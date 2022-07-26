@@ -8,10 +8,10 @@ from . import views
 class TestHome(TestCase, ResolveUrlTest):
     name = 'base-home'
     view = views.home
-    template = 'base/home.html'
+    template = 'items/items_list.html'
 
     def test_get(self):
-        call_command('loaddata', 'catogory', 'subcategory', 'rarity', 'collection', 'container', 'item', verbosity=0)
+        call_command('loaddata', 'catogory', 'subcategory', 'rarity', 'collection', 'pattern', 'container', 'item', verbosity=0)
 
         client = Client()
 

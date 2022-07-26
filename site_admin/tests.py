@@ -123,7 +123,7 @@ class TestReviewItem(TestCase, ResolveUrlTest):
     template = 'site_admin/review_item.html'
 
     def setUp(self):
-        call_command('loaddata', 'catogory', 'subcategory', 'rarity', 'collection', 'item', verbosity=0)
+        call_command('loaddata', 'catogory', 'subcategory', 'rarity', 'collection', 'pattern', 'item', verbosity=0)
 
     def test_not_logged_in(self):
         client = Client()
@@ -211,7 +211,7 @@ class TestItemPreview(TestCase, ResolveUrlTest):
     template = 'items/item.html'
 
     def setUp(self):
-        call_command('loaddata', 'catogory', 'subcategory', 'rarity', 'collection', 'item', verbosity=0)
+        call_command('loaddata', 'catogory', 'subcategory', 'rarity', 'collection', 'pattern', 'item', verbosity=0)
 
     def test_not_logged_in(self):
         client = Client()
@@ -298,7 +298,7 @@ class TestAcceptItem(TestCase, ResolveUrlTest):
     view = views.item_accept
 
     def setUp(self):
-        call_command('loaddata', 'catogory', 'subcategory', 'rarity', 'collection', 'item', verbosity=0)
+        call_command('loaddata', 'catogory', 'subcategory', 'rarity', 'collection', 'pattern', 'item', verbosity=0)
 
     def test_not_logged_in(self):
         client = Client()
@@ -381,7 +381,7 @@ class TestDeleteItem(TestCase, ResolveUrlTest):
     view = views.item_delete
 
     def setUp(self):
-        call_command('loaddata', 'catogory', 'subcategory', 'rarity', 'collection', 'item', verbosity=0)
+        call_command('loaddata', 'catogory', 'subcategory', 'rarity', 'collection', 'pattern', 'item', verbosity=0)
 
     def test_not_logged_in(self):
         client = Client()

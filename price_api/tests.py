@@ -23,7 +23,7 @@ class TestSkinport(TestCase, ResolveUrlTest):
         self.assertEqual(response.json()['error_msg'], 'Item id does not exist.')
 
     def test_get_id_does_exist(self):
-        call_command('loaddata', 'catogory', 'subcategory', 'collection', 'container', 'rarity', 'item', verbosity=0)
+        call_command('loaddata', 'catogory', 'subcategory', 'collection', 'container', 'rarity', 'pattern', 'item', verbosity=0)
 
         client = Client()
 

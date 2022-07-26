@@ -3,306 +3,482 @@
   fields:
     name: Forest Leaves
     icon: imgs/item/usp-s/forest_leaves.png
-    skinport_id: cat=Pistol&type=USP-S&item=Forest+Leaves
     lowest_float: 0.06
-    highest_float: 0.80
+    highest_float: 0.8
     stattrak: false
     souvenir: true
+    steam_id: null
+    buff_id: null
+    bitskins_id: null
+    skinport_id: cat=Pistol&type=USP-S&item=Forest+Leaves
+    skinbaron_id: null
     accepted: true
+    added_by: null
     subcategory: 1
     rarity: 2
+    update: null
+    pattern: 21
+    knife_collection: null
     collection: 15
 - model: items.item
   pk: 2
   fields:
     name: Black Lotus
     icon: imgs/item/usp-s/black_lotus.png
-    skinport_id: cat=Pistol&type=USP-S&item=Black+Lotus
-    lowest_float: 0.0
-    highest_float: 0.90
+    lowest_float: 0
+    highest_float: 0.9
     stattrak: true
     souvenir: false
+    steam_id: null
+    buff_id: null
+    bitskins_id: null
+    skinport_id: cat=Pistol&type=USP-S&item=Black+Lotus
+    skinbaron_id: null
     accepted: true
+    added_by: null
     subcategory: 1
     rarity: 3
+    update: null
+    pattern: 20
+    knife_collection: null
     collection: 73
 - model: items.item
   pk: 3
   fields:
     name: Cyrex
     icon: imgs/item/usp-s/cyrex.png
-    skinport_id: cat=Pistol&type=USP-S&item=Cyrex
-    lowest_float: 0.0
+    lowest_float: 0
     highest_float: 0.55
     stattrak: true
     souvenir: false
+    steam_id: null
+    buff_id: null
+    bitskins_id: null
+    skinport_id: cat=Pistol&type=USP-S&item=Cyrex
+    skinbaron_id: null
     accepted: true
+    added_by: null
     subcategory: 1
     rarity: 4
+    update: null
+    pattern: 19
+    knife_collection: null
     collection: 45
 - model: items.item
   pk: 4
   fields:
     name: Whiteout
     icon: imgs/item/usp-s/whiteout.png
-    skinport_id: cat=Pistol&type=USP-S&item=Whiteout
     lowest_float: 0.06
-    highest_float: 0.80
+    highest_float: 0.8
     stattrak: false
     souvenir: false
+    steam_id: null
+    buff_id: null
+    bitskins_id: null
+    skinport_id: cat=Pistol&type=USP-S&item=Whiteout
+    skinbaron_id: null
     accepted: true
+    added_by: null
     subcategory: 1
     rarity: 5
+    update: null
+    pattern: 18
+    knife_collection: null
     collection: 72
 - model: items.item
   pk: 5
   fields:
     name: Neo-Noir
     icon: imgs/item/usp-s/neo-noir.png
-    skinport_id: cat=Pistol&type=USP-S&item=Neo-Noir
-    lowest_float: 0.00
-    highest_float: 0.70
+    lowest_float: 0
+    highest_float: 0.7
     stattrak: true
     souvenir: false
+    steam_id: null
+    buff_id: null
+    bitskins_id: null
+    skinport_id: cat=Pistol&type=USP-S&item=Neo-Noir
+    skinbaron_id: null
     accepted: true
+    added_by: null
     subcategory: 1
     rarity: 6
+    update: null
+    pattern: 17
+    knife_collection: null
     collection: 46
 - model: items.item
   pk: 6
   fields:
     name: Fade
     icon: imgs/item/glock-18/fade.png
-    skinport_id: cat=Pistol&type=Glock-18&item=Fade
-    lowest_float: 0.00
+    lowest_float: 0
     highest_float: 0.08
     stattrak: false
     souvenir: false
+    steam_id: null
+    buff_id: null
+    bitskins_id: null
+    skinport_id: cat=Pistol&type=Glock-18&item=Fade
+    skinbaron_id: null
     accepted: true
+    added_by: null
     subcategory: 3
     rarity: 4
+    update: null
+    pattern: 4
+    knife_collection: null
     collection: 9
 - model: items.item
   pk: 7
   fields:
     name: Sand Dune
     icon: imgs/item/p250/sand_dune.png
-    skinport_id: cat=Pistol&type=P250&item=Sand+Dune
     lowest_float: 0.06
-    highest_float: 0.80
+    highest_float: 0.8
     stattrak: false
     souvenir: true
+    steam_id: null
+    buff_id: null
+    bitskins_id: null
+    skinport_id: cat=Pistol&type=P250&item=Sand+Dune
+    skinbaron_id: null
     accepted: true
+    added_by: null
     subcategory: 5
     rarity: 1
+    update: null
+    pattern: 16
+    knife_collection: null
     collection: 19
 - model: items.item
   pk: 8
   fields:
     name: Blaze
     icon: imgs/item/desert_eagle/blaze.png
-    skinport_id: cat=Pistol&type=Desert+Eagle&item=Blaze
-    lowest_float: 0.00
+    lowest_float: 0
     highest_float: 0.08
     stattrak: false
     souvenir: false
+    steam_id: null
+    buff_id: null
+    bitskins_id: null
+    skinport_id: cat=Pistol&type=Desert+Eagle&item=Blaze
+    skinbaron_id: null
     accepted: true
+    added_by: null
     subcategory: 9
     rarity: 4
+    update: null
+    pattern: 15
+    knife_collection: null
     collection: 7
 - model: items.item
   pk: 9
   fields:
     name: Starlight Protector
     icon: imgs/item/mp9/starlight_protector.png
-    skinport_id: cat=SMG&type=MP9&item=Starlight+Protector
-    lowest_float: 0.00
-    highest_float: 0.80
+    lowest_float: 0
+    highest_float: 0.8
     stattrak: true
     souvenir: false
+    steam_id: null
+    buff_id: null
+    bitskins_id: null
+    skinport_id: cat=SMG&type=MP9&item=Starlight+Protector
+    skinbaron_id: null
     accepted: true
+    added_by: null
     subcategory: 11
     rarity: 6
+    update: null
+    pattern: 14
+    knife_collection: null
     collection: 74
 - model: items.item
   pk: 10
   fields:
     name: Neon Rider
     icon: imgs/item/mac-10/neon_rider.png
-    skinport_id: cat=SMG&type=MAC-10&item=Neon+Rider
-    lowest_float: 0.00
+    lowest_float: 0
     highest_float: 0.45
     stattrak: true
     souvenir: false
+    steam_id: null
+    buff_id: null
+    bitskins_id: null
+    skinport_id: cat=SMG&type=MAC-10&item=Neon+Rider
+    skinbaron_id: null
     accepted: true
+    added_by: null
     subcategory: 12
     rarity: 6
+    update: null
+    pattern: 13
+    knife_collection: null
     collection: 34
 - model: items.item
   pk: 11
   fields:
     name: Howl
     icon: imgs/item/m4a4/howl.png
-    skinport_id: cat=Rifle&type=M4A4&item=Howl
-    lowest_float: 0.00
-    highest_float: 0.40
+    lowest_float: 0
+    highest_float: 0.4
     stattrak: true
     souvenir: false
+    steam_id: null
+    buff_id: null
+    bitskins_id: null
+    skinport_id: cat=Rifle&type=M4A4&item=Howl
+    skinbaron_id: null
     accepted: true
+    added_by: null
     subcategory: 20
     rarity: 7
-    collection: 
+    update: null
+    pattern: 12
+    knife_collection: null
+    collection: null
 - model: items.item
   pk: 12
   fields:
     name: Printstream
     icon: imgs/item/m4a1-s/printstream.png
-    skinport_id: cat=Rifle&type=M4A1-S&item=Printstream
-    lowest_float: 0.00
-    highest_float: 0.80
+    lowest_float: 0
+    highest_float: 0.8
     stattrak: true
     souvenir: false
+    steam_id: null
+    buff_id: null
+    bitskins_id: null
+    skinport_id: cat=Rifle&type=M4A1-S&item=Printstream
+    skinbaron_id: null
     accepted: true
+    added_by: null
     subcategory: 21
     rarity: 6
+    update: null
+    pattern: 11
+    knife_collection: null
     collection: 67
 - model: items.item
   pk: 13
   fields:
     name: Redline
     icon: imgs/item/ak-47/redline.png
-    skinport_id: cat=Rifle&type=AK-47&item=Redline
-    lowest_float: 0.10
-    highest_float: 0.70
+    lowest_float: 0.1
+    highest_float: 0.7
     stattrak: true
     souvenir: false
+    steam_id: null
+    buff_id: null
+    bitskins_id: null
+    skinport_id: cat=Rifle&type=AK-47&item=Redline
+    skinbaron_id: null
     accepted: true
+    added_by: null
     subcategory: 22
     rarity: 5
+    update: null
+    pattern: 10
+    knife_collection: null
     collection: 23
 - model: items.item
   pk: 14
   fields:
     name: Blood in the Water
     icon: imgs/item/ssg-08/blood_in_the_water.png
-    skinport_id: cat=Rifle&type=SSG+08&item=Blood+in+the+Water
     lowest_float: 0.06
-    highest_float: 0.20
+    highest_float: 0.2
     stattrak: true
     souvenir: false
+    steam_id: null
+    buff_id: null
+    bitskins_id: null
+    skinport_id: cat=Rifle&type=SSG+08&item=Blood+in+the+Water
+    skinbaron_id: null
     accepted: true
+    added_by: null
     subcategory: 25
     rarity: 6
+    update: null
+    pattern: 9
+    knife_collection: null
     collection: 13
 - model: items.item
   pk: 15
   fields:
-    name: Dragon Lore
+    name: Dragon Lore LL
     icon: imgs/item/awp/dragon_lore.png
-    skinport_id: cat=Rifle&type=AWP&item=Dragon+Lore
-    lowest_float: 0.00
-    highest_float: 0.70
+    lowest_float: 0
+    highest_float: 0.7
     stattrak: false
     souvenir: true
+    steam_id: null
+    buff_id: null
+    bitskins_id: null
+    skinport_id: cat=Rifle&type=AWP&item=Dragon+Lore
+    skinbaron_id: null
     accepted: true
+    added_by: null
     subcategory: 26
     rarity: 6
+    update: null
+    pattern: 1
+    knife_collection: null
     collection: 27
 - model: items.item
   pk: 16
   fields:
     name: Autotronic
     icon: imgs/item/gut-knife/autotronic.png
-    skinport_id: cat=Knife&type=Gut+Knife&item=Autotronic
-    lowest_float: 0.00
+    lowest_float: 0
     highest_float: 0.85
     stattrak: true
     souvenir: false
+    steam_id: null
+    buff_id: null
+    bitskins_id: null
+    skinport_id: cat=Knife&type=Gut+Knife&item=Autotronic
+    skinbaron_id: null
     accepted: true
+    added_by: null
     subcategory: 35
     rarity: 6
-    collection: 
+    update: null
+    pattern: 8
+    knife_collection: null
+    collection: null
 - model: items.item
   pk: 17
   fields:
     name: Doppler
     icon: imgs/item/flip-knife/doppler.png
-    skinport_id: cat=Knife&type=Flip+Knife&item=Doppler
-    lowest_float: 0.00
+    lowest_float: 0
     highest_float: 0.08
     stattrak: true
     souvenir: false
+    steam_id: null
+    buff_id: null
+    bitskins_id: null
+    skinport_id: cat=Knife&type=Flip+Knife&item=Doppler
+    skinbaron_id: null
     accepted: true
+    added_by: null
     subcategory: 36
     rarity: 6
-    collection: 
+    update: null
+    pattern: 7
+    knife_collection: null
+    collection: null
 - model: items.item
   pk: 18
   fields:
     name: Night
     icon: imgs/item/bayonet/night.png
-    skinport_id: cat=Knife&type=Bayonet&item=Night
-    lowest_float: 0.00
-    highest_float: 0.80
+    lowest_float: 0
+    highest_float: 0.8
     stattrak: true
     souvenir: false
+    steam_id: null
+    buff_id: null
+    bitskins_id: null
+    skinport_id: cat=Knife&type=Bayonet&item=Night
+    skinbaron_id: null
     accepted: true
+    added_by: null
     subcategory: 37
     rarity: 6
-    collection: 
+    update: null
+    pattern: 6
+    knife_collection: null
+    collection: null
 - model: items.item
   pk: 19
   fields:
     name: Gamma Doppler
     icon: imgs/item/m9-bayonet/gamma_doppler.png
-    skinport_id: cat=Knife&type=M9+Bayonet&item=Gamma+Doppler
-    lowest_float: 0.00
+    lowest_float: 0
     highest_float: 0.08
     stattrak: true
     souvenir: false
+    steam_id: null
+    buff_id: null
+    bitskins_id: null
+    skinport_id: cat=Knife&type=M9+Bayonet&item=Gamma+Doppler
+    skinbaron_id: null
     accepted: true
+    added_by: null
     subcategory: 38
     rarity: 6
-    collection: 
+    update: null
+    pattern: 5
+    knife_collection: null
+    collection: null
 - model: items.item
   pk: 20
   fields:
     name: Fade
     icon: imgs/item/karambit/fade.png
-    skinport_id: cat=Knife&type=Karambit&item=Fade
-    lowest_float: 0.00
+    lowest_float: 0
     highest_float: 0.08
     stattrak: true
     souvenir: false
+    steam_id: null
+    buff_id: null
+    bitskins_id: null
+    skinport_id: cat=Knife&type=Karambit&item=Fade
+    skinbaron_id: null
     accepted: true
+    added_by: null
     subcategory: 39
     rarity: 6
-    collection: 
+    update: null
+    pattern: 4
+    knife_collection: null
+    collection: null
 - model: items.item
   pk: 21
   fields:
     name: Slaughter
     icon: imgs/item/huntsman-knife/slaughter.png
-    skinport_id: cat=Knife&type=Huntsman+Knife&item=Slaughter
     lowest_float: 0.01
     highest_float: 0.26
     stattrak: true
     souvenir: false
+    steam_id: null
+    buff_id: null
+    bitskins_id: null
+    skinport_id: cat=Knife&type=Huntsman+Knife&item=Slaughter
+    skinbaron_id: null
     accepted: true
+    added_by: null
     subcategory: 40
     rarity: 6
-    collection: 
+    update: null
+    pattern: 3
+    knife_collection: null
+    collection: null
 - model: items.item
   pk: 22
   fields:
     name: Lore
     icon: imgs/item/butterfly-knife/lore.png
-    skinport_id: cat=Knife&type=Butterfly+Knife&item=Lore
-    lowest_float: 0.0
-    highest_float: 1.0
+    lowest_float: 0
+    highest_float: 1
     stattrak: true
     souvenir: false
+    steam_id: null
+    buff_id: null
+    bitskins_id: null
+    skinport_id: cat=Knife&type=Butterfly+Knife&item=Lore
+    skinbaron_id: null
     accepted: true
+    added_by: null
     subcategory: 41
     rarity: 6
-    collection: 
+    update: null
+    pattern: 2
+    knife_collection: null
+    collection: null
