@@ -8,12 +8,12 @@
 
 {% block nav %}
   <a class="sidebar-toggle-btn" onclick="toggle_sidebar()">
-    <i class="bi bi-list" style="font-size: 1.75em; color: #fff;"></i>
+    <i class="bi bi-list hamburger-menu-icon"></i>
   </a>
 {% endblock nav %}
 
 {% block content %}
-<div class="flex-row" style="height: 100%;">
+<div class="flex-row height-100">
 <div id="sidebar" class="sidebar">
   <a href="{% url 'admin-dashboard' %}" class="sidebar-link">
     <i class="bi bi-grid-1x2-fill"></i>

@@ -2,74 +2,104 @@
   pk: 1
   fields:
     name: Consumer Grade
+    sort_name: rarity_cg
+    item_type: weapon
     color: b0c3d9
 - model: items.rarity
   pk: 2
   fields:
     name: Industrial Grade
+    sort_name: rarity_ig
+    item_type: weapon
     color: 5e98d9
 - model: items.rarity
   pk: 3
   fields:
     name: Mil-Spec
+    sort_name: rarity_ms
+    item_type: weapon
     color: 4b69ff
 - model: items.rarity
   pk: 4
   fields:
     name: Restricted
+    sort_name: rarity_rs
+    item_type: weapon
     color: 8847ff
 - model: items.rarity
   pk: 5
   fields:
     name: Classified
+    sort_name: rarity_cl
+    item_type: weapon
     color: d32ee6
 - model: items.rarity
   pk: 6
   fields:
     name: Covert
+    sort_name: rarity_co
+    item_type: weapon
     color: eb4b4b
 - model: items.rarity
   pk: 7
   fields:
     name: Contraband
+    sort_name: rarity_cn
+    item_type: weapon
     color: ffae39
 - model: items.rarity
   pk: 8
   fields:
     name: High Grade
+    sort_name: rarity_hg
+    item_type: sticker
     color: 4b69ff
 - model: items.rarity
   pk: 9
   fields:
     name: Remarkable
+    sort_name: rarity_rm
+    item_type: sticker
     color: 8847ff
 - model: items.rarity
   pk: 10
   fields:
     name: Exotic
+    sort_name: rarity_ex
+    item_type: sticker
     color: d32ee6
 - model: items.rarity
   pk: 11
   fields:
     name: Extraordinary
+    sort_name: rarity_et
+    item_type: sticker
     color: eb4b4b
 - model: items.rarity
   pk: 12
   fields:
     name: Distinguished
+    sort_name: rarity_di
+    item_type: agent
     color: 4b69ff
 - model: items.rarity
   pk: 13
   fields:
     name: Exceptional
+    sort_name: rarity_ep
+    item_type: agent
     color: 8847ff
 - model: items.rarity
   pk: 14
   fields:
     name: Superior
+    sort_name: rarity_su
+    item_type: agent
     color: d32ee6
 - model: items.rarity
   pk: 15
   fields:
     name: Master
+    sort_name: rarity_ma
+    item_type: agent
     color: eb4b4b

@@ -38,9 +38,23 @@ class TestCreateTicket(TestCase, ResolveUrlTest):
         response = client.get(reverse(self.name))
 
         self.assertEquals(response.status_code, 302)
-        self.assertRedirects(response, f'{reverse("login")}?next={reverse(self.name)}')
+        self.assertRedirects(
+            response,
+            f'{reverse("login")}?next={reverse(self.name)}'
+        )
 
     def test_get_logged_in(self):
+        User.objects.create_user(username='username1', password='password1')
+
+        client = Client()
+        client.login(username='username1', password='password1')
+
+        response = client.get(reverse(self.name))
+
+        self.assertEquals(response.status_code, 200)
+        self.assertTemplateUsed(response, self.template)
+
+    def test_get_logged_in_no_form_data(self):
         User.objects.create_user(username='username1', password='password1')
 
         client = Client()
@@ -57,26 +71,24 @@ class TestCreateTicket(TestCase, ResolveUrlTest):
         response = client.post(reverse(self.name))
 
         self.assertEquals(response.status_code, 302)
-        self.assertRedirects(response, f'{reverse("login")}?next={reverse(self.name)}')
+        self.assertRedirects(
+            response,
+            f'{reverse("login")}?next={reverse(self.name)}'
+        )
 
-    def test_get_logged_in_no_form_data(self):
+    def test_post_logged_in_valid_data(self):
         User.objects.create_user(username='username1', password='password1')
 
         client = Client()
         client.login(username='username1', password='password1')
 
-        response = client.get(reverse(self.name))
-
-        self.assertEquals(response.status_code, 200)
-        self.assertTemplateUsed(response, self.template)
-
-    def test_get_logged_in_valid_data(self):
-        User.objects.create_user(username='username1', password='password1')
-
-        client = Client()
-        client.login(username='username1', password='password1')
-
-        response = client.post(reverse(self.name), {'title': 'test title', 'body': 'this is some text'})
+        response = client.post(
+            reverse(self.name),
+            {
+                'title': 'test title',
+                'body': 'this is some text'
+            }
+        )
 
         self.assertEquals(response.status_code, 302)
         self.assertRedirects(response, reverse('base-home'))
@@ -95,7 +107,10 @@ class TestTicketsList(TestCase, ResolveUrlTest):
         response = client.get(reverse(self.name))
 
         self.assertEquals(response.status_code, 302)
-        self.assertRedirects(response, f'{reverse("login")}?next={reverse(self.name)}')
+        self.assertRedirects(
+            response,
+            f'{reverse("login")}?next={reverse(self.name)}'
+        )
 
     def test_get_logged_in(self):
         User.objects.create_user(username='username1', password='password1')
@@ -116,10 +131,24 @@ class TestViewTicket(TestCase, ResolveUrlTest):
     template = 'info/view_ticket.html'
 
     def setUp(self):
-        self.user = User.objects.create_user(username='username1', password='password1')
-        self.other = User.objects.create_user(username='username2', password='password1')
-        self.admin = User.objects.create_user(username='adminuser1', password='password1')
-        self.ticket = SupportTicket.objects.create(id=1, title='test', body='fsdfs', author=self.user)
+        self.user = User.objects.create_user(
+            username='username1',
+            password='password1'
+        )
+        self.other = User.objects.create_user(
+            username='username2',
+            password='password1'
+        )
+        self.admin = User.objects.create_user(
+            username='adminuser1',
+            password='password1'
+        )
+        self.ticket = SupportTicket.objects.create(
+            id=1,
+            title='test',
+            body='fsdfs',
+            author=self.user
+        )
 
     def test_get_not_logged_in(self):
         client = Client()
@@ -127,7 +156,10 @@ class TestViewTicket(TestCase, ResolveUrlTest):
         response = client.get(reverse(self.name, args=[1]))
 
         self.assertEquals(response.status_code, 302)
-        self.assertRedirects(response, f'{reverse("login")}?next={reverse(self.name, args=[1])}')
+        self.assertRedirects(
+            response,
+            f'{reverse("login")}?next={reverse(self.name, args=[1])}'
+        )
 
     def test_get_logged_in_other_user(self):
         client = Client()
@@ -148,7 +180,11 @@ class TestViewTicket(TestCase, ResolveUrlTest):
         self.assertTemplateUsed(response, self.template)
 
     def test_get_has_permission_can_close_support_ticket(self):
-        self.admin.user_permissions.set([Permission.objects.get(codename='can_close_support_ticket')])
+        self.admin.user_permissions.set(
+            [
+                Permission.objects.get(codename='can_close_support_ticket')
+            ]
+        )
 
         client = Client()
         client.login(username='adminuser1', password='password1')
@@ -159,7 +195,11 @@ class TestViewTicket(TestCase, ResolveUrlTest):
         self.assertTemplateNotUsed(response, self.template)
 
     def test_get_has_permission_can_reply_support_ticket(self):
-        self.admin.user_permissions.set([Permission.objects.get(codename='can_reply_support_ticket')])
+        self.admin.user_permissions.set(
+            [
+                Permission.objects.get(codename='can_reply_support_ticket')
+            ]
+        )
 
         client = Client()
         client.login(username='adminuser1', password='password1')
@@ -170,7 +210,11 @@ class TestViewTicket(TestCase, ResolveUrlTest):
         self.assertTemplateNotUsed(response, self.template)
 
     def test_get_has_permission_can_view_support_ticket(self):
-        self.admin.user_permissions.set([Permission.objects.get(codename='can_view_support_ticket')])
+        self.admin.user_permissions.set(
+            [
+                Permission.objects.get(codename='can_view_support_ticket')
+            ]
+        )
 
         client = Client()
         client.login(username='adminuser1', password='password1')
@@ -186,7 +230,10 @@ class TestViewTicket(TestCase, ResolveUrlTest):
         response = client.post(reverse(self.name, args=[1]))
 
         self.assertEquals(response.status_code, 302)
-        self.assertRedirects(response, f'{reverse("login")}?next={reverse(self.name, args=[1])}')
+        self.assertRedirects(
+            response,
+            f'{reverse("login")}?next={reverse(self.name, args=[1])}'
+        )
 
     def test_post_logged_in_wrong_user(self):
         client = Client()
@@ -210,15 +257,28 @@ class TestViewTicket(TestCase, ResolveUrlTest):
         client = Client()
         client.login(username='username1', password='password1')
 
-        response = client.post(reverse(self.name, args=[1]), {'body': 'this is some text'})
+        response = client.post(
+            reverse(self.name, args=[1]),
+            {
+                'body': 'this is some text'
+            }
+        )
 
         self.assertEquals(response.status_code, 200)
         self.assertTemplateUsed(response, self.template)
 
-        self.assertObjectExists(TicketReply, body='this is some text', ticket=self.ticket)
+        self.assertObjectExists(
+            TicketReply,
+            body='this is some text',
+            ticket=self.ticket
+        )
 
     def test_post_has_permission_can_close_support_ticket(self):
-        self.admin.user_permissions.set([Permission.objects.get(codename='can_close_support_ticket')])
+        self.admin.user_permissions.set(
+            [
+                Permission.objects.get(codename='can_close_support_ticket')
+            ]
+        )
 
         client = Client()
         client.login(username='adminuser1', password='password1')
@@ -229,21 +289,45 @@ class TestViewTicket(TestCase, ResolveUrlTest):
         self.assertTemplateNotUsed(response, self.template)
 
     def test_post_has_permission_can_view_support_ticket(self):
-        self.admin.user_permissions.set([Permission.objects.get(codename='can_view_support_ticket')])
+        self.admin.user_permissions.set(
+            [
+                Permission.objects.get(codename='can_view_support_ticket')
+            ]
+        )
 
         client = Client()
         client.login(username='adminuser1', password='password1')
 
-        response = client.post(reverse(self.name, args=[1]), {'body': 'this is some text'})
+        response = client.post(
+            reverse(
+                self.name,
+                args=[1]
+            ),
+            {
+                'body': 'this is some text'
+            }
+        )
 
         self.assertEquals(response.status_code, 200)
         self.assertTemplateUsed(response, self.template)
 
-        self.assertObjectDoesNotExist(TicketReply, body='this is some text', ticket=self.ticket)
+        self.assertObjectDoesNotExist(
+            TicketReply,
+            body='this is some text',
+            ticket=self.ticket
+        )
 
     def test_post_has_permission_can_reply_support_ticket_no_form_data(self):
-        self.admin.user_permissions.set([Permission.objects.get(codename='can_reply_support_ticket')])
-        self.admin.user_permissions.set([Permission.objects.get(codename='can_view_support_ticket')])
+        self.admin.user_permissions.set(
+            [
+                Permission.objects.get(codename='can_reply_support_ticket')
+            ]
+        )
+        self.admin.user_permissions.set(
+            [
+                Permission.objects.get(codename='can_view_support_ticket')
+            ]
+        )
 
         client = Client()
         client.login(username='adminuser1', password='password1')
@@ -253,18 +337,35 @@ class TestViewTicket(TestCase, ResolveUrlTest):
         self.assertEquals(response.status_code, 200)
         self.assertTemplateUsed(response, self.template)
 
-    def test_post_has_permission_can_reply_support_ticket_valid_form_data(self):
-        self.admin.user_permissions.set([Permission.objects.get(codename='can_reply_support_ticket'), Permission.objects.get(codename='can_view_support_ticket')])
+    def test_post_has_permission_can_reply_support_ticket_valid_data(self):
+        self.admin.user_permissions.set(
+            [
+                Permission.objects.get(codename='can_reply_support_ticket'),
+                Permission.objects.get(codename='can_view_support_ticket')
+            ]
+        )
 
         client = Client()
         client.login(username='adminuser1', password='password1')
 
-        response = client.post(reverse(self.name, args=[1]), {'body': 'this is some text'})
+        response = client.post(
+            reverse(
+                self.name,
+                args=[1]
+            ),
+            {
+                'body': 'this is some text'
+            }
+        )
 
         self.assertEquals(response.status_code, 200)
         self.assertTemplateUsed(response, self.template)
 
-        self.assertObjectExists(TicketReply, body='this is some text', ticket=self.ticket)
+        self.assertObjectExists(
+            TicketReply,
+            body='this is some text',
+            ticket=self.ticket
+        )
 
 
 class TestCloseTicket(TestCase, ResolveUrlTest):
@@ -273,10 +374,24 @@ class TestCloseTicket(TestCase, ResolveUrlTest):
     view = views.close_ticket
 
     def setUp(self):
-        self.user = User.objects.create_user(username='username1', password='password1')
-        self.other = User.objects.create_user(username='username2', password='password1')
-        self.admin = User.objects.create_user(username='adminuser1', password='password1')
-        self.ticket = SupportTicket.objects.create(id=1, title='test', body='fsdfs', author=self.user)
+        self.user = User.objects.create_user(
+            username='username1',
+            password='password1'
+        )
+        self.other = User.objects.create_user(
+            username='username2',
+            password='password1'
+        )
+        self.admin = User.objects.create_user(
+            username='adminuser1',
+            password='password1'
+        )
+        self.ticket = SupportTicket.objects.create(
+            id=1,
+            title='test',
+            body='fsdfs',
+            author=self.user
+        )
 
     def test_not_logged_in(self):
         client = Client()
@@ -284,7 +399,10 @@ class TestCloseTicket(TestCase, ResolveUrlTest):
         response = client.get(reverse(self.name, args=[1]))
 
         self.assertEquals(response.status_code, 302)
-        self.assertRedirects(response, f'{reverse("login")}?next={reverse(self.name, args=[1])}')
+        self.assertRedirects(
+            response,
+            f'{reverse("login")}?next={reverse(self.name, args=[1])}'
+        )
 
     def test_logged_in_as_other_user(self):
         client = Client()
@@ -304,7 +422,11 @@ class TestCloseTicket(TestCase, ResolveUrlTest):
         self.assertRedirects(response, reverse('base-home'))
 
     def test_has_can_view_support_ticket(self):
-        self.admin.user_permissions.set([Permission.objects.get(codename='can_view_support_ticket')])
+        self.admin.user_permissions.set(
+            [
+                Permission.objects.get(codename='can_view_support_ticket')
+            ]
+        )
 
         client = Client()
         client.login(username='adminuser1', password='password1')
@@ -314,7 +436,11 @@ class TestCloseTicket(TestCase, ResolveUrlTest):
         self.assertEquals(response.status_code, 404)
 
     def test_has_can_reply_support_ticket(self):
-        self.admin.user_permissions.set([Permission.objects.get(codename='can_reply_support_ticket')])
+        self.admin.user_permissions.set(
+            [
+                Permission.objects.get(codename='can_reply_support_ticket')
+            ]
+        )
 
         client = Client()
         client.login(username='adminuser1', password='password1')
@@ -324,7 +450,11 @@ class TestCloseTicket(TestCase, ResolveUrlTest):
         self.assertEquals(response.status_code, 404)
 
     def test_has_can_close_support_ticket(self):
-        self.admin.user_permissions.set([Permission.objects.get(codename='can_close_support_ticket')])
+        self.admin.user_permissions.set(
+            [
+                Permission.objects.get(codename='can_close_support_ticket')
+            ]
+        )
 
         client = Client()
         client.login(username='adminuser1', password='password1')

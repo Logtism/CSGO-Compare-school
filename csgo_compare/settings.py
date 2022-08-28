@@ -26,11 +26,15 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = bool(os.environ.get('DEBUG'))
+DEBUG = bool(int(os.environ.get('DEBUG', 0)))
 
 
 # ALLOWED_HOSTS = []
-ALLOWED_HOSTS = [*os.environ.get("ALLOWED_HOSTS").strip().split(' ')] if os.environ.get("ALLOWED_HOSTS") else []
+ALLOWED_HOSTS = []
+ALLOWED_HOSTS_ENV = os.environ.get('ALLOWED_HOSTS')
+if ALLOWED_HOSTS_ENV:
+    ALLOWED_HOSTS.extend(ALLOWED_HOSTS_ENV.split(','))
+
 
 # Application definition
 
@@ -150,7 +154,9 @@ LOGIN_URL = 'login'
 USERNAME_VALID_CHARS = '^[0-9a-zA-Z_]*$'
 USERNAME_LENGTH_MIN = 3
 USERNAME_LENGTH_MAX = 16
-USERNAME_HELP_TEXT = 'Required. Between 3 and 16 characters. Letters, digits and _ only.'
+USERNAME_HELP_TEXT = (
+    'Required. Between 3 and 16 characters. Letters, digits and _ only.'
+)
 
 
 # Recaptcha settings

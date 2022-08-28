@@ -11,7 +11,17 @@ class TestHome(TestCase, ResolveUrlTest):
     template = 'items/items_list.html'
 
     def test_get(self):
-        call_command('loaddata', 'catogory', 'subcategory', 'rarity', 'collection', 'pattern', 'container', 'item', verbosity=0)
+        call_command(
+            'loaddata',
+            'catogory',
+            'subcategory',
+            'rarity',
+            'collection',
+            'pattern',
+            'container',
+            'item',
+            verbosity=0
+        )
 
         client = Client()
 

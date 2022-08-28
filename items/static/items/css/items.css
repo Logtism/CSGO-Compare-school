@@ -9,13 +9,20 @@
 }
 
 
+.sort-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;;
+}
+
+
 .item {
     display: flex;
     flex-direction: column;
 }
 
 
-@media (max-width: 1150px) {
+@media (max-width: 1600px) {
     .grid {
         grid-template-columns: 1.5fr 1.5fr;
     }
@@ -24,6 +31,10 @@
 
 @media (max-width: 700px) {
     .grid {
+        grid-template-columns: 3fr;
+    }
+
+    .sort-grid {
         grid-template-columns: 3fr;
     }
 }
@@ -76,4 +87,25 @@ th {
 
 .text-souvenir {
     color: gold;
+}
+
+.item-column {
+    width:fit-content;
+    margin: 0 auto;
+}
+
+.bg-stattrak {
+    background-color: #f89406;
+}
+
+.bg-souvenir {
+    background-color: gold;
+}
+
+.overflow-x-scroll {
+    overflow-x: scroll;
+}
+
+.text-black {
+    color:#000;
 }

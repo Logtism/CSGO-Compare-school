@@ -1,7 +1,8 @@
 {% extends 'base/base.html' %}
 {% block content %}
+
 <div class="container">
-  <div class="content flex-row" style="margin-bottom: 1rem;">
+  <div class="content flex-row mb-1">
     <a href="{% url 'info-support-close' id=ticket.id %}" class="text-dec-none ml-auto">Close</a>
   </div>
 
@@ -12,14 +13,14 @@
   </div>
 
   {% for reply in ticket.replies.all %}
-    <div class="content flex-column" style="margin-top: 0.8rem;">
+    <div class="content flex-column mt-08">
       <p>{{ reply.author.username }}</p>
       <p>{{ reply.body }}</p>
 
     </div>
   {% endfor %}
 
-  <form method="POST" style="margin-top: 0.8rem;">
+  <form method="POST" class="mt-08">
     {% csrf_token %}
     <div class="form-fields">
       {{ form }}

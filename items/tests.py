@@ -7,7 +7,16 @@ from django.conf import settings
 from django.utils import timezone
 from firebrick.tests import ResolveUrlTest
 from accounts.models import Profile
-from .models import Category, Subcategory, Rarity, Collection, Item, Update, KnifeCollection, Pattern
+from .models import (
+    Category,
+    Subcategory,
+    Rarity,
+    Collection,
+    Item,
+    Update,
+    KnifeCollection,
+    Pattern
+)
 from . import views
 import shutil
 import os
@@ -59,14 +68,14 @@ class TestCollection(TestCase, ResolveUrlTest):
 
         self.assertEquals(response.status_code, 200)
         self.assertTemplateUsed(response, self.template)
-        
+
 
 class TestPattern(TestCase, ResolveUrlTest):
     name = 'items-pattern'
     args = [0]
     view = views.pattern
     template = 'items/items_list.html'
-    
+
     def test_id_does_not_exist(self):
         client = Client()
 
@@ -83,7 +92,7 @@ class TestPattern(TestCase, ResolveUrlTest):
 
         self.assertEquals(response.status_code, 200)
         self.assertTemplateUsed(response, self.template)
-    
+
 
 class TestItem(TestCase, ResolveUrlTest):
     name = 'items-item'
@@ -100,7 +109,12 @@ class TestItem(TestCase, ResolveUrlTest):
     def test_id_does_exist_not_accepted(self):
         cat = Category.objects.create(name='cat')
         subcat = Subcategory.objects.create(name='subcat', category=cat)
-        Item.objects.create(id=1, name='test item', icon='icon url', subcategory=subcat)
+        Item.objects.create(
+            id=1,
+            name='test item',
+            icon='icon url',
+            subcategory=subcat
+        )
 
         client = Client()
 
@@ -112,7 +126,16 @@ class TestItem(TestCase, ResolveUrlTest):
     def test_id_does_exist_accepted(self):
         cat = Category.objects.create(name='cat')
         Subcategory.objects.create(name='subcat', category=cat)
-        call_command('loaddata', 'catogory', 'subcategory', 'rarity', 'collection', 'pattern', 'item', verbosity=0)
+        call_command(
+            'loaddata',
+            'catogory',
+            'subcategory',
+            'rarity',
+            'collection',
+            'pattern',
+            'item',
+            verbosity=0
+        )
 
         client = Client()
 
@@ -128,19 +151,58 @@ class TestAddItem(TestCase, ResolveUrlTest):
 
     def setUp(self):
         self.cat = Category.objects.create(name='cat')
-        self.subcat = Subcategory.objects.create(name='subcat', category=self.cat, icon='imgs/subcategory/small/ak-47.png', icon_large='imgs/subcategory/large/ak-47.png')
-        self.rarity = Rarity.objects.create(name='good', color='#fff')
-        self.update = Update.objects.create(name='testing', link='https://testing.com', date=timezone.now())
-        self.knifecollection = KnifeCollection.objects.create(name='knife test')
-        self.collection = Collection.objects.create(name='test', icon='imgs/collection/operation-hydra.png')
-        self.pattern = Pattern.objects.create(name='test')
-        self.user = User.objects.create_user(username='testuser1', password='password1')
+        self.subcat = Subcategory.objects.create(
+            name='subcat',
+            category=self.cat,
+            icon='imgs/subcategory/small/ak-47.png',
+            icon_large='imgs/subcategory/large/ak-47.png'
+        )
+        self.rarity = Rarity.objects.create(
+            name='good',
+            color='#fff'
+        )
+        self.update = Update.objects.create(
+            name='testing',
+            link='https://testing.com',
+            date=timezone.now()
+        )
+        self.knifecollection = KnifeCollection.objects.create(
+            name='knife test'
+        )
+        self.collection = Collection.objects.create(
+            name='test',
+            icon='imgs/collection/operation-hydra.png'
+        )
+        self.pattern = Pattern.objects.create(
+            name='test'
+        )
+        self.user = User.objects.create_user(
+            username='testuser1',
+            password='password1'
+        )
 
-        with open(os.path.join('media', 'imgs', 'item', 'ak-47', 'redline.png'), 'rb') as f:
+        with open(
+            os.path.join(
+                'media',
+                'imgs',
+                'item',
+                'ak-47',
+                'redline.png'
+            ),
+            'rb'
+        ) as f:
             self.test_img_data = f.read()
 
     def tearDown(self):
-        if os.path.isfile(os.path.join('media', 'imgs', 'item', 'subcat', 'test.png')):
+        if os.path.isfile(
+            os.path.join(
+                'media',
+                'imgs',
+                'item',
+                'subcat',
+                'test.png'
+            )
+        ):
             shutil.rmtree(os.path.join('media', 'imgs', 'item', 'subcat'))
 
     def test_get_not_logged_in(self):
@@ -149,7 +211,10 @@ class TestAddItem(TestCase, ResolveUrlTest):
         response = client.get(reverse(self.name))
 
         self.assertEquals(response.status_code, 302)
-        self.assertRedirects(response, f'/{settings.LOGIN_URL}/?next={reverse(self.name)}')
+        self.assertRedirects(
+            response,
+            f'/{settings.LOGIN_URL}/?next={reverse(self.name)}'
+        )
 
     def test_get_logged_in(self):
         client = Client()
@@ -166,7 +231,10 @@ class TestAddItem(TestCase, ResolveUrlTest):
         response = client.post(reverse(self.name))
 
         self.assertEquals(response.status_code, 302)
-        self.assertRedirects(response, f'/{settings.LOGIN_URL}/?next={reverse(self.name)}')
+        self.assertRedirects(
+            response,
+            f'/{settings.LOGIN_URL}/?next={reverse(self.name)}'
+        )
 
     def test_post_without_required_fields(self):
         client = Client()
@@ -217,11 +285,23 @@ class TestAddItem(TestCase, ResolveUrlTest):
             name='test_item',
             icon='imgs/item/subcat/test.png',
             accepted=False,
-            added_by=Profile.objects.get(user=User.objects.get(username=self.user.username)),
+            added_by=Profile.objects.get(
+                user=User.objects.get(username=self.user.username)
+            ),
             subcategory=self.subcat
         )
 
-        self.assertTrue(os.path.isfile(os.path.join('media', 'imgs', 'item', 'subcat', 'test.png')))
+        self.assertTrue(
+            os.path.isfile(
+                os.path.join(
+                    'media',
+                    'imgs',
+                    'item',
+                    'subcat',
+                    'test.png'
+                )
+            )
+        )
 
     def test_with_all_fields_without_recapture(self):
         client = Client()
@@ -236,9 +316,18 @@ class TestAddItem(TestCase, ResolveUrlTest):
                 'highest_float': 0.999,
                 'stattrak': True,
                 'souvenir': False,
+                'steam_id': '1',
+                'buff_id': '2',
+                'bitskins_id': 'test',
+                'skinport_id': 'testing',
+                'skinbaron_id': 'testing-skinbaron',
+                'broskins_id': 1000,
                 'subcategory': self.subcat.id,
                 'rarity': self.rarity.id,
-                'collection': self.collection.id
+                'update': self.update.id,
+                'pattern': self.pattern.id,
+                'knife_collection': self.knifecollection.id,
+                'collection': self.collection.id,
             }
         )
 
@@ -292,7 +381,9 @@ class TestAddItem(TestCase, ResolveUrlTest):
             skinport_id='testing',
             skinbaron_id='testing-skinbaron',
             accepted=False,
-            added_by=Profile.objects.get(user=User.objects.get(username=self.user.username)),
+            added_by=Profile.objects.get(
+                user=User.objects.get(username=self.user.username)
+            ),
             subcategory=self.subcat,
             rarity=self.rarity,
             update=self.update,
@@ -301,4 +392,14 @@ class TestAddItem(TestCase, ResolveUrlTest):
             collection=self.collection
         )
 
-        self.assertTrue(os.path.isfile(os.path.join('media', 'imgs', 'item', 'subcat', 'test.png')))
+        self.assertTrue(
+            os.path.isfile(
+                os.path.join(
+                    'media',
+                    'imgs',
+                    'item',
+                    'subcat',
+                    'test.png'
+                )
+            )
+        )

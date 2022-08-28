@@ -20,10 +20,23 @@ class TestSkinport(TestCase, ResolveUrlTest):
         self.assertIn('success', response.json())
         self.assertFalse(response.json()['success'])
         self.assertIn('error_msg', response.json())
-        self.assertEqual(response.json()['error_msg'], 'Item id does not exist.')
+        self.assertEqual(
+            response.json()['error_msg'],
+            'Item id does not exist.'
+        )
 
     def test_get_id_does_exist(self):
-        call_command('loaddata', 'catogory', 'subcategory', 'collection', 'container', 'rarity', 'pattern', 'item', verbosity=0)
+        call_command(
+            'loaddata',
+            'catogory',
+            'subcategory',
+            'collection',
+            'container',
+            'rarity',
+            'pattern',
+            'item',
+            verbosity=0
+        )
 
         client = Client()
 
@@ -32,14 +45,13 @@ class TestSkinport(TestCase, ResolveUrlTest):
         self.assertEqual(response.status_code, 200)
 
         self.assertIn('success', response.json())
+
         self.assertTrue(response.json()['success'])
-        self.assertIn('fn', response.json())
-        self.assertEqual(type(response.json()['fn']), float)
-        self.assertIn('mw', response.json())
-        self.assertEqual(type(response.json()['mw']), float)
-        self.assertIn('ft', response.json())
-        self.assertEqual(type(response.json()['ft']), float)
-        self.assertIn('ww', response.json())
-        self.assertEqual(type(response.json()['ww']), float)
-        self.assertIn('bs', response.json())
-        self.assertEqual(type(response.json()['bs']), float)
+        for wear_type in ['fn', 'mw', 'ft', 'ww', 'bs']:
+            self.assertIn(wear_type, response.json())
+            # Check if its a 0 if its not a float
+            if type(response.json()[wear_type]) != float:
+                self.assertEqual(type(response.json()[wear_type]), int)
+                self.assertEqual(response.json()[wear_type], 0)
+            else:
+                self.assertEqual(type(response.json()[wear_type]), float)

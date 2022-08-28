@@ -27,7 +27,13 @@ class TestRegister(TestCase, ResolveUrlTest, GetViewTest):
     def test_post_invalid_chars_in_username(self):
         client = Client()
 
-        response = client.post(reverse(self.name), {'username': '#@@@@@@', 'password': 'thisisagoodpassword'})
+        response = client.post(
+            reverse(self.name),
+            {
+                'username': '#@@@@@@',
+                'password': 'thisisagoodpassword'
+            }
+        )
 
         self.assertEquals(response.status_code, 200)
         self.assertTemplateUsed(response, self.template)
@@ -37,7 +43,14 @@ class TestRegister(TestCase, ResolveUrlTest, GetViewTest):
     def test_post_username_invalid_to_short(self):
         client = Client()
 
-        response = client.post(reverse(self.name), {'username': 'aa', 'password1': 'thisisagoodpassword', 'password2': 'thisisagoodpassword'})
+        response = client.post(
+            reverse(self.name),
+            {
+                'username': 'aa',
+                'password1': 'thisisagoodpassword',
+                'password2': 'thisisagoodpassword'
+            }
+        )
 
         self.assertEquals(response.status_code, 200)
         self.assertTemplateUsed(response, self.template)
@@ -47,7 +60,14 @@ class TestRegister(TestCase, ResolveUrlTest, GetViewTest):
     def test_post_username_invalid_to_long(self):
         client = Client()
 
-        response = client.post(reverse(self.name), {'username': 'aaaaaaaaaaaaaaaaa', 'password1': 'thisisagoodpassword', 'password2': 'thisisagoodpassword'})
+        response = client.post(
+            reverse(self.name),
+            {
+                'username': 'aaaaaaaaaaaaaaaaa',
+                'password1': 'thisisagoodpassword',
+                'password2': 'thisisagoodpassword'
+            }
+        )
 
         self.assertEquals(response.status_code, 200)
         self.assertTemplateUsed(response, self.template)
@@ -87,7 +107,10 @@ class TestRegister(TestCase, ResolveUrlTest, GetViewTest):
         self.assertEquals(response.status_code, 302)
         self.assertRedirects(response, reverse(settings.LOGIN_URL))
         self.assertObjectExists(User, username='testuser1')
-        self.assertObjectExists(Profile, user=User.objects.get(username='testuser1'))
+        self.assertObjectExists(
+            Profile,
+            user=User.objects.get(username='testuser1')
+        )
 
 
 class TestLogin(TestCase, ResolveUrlTest, GetViewTest):
@@ -97,7 +120,10 @@ class TestLogin(TestCase, ResolveUrlTest, GetViewTest):
     status = 200
 
     def setUp(self):
-        self.user = User.objects.create_user(username='testuser1', password='password1')
+        self.user = User.objects.create_user(
+            username='testuser1',
+            password='password1'
+        )
 
     def test_post_not_all_required_fields(self):
         client = Client()
@@ -111,7 +137,13 @@ class TestLogin(TestCase, ResolveUrlTest, GetViewTest):
     def test_post_username_not_found(self):
         client = Client()
 
-        response = client.post(reverse(self.name), {'username': 'testuser2', 'password': 'password2'})
+        response = client.post(
+            reverse(self.name),
+            {
+                'username': 'testuser2',
+                'password': 'password2'
+            }
+        )
 
         self.assertEquals(response.status_code, 200)
         self.assertTemplateUsed(response, self.template)
@@ -120,7 +152,13 @@ class TestLogin(TestCase, ResolveUrlTest, GetViewTest):
     def test_post_incorrect_password(self):
         client = Client()
 
-        response = client.post(reverse(self.name), {'username': 'testuser1', 'password': 'password2'})
+        response = client.post(
+            reverse(self.name),
+            {
+                'username': 'testuser1',
+                'password': 'password2'
+            }
+        )
 
         self.assertEquals(response.status_code, 200)
         self.assertTemplateUsed(response, self.template)
@@ -129,7 +167,13 @@ class TestLogin(TestCase, ResolveUrlTest, GetViewTest):
     def test_post_successful_login(self):
         client = Client()
 
-        response = client.post(reverse(self.name), {'username': 'testuser1', 'password': 'password1'})
+        response = client.post(
+            reverse(self.name),
+            {
+                'username': 'testuser1',
+                'password': 'password1'
+            }
+        )
 
         self.assertEquals(response.status_code, 302)
         self.assertRedirects(response, reverse(settings.LOGIN_REDIRECT_URL))
@@ -143,7 +187,10 @@ class TestLogout(TestCase, ResolveUrlTest, GetViewTest):
     status = 200
 
     def test_logged_out(self):
-        user = User.objects.create_user(username='testuser1', password='password1')
+        user = User.objects.create_user(
+            username='testuser1',
+            password='password1'
+        )
 
         client = Client()
         client.login(username=user.username, password='password1')

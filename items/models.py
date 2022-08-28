@@ -13,9 +13,25 @@ class Category(models.Model):
 class Subcategory(models.Model):
     name = models.CharField(max_length=150)
     broskins_id = models.IntegerField(null=True, blank=True)
-    icon = models.ImageField(upload_to=os.path.join('imgs', 'collection', 'small'))
-    icon_large = models.ImageField(upload_to=os.path.join('imgs', 'collection', 'large'))
-    category = models.ForeignKey(Category, on_delete=models.CASCADE, related_name='subcategories')
+    icon = models.ImageField(
+        upload_to=os.path.join(
+            'imgs',
+            'collection',
+            'small'
+        )
+    )
+    icon_large = models.ImageField(
+        upload_to=os.path.join(
+            'imgs',
+            'collection',
+            'large'
+        )
+    )
+    category = models.ForeignKey(
+        Category,
+        on_delete=models.CASCADE,
+        related_name='subcategories'
+    )
 
     def __str__(self):
         return f'{self.name}'
@@ -23,6 +39,8 @@ class Subcategory(models.Model):
 
 class Rarity(models.Model):
     name = models.CharField(max_length=100)
+    sort_name = models.CharField(max_length=100, null=True, blank=True)
+    item_type = models.CharField(max_length=100, null=True, blank=True)
     color = models.CharField(max_length=25)
 
     def __str__(self):
@@ -48,7 +66,12 @@ class KnifeCollection(models.Model):
 class Collection(models.Model):
     name = models.CharField(max_length=200)
     icon = models.ImageField(upload_to=os.path.join('imgs', 'collection'))
-    knife_collection = models.ForeignKey(KnifeCollection, on_delete=models.CASCADE, null=True, blank=True)
+    knife_collection = models.ForeignKey(
+        KnifeCollection,
+        on_delete=models.CASCADE,
+        null=True,
+        blank=True
+    )
 
     def __str__(self):
         return f'{self.name}'
@@ -65,7 +88,12 @@ class Container(models.Model):
     name = models.CharField(max_length=200)
     icon = models.ImageField(upload_to=os.path.join('imgs', 'container'))
     collection = models.ForeignKey(Collection, on_delete=models.CASCADE)
-    tournament = models.ForeignKey(Tournament, on_delete=models.CASCADE, null=True, blank=True)
+    tournament = models.ForeignKey(
+        Tournament,
+        on_delete=models.CASCADE,
+        null=True,
+        blank=True
+    )
 
     def __str__(self):
         return f'{self.name}'
@@ -77,7 +105,7 @@ def get_upload_to_path(self, file_name):
 
 class Pattern(models.Model):
     name = models.CharField(max_length=300)
-    
+
     def __str__(self):
         return f'{self.name}'
 
@@ -98,13 +126,49 @@ class Item(models.Model):
     broskins_id = models.IntegerField(null=True, blank=True)
 
     accepted = models.BooleanField(default=False)
-    added_by = models.ForeignKey(Profile, on_delete=models.CASCADE, null=True, blank=True)
-    subcategory = models.ForeignKey(Subcategory, on_delete=models.CASCADE, related_name='items')
-    rarity = models.ForeignKey(Rarity, on_delete=models.CASCADE, null=True, blank=True)
-    update = models.ForeignKey(Update, on_delete=models.CASCADE, null=True, blank=True)
-    pattern = models.ForeignKey(Pattern, on_delete=models.CASCADE, null=True, blank=True, related_name='pattern_items')
-    knife_collection = models.ForeignKey(KnifeCollection, on_delete=models.CASCADE, null=True, blank=True)
-    collection = models.ForeignKey(Collection, on_delete=models.CASCADE, null=True, blank=True, related_name='collection_items')
+    added_by = models.ForeignKey(
+        Profile,
+        on_delete=models.CASCADE,
+        null=True,
+        blank=True
+    )
+    subcategory = models.ForeignKey(
+        Subcategory,
+        on_delete=models.CASCADE,
+        related_name='items'
+    )
+    rarity = models.ForeignKey(
+        Rarity,
+        on_delete=models.CASCADE,
+        null=True,
+        blank=True
+    )
+    update = models.ForeignKey(
+        Update,
+        on_delete=models.CASCADE,
+        null=True,
+        blank=True
+    )
+    pattern = models.ForeignKey(
+        Pattern,
+        on_delete=models.CASCADE,
+        null=True,
+        blank=True,
+        related_name='pattern_items'
+    )
+    knife_collection = models.ForeignKey(
+        KnifeCollection,
+        on_delete=models.CASCADE,
+        null=True,
+        blank=True
+    )
+    collection = models.ForeignKey(
+        Collection,
+        on_delete=models.CASCADE,
+        null=True,
+        blank=True,
+        related_name='collection_items'
+    )
 
     class Meta:
         permissions = (
@@ -114,7 +178,7 @@ class Item(models.Model):
         )
 
     def __str__(self):
-            if self.subcategory and self.pattern:
-                return f'{self.subcategory.name} | {self.pattern.name}'
-            else:
-                return self.name
+        if self.subcategory and self.pattern:
+            return f'{self.subcategory.name} | {self.pattern.name}'
+        else:
+            return self.name

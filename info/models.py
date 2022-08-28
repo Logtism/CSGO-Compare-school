@@ -23,7 +23,11 @@ class SupportTicket(models.Model):
 class TicketReply(models.Model):
     body = models.TextField(max_length=1000)
     created_at = models.DateTimeField(auto_now_add=True)
-    ticket = models.ForeignKey(SupportTicket, on_delete=models.CASCADE, related_name='replies')
+    ticket = models.ForeignKey(
+        SupportTicket,
+        on_delete=models.CASCADE,
+        related_name='replies'
+    )
     author = models.ForeignKey(User, on_delete=models.CASCADE)
 
     def __str__(self):

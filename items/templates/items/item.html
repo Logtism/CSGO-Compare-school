@@ -6,12 +6,12 @@
 {% block content %}
 <div class="container">
   <div class="content mb">
-    <div class="flex-column" style="width:fit-content; margin: 0 auto;">
+    <div class="flex-column item-column">
       <div class="flex-row center-content">
         <a href="{% url 'items-subcat' id=item.subcategory.id %}" class="text-dec-none">
           <h1>{{ item.subcategory.name }}</h1>
         </a>
-        <h1 style="margin: 0 0.3rem;">|</h1>
+        <h1 class="mh-03">|</h1>
         <a href="{% url 'items-pattern' id=item.pattern.id %}" class="text-dec-none">
           <h1>{{ item.pattern.name }}</h1>
         </a>
@@ -22,12 +22,12 @@
         </div>
       {% endif %}
       {% if item.stattrak %}
-        <div class="pil" style="background-color: #f89406;">
+        <div class="pil bg-stattrak">
           <h2 class="text-center">Stattrak Available</h2>
         </div>
       {% endif %}
       {% if item.souvenir %}
-        <div class="pil" style="background-color: gold;">
+        <div class="pil bg-souvenir">
           <h2 class="text-center">Souvenir Available</h2>
         </div>
       {% endif %}
@@ -37,7 +37,7 @@
     </div>
   </div>
 
-  <div class="content mb" style="overflow-x: scroll;">
+  <div class="content mb overflow-x-scroll">
     <table>
       <tr>
         <th>Item</th>
@@ -182,14 +182,14 @@
       <div class="flex-row">
         <div class="flex-col">
           <label for="patternid">Pattern id</label>
-          <input style="color:#000;" id="patternid" type="int" value=0>
+          <input class="text-black" id="patternid" type="int" value=0>
         </div>
-        <div class="flex-col" style="margin-left:auto;">
+        <div class="flex-col ml-auto">
           <label for="float">Float</label>
-          <input style="color:#000;" id="float" type="float" value=0.0>
+          <input class="text-black" id="float" type="float" value=0.0>
         </div>
       </div>
-      <input id="broskinscmd" style="width:100%; margin-top: 0.5rem; color:#000;">
+      <input id="broskinscmd" class="width-100 mt05 text-black">
       <script>
         const patterninput = document.getElementById("patternid");
         const floatinput = document.getElementById("float");

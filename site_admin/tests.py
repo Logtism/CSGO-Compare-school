@@ -33,7 +33,11 @@ class TestDashboard(TestCase, ResolveUrlTest):
         self.assertTemplateNotUsed(response, self.template)
 
     def test_is_staff(self):
-        User.objects.create_user(username='username1', password='password1', is_staff=True)
+        User.objects.create_user(
+            username='username1',
+            password='password1',
+            is_staff=True
+        )
 
         client = Client()
         client.login(username='username1', password='password1')
@@ -69,7 +73,11 @@ class TestItemDashboard(TestCase, ResolveUrlTest):
         self.assertTemplateNotUsed(response, self.template)
 
     def test_is_staff(self):
-        User.objects.create_user(username='username1', password='password1', is_staff=True)
+        User.objects.create_user(
+            username='username1',
+            password='password1',
+            is_staff=True
+        )
 
         client = Client()
         client.login(username='username1', password='password1')
@@ -80,8 +88,15 @@ class TestItemDashboard(TestCase, ResolveUrlTest):
         self.assertTemplateNotUsed(response, self.template)
 
     def test_has_can_accept_item_sub(self):
-        user = User.objects.create_user(username='username1', password='password1')
-        user.user_permissions.set([Permission.objects.get(codename='can_accept_item_sub')])
+        user = User.objects.create_user(
+            username='username1',
+            password='password1'
+        )
+        user.user_permissions.set(
+            [
+                Permission.objects.get(codename='can_accept_item_sub')
+            ]
+        )
 
         client = Client()
         client.login(username='username1', password='password1')
@@ -92,8 +107,15 @@ class TestItemDashboard(TestCase, ResolveUrlTest):
         self.assertTemplateNotUsed(response, self.template)
 
     def test_has_can_delete_item_sub(self):
-        user = User.objects.create_user(username='username1', password='password1')
-        user.user_permissions.set([Permission.objects.get(codename='can_decline_item_sub')])
+        user = User.objects.create_user(
+            username='username1',
+            password='password1'
+        )
+        user.user_permissions.set(
+            [
+                Permission.objects.get(codename='can_decline_item_sub')
+            ]
+        )
 
         client = Client()
         client.login(username='username1', password='password1')
@@ -104,8 +126,15 @@ class TestItemDashboard(TestCase, ResolveUrlTest):
         self.assertTemplateNotUsed(response, self.template)
 
     def test_has_can_view_item_sub_permission(self):
-        user = User.objects.create_user(username='username1', password='password1')
-        user.user_permissions.set([Permission.objects.get(codename='can_view_item_sub')])
+        user = User.objects.create_user(
+            username='username1',
+            password='password1'
+        )
+        user.user_permissions.set(
+            [
+                Permission.objects.get(codename='can_view_item_sub')
+            ]
+        )
 
         client = Client()
         client.login(username='username1', password='password1')
@@ -123,7 +152,16 @@ class TestReviewItem(TestCase, ResolveUrlTest):
     template = 'site_admin/review_item.html'
 
     def setUp(self):
-        call_command('loaddata', 'catogory', 'subcategory', 'rarity', 'collection', 'pattern', 'item', verbosity=0)
+        call_command(
+            'loaddata',
+            'catogory',
+            'subcategory',
+            'rarity',
+            'collection',
+            'pattern',
+            'item',
+            verbosity=0
+        )
 
     def test_not_logged_in(self):
         client = Client()
@@ -145,7 +183,11 @@ class TestReviewItem(TestCase, ResolveUrlTest):
         self.assertTemplateNotUsed(response, self.template)
 
     def test_is_staff(self):
-        User.objects.create_user(username='username1', password='password1', is_staff=True)
+        User.objects.create_user(
+            username='username1',
+            password='password1',
+            is_staff=True
+        )
 
         client = Client()
         client.login(username='username1', password='password1')
@@ -156,8 +198,15 @@ class TestReviewItem(TestCase, ResolveUrlTest):
         self.assertTemplateNotUsed(response, self.template)
 
     def test_has_can_accept_item_sub(self):
-        user = User.objects.create_user(username='username1', password='password1')
-        user.user_permissions.set([Permission.objects.get(codename='can_accept_item_sub')])
+        user = User.objects.create_user(
+            username='username1',
+            password='password1'
+        )
+        user.user_permissions.set(
+            [
+                Permission.objects.get(codename='can_accept_item_sub')
+            ]
+        )
 
         client = Client()
         client.login(username='username1', password='password1')
@@ -168,8 +217,15 @@ class TestReviewItem(TestCase, ResolveUrlTest):
         self.assertTemplateNotUsed(response, self.template)
 
     def test_has_can_delete_item_sub(self):
-        user = User.objects.create_user(username='username1', password='password1')
-        user.user_permissions.set([Permission.objects.get(codename='can_decline_item_sub')])
+        user = User.objects.create_user(
+            username='username1',
+            password='password1'
+        )
+        user.user_permissions.set(
+            [
+                Permission.objects.get(codename='can_decline_item_sub')
+            ]
+        )
 
         client = Client()
         client.login(username='username1', password='password1')
@@ -180,8 +236,15 @@ class TestReviewItem(TestCase, ResolveUrlTest):
         self.assertTemplateNotUsed(response, self.template)
 
     def test_has_can_view_item_sub_permission_id_does_not_exist(self):
-        user = User.objects.create_user(username='username1', password='password1')
-        user.user_permissions.set([Permission.objects.get(codename='can_view_item_sub')])
+        user = User.objects.create_user(
+            username='username1',
+            password='password1'
+        )
+        user.user_permissions.set(
+            [
+                Permission.objects.get(codename='can_view_item_sub')
+            ]
+        )
 
         client = Client()
         client.login(username='username1', password='password1')
@@ -192,8 +255,15 @@ class TestReviewItem(TestCase, ResolveUrlTest):
         self.assertTemplateNotUsed(response, self.template)
 
     def test_has_can_view_item_sub_permission_id_does_exist(self):
-        user = User.objects.create_user(username='username1', password='password1')
-        user.user_permissions.set([Permission.objects.get(codename='can_view_item_sub')])
+        user = User.objects.create_user(
+            username='username1',
+            password='password1'
+        )
+        user.user_permissions.set(
+            [
+                Permission.objects.get(codename='can_view_item_sub')
+            ]
+        )
 
         client = Client()
         client.login(username='username1', password='password1')
@@ -211,7 +281,16 @@ class TestItemPreview(TestCase, ResolveUrlTest):
     template = 'items/item.html'
 
     def setUp(self):
-        call_command('loaddata', 'catogory', 'subcategory', 'rarity', 'collection', 'pattern', 'item', verbosity=0)
+        call_command(
+            'loaddata',
+            'catogory',
+            'subcategory',
+            'rarity',
+            'collection',
+            'pattern',
+            'item',
+            verbosity=0
+        )
 
     def test_not_logged_in(self):
         client = Client()
@@ -233,7 +312,11 @@ class TestItemPreview(TestCase, ResolveUrlTest):
         self.assertTemplateNotUsed(response, self.template)
 
     def test_is_staff(self):
-        User.objects.create_user(username='username1', password='password1', is_staff=True)
+        User.objects.create_user(
+            username='username1',
+            password='password1',
+            is_staff=True
+        )
 
         client = Client()
         client.login(username='username1', password='password1')
@@ -244,8 +327,15 @@ class TestItemPreview(TestCase, ResolveUrlTest):
         self.assertTemplateNotUsed(response, self.template)
 
     def test_has_can_accept_item_sub(self):
-        user = User.objects.create_user(username='username1', password='password1')
-        user.user_permissions.set([Permission.objects.get(codename='can_accept_item_sub')])
+        user = User.objects.create_user(
+            username='username1',
+            password='password1'
+        )
+        user.user_permissions.set(
+            [
+                Permission.objects.get(codename='can_accept_item_sub')
+            ]
+        )
 
         client = Client()
         client.login(username='username1', password='password1')
@@ -256,8 +346,15 @@ class TestItemPreview(TestCase, ResolveUrlTest):
         self.assertTemplateNotUsed(response, self.template)
 
     def test_has_can_delete_item_sub(self):
-        user = User.objects.create_user(username='username1', password='password1')
-        user.user_permissions.set([Permission.objects.get(codename='can_decline_item_sub')])
+        user = User.objects.create_user(
+            username='username1',
+            password='password1'
+        )
+        user.user_permissions.set(
+            [
+                Permission.objects.get(codename='can_decline_item_sub')
+            ]
+        )
 
         client = Client()
         client.login(username='username1', password='password1')
@@ -268,8 +365,15 @@ class TestItemPreview(TestCase, ResolveUrlTest):
         self.assertTemplateNotUsed(response, self.template)
 
     def test_has_can_view_item_sub_permission_id_does_not_exist(self):
-        user = User.objects.create_user(username='username1', password='password1')
-        user.user_permissions.set([Permission.objects.get(codename='can_view_item_sub')])
+        user = User.objects.create_user(
+            username='username1',
+            password='password1'
+        )
+        user.user_permissions.set(
+            [
+                Permission.objects.get(codename='can_view_item_sub')
+            ]
+        )
 
         client = Client()
         client.login(username='username1', password='password1')
@@ -280,8 +384,15 @@ class TestItemPreview(TestCase, ResolveUrlTest):
         self.assertTemplateNotUsed(response, self.template)
 
     def test_has_can_view_item_sub_permission_id_does_exist(self):
-        user = User.objects.create_user(username='username1', password='password1')
-        user.user_permissions.set([Permission.objects.get(codename='can_view_item_sub')])
+        user = User.objects.create_user(
+            username='username1',
+            password='password1'
+        )
+        user.user_permissions.set(
+            [
+                Permission.objects.get(codename='can_view_item_sub')
+            ]
+        )
 
         client = Client()
         client.login(username='username1', password='password1')
@@ -298,7 +409,16 @@ class TestAcceptItem(TestCase, ResolveUrlTest):
     view = views.item_accept
 
     def setUp(self):
-        call_command('loaddata', 'catogory', 'subcategory', 'rarity', 'collection', 'pattern', 'item', verbosity=0)
+        call_command(
+            'loaddata',
+            'catogory',
+            'subcategory',
+            'rarity',
+            'collection',
+            'pattern',
+            'item',
+            verbosity=0
+        )
 
     def test_not_logged_in(self):
         client = Client()
@@ -318,7 +438,11 @@ class TestAcceptItem(TestCase, ResolveUrlTest):
         self.assertEquals(response.status_code, 404)
 
     def test_is_staff(self):
-        User.objects.create_user(username='username1', password='password1', is_staff=True)
+        User.objects.create_user(
+            username='username1',
+            password='password1',
+            is_staff=True
+        )
 
         client = Client()
         client.login(username='username1', password='password1')
@@ -328,8 +452,15 @@ class TestAcceptItem(TestCase, ResolveUrlTest):
         self.assertEquals(response.status_code, 404)
 
     def test_has_can_delete_item_sub(self):
-        user = User.objects.create_user(username='username1', password='password1')
-        user.user_permissions.set([Permission.objects.get(codename='can_decline_item_sub')])
+        user = User.objects.create_user(
+            username='username1',
+            password='password1'
+        )
+        user.user_permissions.set(
+            [
+                Permission.objects.get(codename='can_decline_item_sub')
+            ]
+        )
 
         client = Client()
         client.login(username='username1', password='password1')
@@ -339,8 +470,15 @@ class TestAcceptItem(TestCase, ResolveUrlTest):
         self.assertEquals(response.status_code, 404)
 
     def test_has_can_view_item_sub_permission(self):
-        user = User.objects.create_user(username='username1', password='password1')
-        user.user_permissions.set([Permission.objects.get(codename='can_view_item_sub')])
+        user = User.objects.create_user(
+            username='username1',
+            password='password1'
+        )
+        user.user_permissions.set(
+            [
+                Permission.objects.get(codename='can_view_item_sub')
+            ]
+        )
 
         client = Client()
         client.login(username='username1', password='password1')
@@ -350,8 +488,15 @@ class TestAcceptItem(TestCase, ResolveUrlTest):
         self.assertEquals(response.status_code, 404)
 
     def test_has_can_accept_item_sub_id_does_not_exist(self):
-        user = User.objects.create_user(username='username1', password='password1')
-        user.user_permissions.set([Permission.objects.get(codename='can_accept_item_sub')])
+        user = User.objects.create_user(
+            username='username1',
+            password='password1'
+        )
+        user.user_permissions.set(
+            [
+                Permission.objects.get(codename='can_accept_item_sub')
+            ]
+        )
 
         client = Client()
         client.login(username='username1', password='password1')
@@ -361,8 +506,15 @@ class TestAcceptItem(TestCase, ResolveUrlTest):
         self.assertEquals(response.status_code, 404)
 
     def test_has_can_accept_item_sub_id_does_exist(self):
-        user = User.objects.create_user(username='username1', password='password1')
-        user.user_permissions.set([Permission.objects.get(codename='can_accept_item_sub')])
+        user = User.objects.create_user(
+            username='username1',
+            password='password1'
+        )
+        user.user_permissions.set(
+            [
+                Permission.objects.get(codename='can_accept_item_sub')
+            ]
+        )
 
         client = Client()
         client.login(username='username1', password='password1')
@@ -381,7 +533,16 @@ class TestDeleteItem(TestCase, ResolveUrlTest):
     view = views.item_delete
 
     def setUp(self):
-        call_command('loaddata', 'catogory', 'subcategory', 'rarity', 'collection', 'pattern', 'item', verbosity=0)
+        call_command(
+            'loaddata',
+            'catogory',
+            'subcategory',
+            'rarity',
+            'collection',
+            'pattern',
+            'item',
+            verbosity=0
+        )
 
     def test_not_logged_in(self):
         client = Client()
@@ -401,7 +562,11 @@ class TestDeleteItem(TestCase, ResolveUrlTest):
         self.assertEquals(response.status_code, 404)
 
     def test_is_staff(self):
-        User.objects.create_user(username='username1', password='password1', is_staff=True)
+        User.objects.create_user(
+            username='username1',
+            password='password1',
+            is_staff=True
+        )
 
         client = Client()
         client.login(username='username1', password='password1')
@@ -411,8 +576,15 @@ class TestDeleteItem(TestCase, ResolveUrlTest):
         self.assertEquals(response.status_code, 404)
 
     def test_has_can_accept_item_sub(self):
-        user = User.objects.create_user(username='username1', password='password1')
-        user.user_permissions.set([Permission.objects.get(codename='can_accept_item_sub')])
+        user = User.objects.create_user(
+            username='username1',
+            password='password1'
+        )
+        user.user_permissions.set(
+            [
+                Permission.objects.get(codename='can_accept_item_sub')
+            ]
+        )
 
         client = Client()
         client.login(username='username1', password='password1')
@@ -422,8 +594,15 @@ class TestDeleteItem(TestCase, ResolveUrlTest):
         self.assertEquals(response.status_code, 404)
 
     def test_has_can_view_item_sub_permission(self):
-        user = User.objects.create_user(username='username1', password='password1')
-        user.user_permissions.set([Permission.objects.get(codename='can_view_item_sub')])
+        user = User.objects.create_user(
+            username='username1',
+            password='password1'
+        )
+        user.user_permissions.set(
+            [
+                Permission.objects.get(codename='can_view_item_sub')
+            ]
+        )
 
         client = Client()
         client.login(username='username1', password='password1')
@@ -433,8 +612,15 @@ class TestDeleteItem(TestCase, ResolveUrlTest):
         self.assertEquals(response.status_code, 404)
 
     def test_has_can_delete_item_sub_id_does_not_exist(self):
-        user = User.objects.create_user(username='username1', password='password1')
-        user.user_permissions.set([Permission.objects.get(codename='can_decline_item_sub')])
+        user = User.objects.create_user(
+            username='username1',
+            password='password1'
+        )
+        user.user_permissions.set(
+            [
+                Permission.objects.get(codename='can_decline_item_sub')
+            ]
+        )
 
         client = Client()
         client.login(username='username1', password='password1')
@@ -444,8 +630,15 @@ class TestDeleteItem(TestCase, ResolveUrlTest):
         self.assertEquals(response.status_code, 404)
 
     def test_has_can_delete_item_sub_id_does_exist(self):
-        user = User.objects.create_user(username='username1', password='password1')
-        user.user_permissions.set([Permission.objects.get(codename='can_decline_item_sub')])
+        user = User.objects.create_user(
+            username='username1',
+            password='password1'
+        )
+        user.user_permissions.set(
+            [
+                Permission.objects.get(codename='can_decline_item_sub')
+            ]
+        )
 
         client = Client()
         client.login(username='username1', password='password1')
@@ -483,7 +676,11 @@ class TestSupportDashboard(TestCase, ResolveUrlTest):
         self.assertTemplateNotUsed(response, self.template)
 
     def test_is_staff(self):
-        User.objects.create_user(username='username1', password='password1', is_staff=True)
+        User.objects.create_user(
+            username='username1',
+            password='password1',
+            is_staff=True
+        )
 
         client = Client()
         client.login(username='username1', password='password1')
@@ -494,8 +691,15 @@ class TestSupportDashboard(TestCase, ResolveUrlTest):
         self.assertTemplateNotUsed(response, self.template)
 
     def test_has_can_reply_support_ticket(self):
-        user = User.objects.create_user(username='username1', password='password1')
-        user.user_permissions.set([Permission.objects.get(codename='can_reply_support_ticket')])
+        user = User.objects.create_user(
+            username='username1',
+            password='password1'
+        )
+        user.user_permissions.set(
+            [
+                Permission.objects.get(codename='can_reply_support_ticket')
+            ]
+        )
 
         client = Client()
         client.login(username='username1', password='password1')
@@ -506,8 +710,15 @@ class TestSupportDashboard(TestCase, ResolveUrlTest):
         self.assertTemplateNotUsed(response, self.template)
 
     def test_has_can_close_support_ticket(self):
-        user = User.objects.create_user(username='username1', password='password1')
-        user.user_permissions.set([Permission.objects.get(codename='can_close_support_ticket')])
+        user = User.objects.create_user(
+            username='username1',
+            password='password1'
+        )
+        user.user_permissions.set(
+            [
+                Permission.objects.get(codename='can_close_support_ticket')
+            ]
+        )
 
         client = Client()
         client.login(username='username1', password='password1')
@@ -518,8 +729,15 @@ class TestSupportDashboard(TestCase, ResolveUrlTest):
         self.assertTemplateNotUsed(response, self.template)
 
     def test_has_can_view_support_ticket_permission(self):
-        user = User.objects.create_user(username='username1', password='password1')
-        user.user_permissions.set([Permission.objects.get(codename='can_view_support_ticket')])
+        user = User.objects.create_user(
+            username='username1',
+            password='password1'
+        )
+        user.user_permissions.set(
+            [
+                Permission.objects.get(codename='can_view_support_ticket')
+            ]
+        )
 
         client = Client()
         client.login(username='username1', password='password1')
@@ -530,8 +748,15 @@ class TestSupportDashboard(TestCase, ResolveUrlTest):
         self.assertTemplateUsed(response, self.template)
 
     def test_has_can_view_support_ticket_permission_not_empty(self):
-        user = User.objects.create_user(username='username1', password='password1')
-        user.user_permissions.set([Permission.objects.get(codename='can_view_support_ticket')])
+        user = User.objects.create_user(
+            username='username1',
+            password='password1'
+        )
+        user.user_permissions.set(
+            [
+                Permission.objects.get(codename='can_view_support_ticket')
+            ]
+        )
 
         SupportTicket.objects.create(title='title', body='body', author=user)
 

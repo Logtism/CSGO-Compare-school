@@ -8,7 +8,10 @@ def register(request):
         form = UserRegisterForm(request.POST)
         if form.is_valid():
             form.save()
-            messages.success(request, 'Your account has been created. You can now login')
+            messages.success(
+                request,
+                'Your account has been created. You can now login'
+            )
             return redirect('login')
     else:
         form = UserRegisterForm()

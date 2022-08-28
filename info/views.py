@@ -8,13 +8,18 @@ from .models import SupportTicket
 
 
 def stat(request):
-    return render(request, 'info/stat.html',
-                  {
-                      'total_items': len(Item.objects.filter(accepted=True).all()),
-                      'total_submited_items': len(Item.objects.all()),
-                      'total_pending_items': len(Item.objects.filter(accepted=False).all()),
-                      'subcats': Subcategory.objects.all(),
-                  })
+    return render(
+        request,
+        'info/stat.html',
+        {
+            'total_items': len(Item.objects.filter(accepted=True).all()),
+            'total_submited_items': len(Item.objects.all()),
+            'total_pending_items': len(
+                Item.objects.filter(accepted=False).all()
+            ),
+            'subcats': Subcategory.objects.all(),
+        }
+    )
 
 
 def about(request):
@@ -49,16 +54,29 @@ def tickets_list(request):
 @login_required
 def view_ticket(request, id):
     ticket = SupportTicket.objects.get_object_or_404(id=id)
-    if ticket.author == request.user or request.user.has_perm('info.can_view_support_ticket'):
+    if (
+        ticket.author == request.user or
+        request.user.has_perm('info.can_view_support_ticket')
+    ):
         if request.method == 'POST':
-            if ticket.author == request.user or request.user.has_perm('info.can_reply_support_ticket'):
+            if (
+                ticket.author == request.user or
+                request.user.has_perm('info.can_reply_support_ticket')
+            ):
                 form = CreateTicketReplyForm(request.POST)
                 data = form.save(commit=False)
                 data.author = request.user
                 data.ticket = ticket
                 data.save()
         form = CreateTicketReplyForm()
-        return render(request, 'info/view_ticket.html', {'ticket': ticket, 'form': form})
+        return render(
+            request,
+            'info/view_ticket.html',
+            {
+                'ticket': ticket,
+                'form': form
+            }
+        )
     else:
         return HttpResponseNotFound('Page not found')
 
@@ -66,7 +84,10 @@ def view_ticket(request, id):
 @login_required
 def close_ticket(request, id):
     ticket = SupportTicket.objects.get_object_or_404(id=id)
-    if ticket.author == request.user or request.user.has_perm('info.can_close_support_ticket'):
+    if (
+        ticket.author == request.user or
+        request.user.has_perm('info.can_close_support_ticket')
+    ):
         SupportTicket.objects.filter(id=ticket.id).delete()
         if ticket.author == request.user:
             return redirect(reverse('base-home'))

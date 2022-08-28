@@ -13,8 +13,12 @@ def dashboard(request):
             request,
             'site_admin/dashboard.html',
             {
-                'pending_items': len(Item.objects.filter(accepted=False).all()),
-                'pending_tickets': len(SupportTicket.objects.filter(closed=False).all()),
+                'pending_items': len(
+                    Item.objects.filter(accepted=False).all()
+                ),
+                'pending_tickets': len(
+                    SupportTicket.objects.filter(closed=False).all()
+                ),
                 'total_users': len(User.objects.all())
             }
         )
@@ -30,8 +34,12 @@ def items(request):
             {
                 'items': Item.objects.filter(accepted=False).all(),
                 'total_item_sub': len(Item.objects.all()),
-                'total_accepted_sub': len(Item.objects.filter(accepted=True).all()),
-                'total_pending_sub': len(Item.objects.filter(accepted=False).all())
+                'total_accepted_sub': len(
+                    Item.objects.filter(accepted=True).all()
+                ),
+                'total_pending_sub': len(
+                    Item.objects.filter(accepted=False).all()
+                )
             }
         )
     else:
@@ -95,8 +103,12 @@ def support(request):
             {
                 'tickets': tickets,
                 'total_tickets': len(SupportTicket.objects.all()),
-                'total_sloved_tickets': len(SupportTicket.objects.filter(closed=True).all()),
-                'total_pending_tickets': len(SupportTicket.objects.filter(closed=False).all()),
+                'total_sloved_tickets': len(
+                    SupportTicket.objects.filter(closed=True).all()
+                ),
+                'total_pending_tickets': len(
+                    SupportTicket.objects.filter(closed=False).all()
+                ),
             }
         )
     else:
