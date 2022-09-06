@@ -60,6 +60,14 @@ python manage.py loaddata subcategory.yaml
 ```
 
 ```
+python manage.py loaddata rarity.yaml
+```
+
+```
+python manage.py loaddata update.yaml
+```
+
+```
 python manage.py loaddata collection.yaml
 ```
 
@@ -67,13 +75,6 @@ python manage.py loaddata collection.yaml
 python manage.py loaddata container.yaml
 ```
 
-```
-python manage.py loaddata rarity.yaml
-```
-
-```
-python manage.py loaddata update.yaml
-```
 
 ```
 python manage.py loaddata pattern.yaml
@@ -89,3 +90,6 @@ Run the application using the following command.
 ```
 python manage.py runserver
 ```
+
+### Setp 7
+Open your browser and goto `127.0.0.1:8000`.
