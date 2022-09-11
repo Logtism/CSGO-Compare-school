@@ -29,7 +29,7 @@ In the same folder as the `manage.py` file create a file called `.env` and open 
 Note: these recaptcha keys will not work in production as they are test keys
 ```
 SECRET_KEY=random_string
-DEBUG=True
+DEBUG=1
 RECAPTCHA_PUBLIC_KEY=6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI
 RECAPTCHA_PRIVATE_KEY= 6LeIxAcTAAAAAGG-vFI1TnRWxMZNFuojJ4WifJWe
 ```
