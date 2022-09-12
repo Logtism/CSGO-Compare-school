@@ -164,15 +164,15 @@
   {% if item.lowest_float or item.collection and item.added_by %}{% endif %}
   <div class="content mb">
     {% if item.lowest_float != none and item.highest_float %}
-      <h4>Float range</h4>
+      <h3>Float range</h3>
       <p>{{ item.lowest_float }} - {{ item.highest_float }}</p>
     {% endif %}
     {% if item.collection %}
-      <h4>Collection</h4>
+      <h3>Collection</h3>
       <p>{{ item.collection.name }}</p>
     {% endif %}
     {% if item.added_by %}
-      <h4>Added by</h4>
+      <h3>Added by</h3>
       <p>{{ item.added_by.user.username }}</p>
     {% endif %}
   </div>

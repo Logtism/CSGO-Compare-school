@@ -9,6 +9,7 @@
     --nav-bg-color: #363d4a;
     --title-text-color: #fff;
     --text-color: #b2b9bf;
+    --text-highlight-color: #2c2b2e;
 
     --fonts: Arial, sans-serif;
 }
@@ -20,6 +21,7 @@
     --nav-bg-color: #90a4ae;
     --title-text-color: #000;
     --text-color: #2c2b2e;
+    --text-highlight-color: #b2b9bf;
 }
 
 
@@ -383,4 +385,17 @@ footer {
 
 .width-100 {
     width: 100%;
+}
+
+.list-hover {
+    padding: 0.5rem 0.6rem;
+    border-radius: 0.8rem;
+}
+
+.list-hover:hover {
+    background-color: var(--text-color);
+}
+
+.list-hover:hover p {
+    color: var(--text-highlight-color);
 }

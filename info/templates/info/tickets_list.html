@@ -3,7 +3,7 @@
 <div class="container">
   <div class="content flex-column">
     {% for ticket in tickets %}
-      <a href="{% url 'info-support-view' id=ticket.id %}" class="flex-row text-dec-none">
+      <a href="{% url 'info-support-view' id=ticket.id %}" class="flex-row text-dec-none list-hover">
         <p>{{ ticket.title }}</p>
       </a>
     {% empty %}
