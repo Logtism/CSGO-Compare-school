@@ -49,39 +49,10 @@ python manage.py migrate
 ```
 
 ### Step 5.5 (optional)
-Load example data using the following commands run each of them separately.
+Load example data using the following command.
 
 ```
-python manage.py loaddata catogory.yaml
-```
-
-```
-python manage.py loaddata subcategory.yaml
-```
-
-```
-python manage.py loaddata rarity.yaml
-```
-
-```
-python manage.py loaddata update.yaml
-```
-
-```
-python manage.py loaddata collection.yaml
-```
-
-```
-python manage.py loaddata container.yaml
-```
-
-
-```
-python manage.py loaddata pattern.yaml
-```
-
-```
-python manage.py loaddata item.yaml
+python manage.py loaddata catogory subcategory rarity update collection container pattern item
 ```
 
 ### Step 6

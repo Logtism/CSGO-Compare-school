@@ -308,6 +308,7 @@ footer {
 .submit-button {
     max-width: 5rem;
     padding: 0.5rem 1rem;
+    margin-top: 0.2rem;
     color: white;
     background-color: #40b0bd;
     border: 1px solid #000;
