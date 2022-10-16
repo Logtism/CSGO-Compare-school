@@ -13,6 +13,7 @@ from .models import (
 )
 
 
+# Adding all the items model to the django admin page
 admin.site.register(Category)
 admin.site.register(Subcategory)
 admin.site.register(Rarity)

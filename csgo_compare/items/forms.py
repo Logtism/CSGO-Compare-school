@@ -24,8 +24,6 @@ class AddItemForm(forms.ModelForm):
             'broskins_id',
             'subcategory',
             'rarity',
-            'update',
             'pattern',
-            'knife_collection',
             'collection'
         ]
