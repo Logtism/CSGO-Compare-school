@@ -400,3 +400,7 @@ footer {
 .list-hover:hover p {
     color: var(--text-highlight-color);
 }
+
+.errorlist li {
+    color: red;
+}
