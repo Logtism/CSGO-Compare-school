@@ -100,7 +100,7 @@ class Container(models.Model):
 
 
 def get_upload_to_path(self, file_name):
-    return f'imgs/item/{self.subcategory.name}/{file_name}'
+    return f'imgs/item/{self.subcategory.name.lower()}/{file_name}'
 
 
 class Pattern(models.Model):

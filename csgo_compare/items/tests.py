@@ -271,7 +271,10 @@ class TestAddItem(TestCase, ResolveUrlTest):
             reverse(self.name),
             {
                 'name': 'test_item',
-                'icon': SimpleUploadedFile('test.png', self.test_img_data),
+                'icon': SimpleUploadedFile(
+                    'test_with_only_required_fields_with_recapture.png',
+                    self.test_img_data
+                ),
                 'subcategory': self.subcat.id,
                 'g-recaptcha-response': 'PASSED'
             }
@@ -283,7 +286,10 @@ class TestAddItem(TestCase, ResolveUrlTest):
         self.assertObjectExists(
             Item,
             name='test_item',
-            icon='imgs/item/subcat/test.png',
+            icon=(
+                'imgs/item/subcat/'
+                'test_with_only_required_fields_with_recapture.png'
+            ),
             accepted=False,
             added_by=Profile.objects.get(
                 user=User.objects.get(username=self.user.username)
@@ -298,7 +304,7 @@ class TestAddItem(TestCase, ResolveUrlTest):
                     'imgs',
                     'item',
                     'subcat',
-                    'test.png'
+                    'test_with_only_required_fields_with_recapture.png'
                 )
             )
         )
@@ -343,7 +349,10 @@ class TestAddItem(TestCase, ResolveUrlTest):
             reverse(self.name),
             {
                 'name': 'test_item',
-                'icon': SimpleUploadedFile('test.png', self.test_img_data),
+                'icon': SimpleUploadedFile(
+                    'test_with_all_fields_with_recapture.png',
+                    self.test_img_data
+                ),
                 'lowest_float': 0.0,
                 'highest_float': 0.999,
                 'stattrak': True,
@@ -356,9 +365,7 @@ class TestAddItem(TestCase, ResolveUrlTest):
                 'broskins_id': 1000,
                 'subcategory': self.subcat.id,
                 'rarity': self.rarity.id,
-                'update': self.update.id,
                 'pattern': self.pattern.id,
-                'knife_collection': self.knifecollection.id,
                 'collection': self.collection.id,
                 'g-recaptcha-response': 'PASSED'
             }
@@ -370,7 +377,7 @@ class TestAddItem(TestCase, ResolveUrlTest):
         self.assertObjectExists(
             Item,
             name='test_item',
-            icon='imgs/item/subcat/test.png',
+            icon='imgs/item/subcat/test_with_all_fields_with_recapture.png',
             lowest_float=0.0,
             highest_float=0.999,
             stattrak=True,
@@ -386,9 +393,7 @@ class TestAddItem(TestCase, ResolveUrlTest):
             ),
             subcategory=self.subcat,
             rarity=self.rarity,
-            update=self.update,
             pattern=self.pattern,
-            knife_collection=self.knifecollection,
             collection=self.collection
         )
 
@@ -399,7 +404,7 @@ class TestAddItem(TestCase, ResolveUrlTest):
                     'imgs',
                     'item',
                     'subcat',
-                    'test.png'
+                    'test_with_all_fields_with_recapture.png'
                 )
             )
         )

@@ -21,13 +21,13 @@ RUN chmod +x /scripts/*
 RUN mkdir -p /vol/web/static
 RUN mkdir -p /vol/web/media
 
+# Moving exmaple media files
+COPY ./csgo_compare/media/ /vol/web/media
+
 # Adding new user so site not running as root
 RUN adduser -D user
 RUN chown -R user:user /vol
 RUN chmod -R 755 /vol/web
 USER user
-
-# Moving exmaple media files
-COPY ./csgo_compare/media/ /vol/web/media
 
 CMD ["entrypoint.sh"]

@@ -165,7 +165,6 @@ USERNAME_HELP_TEXT = (
 # Recaptcha settings
 RECAPTCHA_PUBLIC_KEY = os.environ.get('RECAPTCHA_PUBLIC_KEY')
 RECAPTCHA_PRIVATE_KEY = os.environ.get('RECAPTCHA_PRIVATE_KEY')
-print(RECAPTCHA_PRIVATE_KEY)
 
 
 if bool(int(os.environ.get('RECAPTCHA_TESTING_KEYS', 0))):
