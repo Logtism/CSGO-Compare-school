@@ -1,0 +1,32 @@
+version: '3.8'
+
+services:
+  app:
+    build:
+      context: .
+    ports:
+      - "8000:8000"
+    volumes:
+        - ./csgo_compare:/app
+    command: sh -c "python manage.py runserver 0.0.0.0:8000"
+    environment:
+      - DEBUG=1
+      - SECRET_KEY=random_string
+      - DB_NAME=postgres
+      - DB_USER=postgres
+      - DB_HOST=db
+      - DB_PORT=5432
+      - DB_PASSWORD=password
+      - RECAPTCHA_TESTING_KEYS=1
+      - RECAPTCHA_PUBLIC_KEY=6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI
+      - RECAPTCHA_PRIVATE_KEY=6LeIxAcTAAAAAGG-vFI1TnRWxMZNFuojJ4WifJWe
+    depends_on:
+      - db
+    
+  db:
+    image: postgres
+    environment:
+      - POSTGRES_PASSWORD=password
+
+volumes:
+  static_data:

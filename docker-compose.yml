@@ -1,0 +1,40 @@
+version: '3.8'
+
+services:
+  app:
+    build:
+      context: .
+    volumes:
+        - static_data:/vol/web
+    environment:
+      - DEBUG=0
+      - SECRET_KEY=random_string
+      - ALLOWED_HOSTS=proxy,127.0.0.1
+      - DB_NAME=postgres
+      - DB_USER=postgres
+      - DB_HOST=db
+      - DB_PORT=5432
+      - DB_PASSWORD=password
+      - RECAPTCHA_TESTING_KEYS=1
+      - RECAPTCHA_PUBLIC_KEY=6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI
+      - RECAPTCHA_PRIVATE_KEY=6LeIxAcTAAAAAGG-vFI1TnRWxMZNFuojJ4WifJWe
+    depends_on:
+      - db
+  
+  proxy:
+    build:
+      context: ./proxy
+    volumes:
+      - static_data:/vol/static
+    ports:
+        - "80:80"
+    depends_on:
+      - app
+    
+  db:
+    image: postgres
+    environment:
+      - POSTGRES_PASSWORD=password
+
+volumes:
+  static_data:
