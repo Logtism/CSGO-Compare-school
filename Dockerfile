@@ -3,7 +3,7 @@ FROM python:3.10-alpine
 ENV PATH="/scripts:${PATH}"
 
 # Installing dependencies
-COPY ./requirements.txt /requirements.txt
+COPY ./requirements_docker.txt /requirements.txt
 # Installing dependencies to install uwsgi
 RUN apk add --update --no-cache --virtual .tmp gcc libc-dev linux-headers
 RUN pip install -r /requirements.txt
