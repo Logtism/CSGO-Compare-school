@@ -3,17 +3,18 @@
 
 ## Running
 ### Step 1
-Install docker you can find instructions for this [here](https://docs.docker.com/desktop/install/windows-install/).
-
-## Step 2
-Open a terminal and move to the directory containing the `docker-compose.yml` file then run the following command.
+Open a terminal in the folder with the file in it `requirements.txt` and run the following command. 
 
 ```
-docker-compose -f docker-compose.yml up
+python -m pip install -r requirements.txt
 ```
 
-## Step 3
-If you see a message like `csgo-compare-app-1 exited with code 1` or `CSGO-Compare-main-app-1 exited with code 1` in the terminal press control and c to stop the docker containers and run the command from step 2 again. If you do not see this message continue to step 4.
+### Step 2
+Open a trrminal in the csgo_compare folder this folder should have a `manage.py` file in it run the following command.
 
-## Step 4
-In your web browser goto `127.0.0.1:80`
+```
+python manage.py run
+```
+
+### Step 3
+In your web browser goto `127.0.0.1:8000`
