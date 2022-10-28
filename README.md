@@ -3,14 +3,14 @@
 
 ## Running
 ### Step 1
-Open a terminal in the folder with the file in it `requirements.txt` and run the following command. 
+Open a terminal in the folder with the file `requirements.txt` in it and run the following command. 
 
 ```
 python -m pip install -r requirements.txt
 ```
 
 ### Step 2
-Open a trrminal in the csgo_compare folder this folder should have a `manage.py` file in it run the following command.
+Open a terminal in the csgo_compare folder this folder should have a `manage.py` file in it run the following command.
 
 ```
 python manage.py run
